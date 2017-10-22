@@ -1,12 +1,3 @@
-CREATE TABLE Uzytkownicy(
-Id INT NOT NULL auto_increment,
-IdPracownika INT NOT NULL,
-Login VARCHAR NOT NULL,
-Haslo VARCHAR NOT NULL,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
-) ENGINE = InnoDB;
-
 CREATE TABLE Stanowisko (
 IdStanowiska INT NOT NULL auto_increment,
 Nazwa VARCHAR(100) NOT NULL,
@@ -20,28 +11,38 @@ Nazwisko VARCHAR(100) NOT NULL,
 Imie VARCHAR(300) NOT NULL,
 DataZatrudnienia DATE,
 Miejscowosc VARCHAR (100) NOT NULL,
+Ulica	VARCHAR (100) NOT NULL,
 NrDomu VARCHAR (10) NOT NULL,
 NrMieszkania INT (10) NOT NULL,
 KodPocztowy VARCHAR (10) NOT NULL,
-Stawka FLOAT NOT NULL,
-StawkaNadgodzin FLOAT NOT NULL,
+Stawka FLOAT,
+StawkaNadgodzin FLOAT ,
 PRIMARY KEY(IdPracownika),
 FOREIGN KEY(IdStanowiska) REFERENCES Stanowisko(IdStanowiska)
 ) ENGINE = InnoDB;
 
-CREATE TABLE  Rejestr (
-Id INT NOT NULL auto_increment,
+CREATE TABLE  RejestrWe (
+IdRWe INT NOT NULL auto_increment,
 IdPracownika INT NOT NULL,
-godz_WE datetime NOT NULL,
-godz_WY datetime NOT NULL,
-PRIMARY KEY(Id),
+godz_WE TIME NOT NULL,
+kiedy	DATE	NOT NULL,
+PRIMARY KEY(IdRWE),
+FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
+) ENGINE= InnoDB;
+
+CREATE TABLE  RejestrWy (
+IdRWy INT NOT NULL auto_increment,
+IdPracownika INT NOT NULL,
+godz_WY TIME NOT NULL,
+kiedy	DATE	NOT NULL,
+PRIMARY KEY(IdRWy),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
 ) ENGINE= InnoDB;
 
 CREATE TABLE ZestawienieDzienne(
 Id	INT NOT NULL auto_increment,
 IdPracownika	INT(100) NOT NULL,
-Dzien date,
+Dzien DATE,
 CzasPracy TIME,
 Nadgodziny TIME,
 CzasSpoznienia TIME,
@@ -52,7 +53,7 @@ FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
 CREATE TABLE ZestawienieMiesieczne(
 Id	INT NOT NULL auto_increment,
 IdPracownika	INT(100) NOT NULL,
-DataPodsumowania date,
+DataPodsumowania DATE,
 CzasPracy TIME,
 Nadgodziny TIME,
 LiczbaSpoznien INT NOT NULL,
@@ -73,9 +74,10 @@ FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
 
 CREATE TABLE WebSiteUsers(
 Id INT NOT NULL auto_increment,
-IdPracownika INT (100) NOT NULL,
-Login VARCHAR NOT NULL,
-Haslo VARCHAR NOT NULL,
+IdPracownika INT NOT NULL,
+Login VARCHAR(100) NOT NULL,
+Haslo	VARCHAR(300) NOT NULL,
+Email	VARCHAR(100) NOT NULL,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(IdPracownika)
 ) ENGINE = InnoDB;
