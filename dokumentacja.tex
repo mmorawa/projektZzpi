@@ -141,7 +141,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \paragraph{Opis zadania.} Do realizacji powyższego zadania zostanie użyty Raspberry Pi i podłączony do niego czytnik kart magnetycznych, do którego swoje karty przykładać będą pracownicy w celu rejestracji przybycia lub opuszczenia zakładu. Następnie specjalny program napisany w języku Python będzie zgromadzone dane zapisywał do pliku i okresowo wysyłał do bazy danych na firmowym serwerze.
 \paragraph{Priorytet.} 1.
-\paragraph{Definition of Done.} System gromadzi dane odnośnie wejścia i wyjścia odczytane z karty  pracownika do bazy danych.
+\paragraph{Definition of Done.} Dane odnośnie wejścia i wyjścia odczytane są z karty pracownika przez czytnik RFID podłączony do Raspberry Pi i wysyłane do bazy danych, znajdującej się na tym urządzeniu.
 
 \subsection{Backlog Item 2}
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
@@ -171,29 +171,21 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 6}
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
-\paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP oraz baza danych. Dodatkowo uruchomiona zostanie usługa pocztowa SMTP.
+\paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP oraz baza danych.
 \paragraph{Priorytet.} 1.
-\paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer, który jest odpowiednio skonfigurowany i zabezpieczony.
+\paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer, który posiada bazę danych MySQL zabezpieczoną przed nieuprawnionym dostępem za pomocą hasła dla administratora. Na serwerze zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, który pozwala na kontakt z bazą danych.
 
 \subsection{Backlog Item 7}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
-\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłac prośbę o przypomnienie hasła . Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomoca wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłac prośbę o przypomnienie hasła w tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomoca wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
 \paragraph{Priorytet.} 5.
-\paragraph{Definition of Done.} Pracownik ma mieć możliwość przypomienia hasła oraz jego zmiany w systemie.
+\paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia pracownikom przypomienie hasła oraz jego zmianę w systemie.
 
 \subsection{Backlog Item 8}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
 \paragraph{Priorytet.} 3.
 \paragraph{Definition of Done.} Kierownik jest w stanie dokonać odpowiednich zmian w systemie poprzez stronę internetową.
-Zmiany które moży wykonać kierownik:
-\begin{itemize}
-\item Dodawanie nowego pracownika.
-\item Usuwanie istniejącego pracownika.
-\item Edycja danych osobowych pracownika.
-\item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
-\item Zmany stawki wynagrodzenia pracownika.
-\end {itemize}
 
 \section{Sprint 1}
 \subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
