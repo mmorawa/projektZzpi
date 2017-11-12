@@ -67,7 +67,7 @@ Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu praco
 \subsection{User story 2}
 Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika,abym mógł łatwiej obliczyć należną wypłatę.
 
-\subsection{User story 3}
+\subsection{User story 3 - opcjonalna}
 Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
 
 \subsection{User story 4}
@@ -147,14 +147,14 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesiączne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
 \paragraph{Priorytet.} 2.
-\paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje wynagrodzenie. Istotna jest punktualność.
+\paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje otrzymanie za nią wynagrodzenia. Istotna jest punktualność.
 
 
 \subsection{Backlog Item 3}
 \paragraph{Tytuł zadania.} Funkcja sprawdzająca wynagrodzenie pracownika (opcjonalna).
 \paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umozliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
 \paragraph{Priorytet.} 4.
-\paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Będzie możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
+\paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
 
 \subsection{Backlog Item 4}
 \paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
@@ -165,9 +165,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 5}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
-\paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kierownik będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy bedą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
+\paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy bedą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
 \paragraph{Priorytet.} 2.
-\paragraph{Definition of Done.} Kierownik będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony.
+\paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
 \subsection{Backlog Item 6}
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
@@ -185,14 +185,13 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
 \paragraph{Priorytet.} 3.
-\paragraph{Definition of Done.} Kierownik jest w stanie dokonać odpowiednich zmian w systemie poprzez stronę internetową.
-Zmiany które moży wykonać kierownik:
+\paragraph{Definition of Done.} Kierownik jest w stanie dokonać następujących zmian w systemie poprzez stronę internetową:
 \begin{itemize}
 \item Dodawanie nowego pracownika.
 \item Usuwanie istniejącego pracownika.
 \item Edycja danych osobowych pracownika.
 \item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
-\item Zmany stawki wynagrodzenia pracownika.
+\item Zmiany stawki wynagrodzenia pracownika.
 \end {itemize}
 
 \section{Sprint 1}
