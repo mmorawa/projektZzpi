@@ -48,7 +48,7 @@ Prowadzący: dr hab. Marcin Mazur
 
 \subsection{Cel projektu (produkt)}
 
-Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia raspberry oraz modułowi RFID (czytnik oraz karta magnetyczna) pracownicy zobowiązani będą identyfikowali swojej godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilosci przepracowanych godzin zarejestrowanych w systemie. Właściciel za pomocą strony internetowej będzie mógł sprawdzić ilu jest  pracowników na zakładzie, czas ich pracy oraz spóźnienia.
+Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia Raspberry Pi oraz modułowi RFID (czytnik oraz karta magnetyczna) pracownicy zobowiązani będą identyfikowali swojej godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Właściciel za pomocą strony internetowej będzie mógł sprawdzić ilu jest  pracowników na zakładzie, czas ich pracy oraz spóźnienia.
 
 \subsection{Potencjalny odbiorca produktu (klient)}
 
@@ -100,9 +100,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \begin{itemize}
 \item Data rozpoczęcia: 08.11.17 r.
 \item Data zakończenia: 29.11.17 r.
-\item Scrum Master: Mirek Łukasz.
-\item Product Owner: Jasiński Grzegorz.
-\item Development Team: Morawa Mateusz, Horowski Łukasz, Jasiński Grzegorz, Mirek Łukasz, Kmak Bartłomiej.
+\item Scrum Master: Łukasz Mirek.
+\item Product Owner: Grzegorz Jasiński.
+\item Development Team: Mateusz Morawa, Łukasz Horowski, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak.
 \end{itemize}
 
 \subsection{Sprint 2}
@@ -110,9 +110,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \begin{itemize}
 \item Data rozpoczęcia: 29.11.17 r.
 \item Data zakończenia: 20.12.17 r.
-\item Scrum Master: Horowski Łukasz.
+\item Scrum Master: Łukasz Horowski.
 \item Product Owner: Mateusz Morawa.
-\item Development Team: Jasiński Grzegorz, Mirek Łukasz, Kmak Bartłomiej, Horowski Łukasz.
+\item Development Team: Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
 \end{itemize}
 
 \subsection{Sprint 3}
@@ -120,9 +120,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \begin{itemize}
 \item Data rozpoczęcia: 20.12.17 r.
 \item Data zakończenia: 10.01.18 r.
-\item Scrum Master: Morawa Mateusz.
+\item Scrum Master: Mateusz Morawa.
 \item Product Owner: Kmak Bartłomiej.
-\item Development Team: Morawa Mateusz, Jasiński Grzegorz, Mirek Łukasz, Kmak Bartłomiej, Horowski Łukasz.
+\item Development Team: Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
 \end{itemize}
 
 \subsection{Sprint 4}
@@ -130,9 +130,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \begin{itemize}
 \item Data rozpoczęcia: 10.01.18 r.
 \item Data zakończenia: 24.01.18 r.
-\item Scrum Master: Jasiński Grzegorz.
-\item Product Owner: Mirek Łukasz.
-\item Development Team: Morawa Mateusz, Jasiński Grzegorz, Mirek Łukasz, Horowski Łukasz.
+\item Scrum Master: Bartłomiej Kmak.
+\item Product Owner: Łukasz Mirek.
+\item Development Team: Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Łukasz Horowski.
 \end{itemize}
 
 \section{Product Backlog}
@@ -145,14 +145,14 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 2}
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
-\paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesiączne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
+\paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesięczne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje otrzymanie za nią wynagrodzenia. Istotna jest punktualność.
 
 
 \subsection{Backlog Item 3}
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
-\paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umozliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
+\paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
 
@@ -165,7 +165,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 5}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
-\paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy bedą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
+\paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy będą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
@@ -177,7 +177,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 7}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
-\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłac prośbę o przypomnienie hasła w tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomoca wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłać prośbę o przypomnienie hasła w tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
 \paragraph{Priorytet.} 5.
 \paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia pracownikom przypomienie hasła oraz jego zmianę w systemie.
 
@@ -210,7 +210,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Realizacja}
 
-\paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu..
+\paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
@@ -224,21 +224,9 @@ for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytuł zadania.} <<Tytuł>>..
-
-
-
-\subparagraph{Wykonawca.} <<Wykonawca>>.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
-
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
-
 
 \subsection{Sprint Review/Demo}
-<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demostracja przyrostu produktu>>.
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
 
 \section{Sprint 2}
 
