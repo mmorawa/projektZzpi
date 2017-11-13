@@ -26,7 +26,7 @@ def koniec(signal,frame):
 signal.signal(signal.SIGINT, koniec)
 
 # Utworzenie obiektu klasy MFRC522
-Karta = MFRC522.MFRC522()
+Czytnik = MFRC522.MFRC522()
 
 print "Przyłóż kartę do czytnika."
 print "Kombinacja CTRL + C kończy działanie programu."
@@ -35,18 +35,18 @@ print "Kombinacja CTRL + C kończy działanie programu."
 while odczyt:
     
     # Skanowanie w celu wykrycia karty 
-    (status,TagType) = Karta.MFRC522_Request(Karta.PICC_REQIDL)
+    (status,TagType) = Czytnik.MFRC522_Request(Czytnik.PICC_REQIDL)
 
-    if status == Karta.MI_OK:
+    if status == Czytnik.MI_OK:
 		print "Wykryto kartę."
 		GPIO.output(11, 0)
 		GPIO.output(12, 1)
 		
     # Pobranie ID karty.
-    (status,uid) = Karta.MFRC522_Anticoll()
+    (status,uid) = Czytnik.MFRC522_Anticoll()
 
     # Wyświetlenie ID karty.
-    if status == Karta.MI_OK:
+    if status == Czytnik.MI_OK:
 		print "ID karty: "+str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3])
 		time.sleep(5)
 		GPIO.output(11, 1)
