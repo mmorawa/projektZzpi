@@ -7,6 +7,7 @@ PRIMARY KEY(Id)
 
 CREATE TABLE Pracownicy	(
 Id INT NOT NULL auto_increment,
+IdKarty INT (100) NOT NULL,
 IdStanowiska INT (100) NOT NULL,
 Nazwisko VARCHAR(100) NOT NULL,
 Imie VARCHAR(300) NOT NULL,
@@ -19,6 +20,7 @@ KodPocztowy VARCHAR (10) NOT NULL,
 Stawka FLOAT,
 StawkaNadgodzin FLOAT ,
 PRIMARY KEY(Id),
+FOREIGN KEY(IdKarty) REFERENCES Karta(Id),
 FOREIGN KEY(IdStanowiska) REFERENCES Stanowisko(Id)
 ) ENGINE = InnoDB;
 
@@ -82,3 +84,9 @@ Email	VARCHAR(100) NOT NULL,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
 ) ENGINE = InnoDB;
+
+CREATE TABLE Karta	(
+Id INT NOT NULL auto_increment,
+IdKarty INT (100) NOT NULL,
+Primary KEY(Id)
+) Engine = InnoDB;
