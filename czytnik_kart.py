@@ -1,19 +1,26 @@
-#!/usr/bin/env python
+!/usr/bin/env python
 # -*- coding: utf8 -*-
 
 import RPi.GPIO as GPIO
 import MFRC522
 import signal
 import time
+import MySQLdb
 
 # Ustawienie pinów GPIO w celu obsługi diod LED
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(12, GPIO.OUT)
-GPIO.output(11, 1)
+GPIO.setup(13, GPIO.OUT)
 GPIO.output(12, 0)
+GPIO.output(11, 1)
+GPIO.output(13, 0)
 
 odczyt = True
+
+# Połączenie z bazą
+connect = MySQLdb.connect("localhost", "user", "zpi", "zpi")
+db = connect.cursor()
 
 # Ustawienie input mode na pinach GPIO, gdy skrypt zostanie zakończony
 def koniec(signal,frame):
@@ -47,7 +54,20 @@ while odczyt:
 
     # Wyświetlenie ID karty.
     if status == Czytnik.MI_OK:
-		print "ID karty: "+str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3])
-		time.sleep(5)
-		GPIO.output(11, 1)
-		GPIO.output(12, 0)
+		idkarty = str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3])
+		print "ID karty: "+idkarty
+		db.execute("INSERT INTO tmp(idkarty) VALUES ("+idkarty+");")
+		connect.commit()
+		GPIO.output(13, 1)
+		time.sleep(1)
+		GPIO.output(13, 0)
+		time.sleep(2)
+	 	GPIO.output(13, 1)
+		time.sleep(0.2)
+		GPIO.output(13, 0)
+                time.sleep(0.2)
+                GPIO.output(13, 1)
+                time.sleep(0.2)
+                GPIO.output(13, 0)
+                GPIO.output(11, 1)
+                GPIO.output(12, 0)
