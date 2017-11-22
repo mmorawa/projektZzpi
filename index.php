@@ -4,7 +4,7 @@ ob_start();
 require_once('config/database.php');
 session_start();
 
-if(empty($_GET['a'])) $_GET['a'] = "home";
+if(empty($_GET['a'])) $_GET['a'] = "start";
 $action = $_GET['a'];
 
 $home = array(
