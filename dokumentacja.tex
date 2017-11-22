@@ -255,6 +255,29 @@ mysqli_query($db, "SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
 ?>
 \end{verbatim}>>.
 
+\paragraph{Tytuł zadania.} Utworzenie podstawowej wersji bazy danych potrzebnej do zaprezentowania założeń pierwszego sprintu.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak.
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy jezyka sql. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności pisowni wybranego przez nas języka co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzene poprawnie rekordy w bazie. Po wykonaniu pierwontnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie RaspberryPi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odczytanych z kart pracowników. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
+Kod programu (środowisko \texttt{verbatim}): 
+Kod sql przedstawiający utworzenie konta użytkownika user" do zarządzania bazą z uprawnieniami CREATE oraz możliwością wykonywania zapytań typu DML.
+\begin{verbatim}
+CREATE USER 'user'@'%' IDENTIFIED BY 'zpi';
+GRANT SELECT, INSERT, UPDATE, DELETE ON zpi.* TO 'user'@'%';
+\end{verbatim}>>.
+Kod przedstawiający ustawienie metody kodowania znaków w bazie danych na UT8:
+\begin {verbatim}
+CREATE DATABASE zpi CHARACTER SET utf8 COLLATE utf8_general_ci;
+\end {verbatim}>>.
+Kod przedstawiający utworzenie tabeli Stanowisko:
+\begin {verbatim}
+CREATE TABLE Stanowisko (
+Id INT NOT NULL auto_increment,
+Nazwa VARCHAR(100) NOT NULL,
+PRIMARY KEY(Id)
+)ENGINE = InnoDB;
+\end{verbatim}>>.
+
+
 \subsection{Sprint Review/Demo}
 <<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
 
