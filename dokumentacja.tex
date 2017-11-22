@@ -144,44 +144,48 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Dane odnośnie wejścia i wyjścia odczytane są z karty pracownika przez czytnik RFID podłączony do Raspberry Pi i wysyłane do bazy danych, znajdującej się na tym urządzeniu.
 
 \subsection{Backlog Item 2}
+\paragraph{Tytuł zadania.} Utworzenie strony www do obsługi sytstemu.
+\paragraph{Opis zadania.} Zostanie utworzona strona do obsługi systemu. Strona będzie umozliwiać łatwy dostęp do informacji dla pracowników w o ich przepracowanych godzinach i przysługującym im wynagrodzeniu za przepracowane godziny. Kierownictwu będzie miało dostęp do wszystkich funkcji zaimplementowanych na stronie takich jak, dodawanie oraz usuwanie pracowników, Sprawdzanie wynagrodzenia, drukowanie zestawienia miesięcznego, informacje o wejsciach i wyjściach pracowników oraz o przepracowanych przez nich godzinach.  
+\paragraph{Priorytet.} 1.
+\paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL.
+
+\subsection{Backlog Item 3}
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesięczne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje otrzymanie za nią wynagrodzenia. Istotna jest punktualność.
 
-
-\subsection{Backlog Item 3}
+\subsection{Backlog Item 4}
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
 
-\subsection{Backlog Item 4}
+\subsection{Backlog Item 5}
 \paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 \paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca dział księgowy będzie musiał wydrukować dokumenty zawierające dane o miesięcznych wynagrodzeniach brutto pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie opcje do wykonania tej czynności.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 
-
-\subsection{Backlog Item 5}
+\subsection{Backlog Item 6}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
 \paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy będą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
-\subsection{Backlog Item 6}
+\subsection{Backlog Item 7}
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
 \paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP oraz baza danych.
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer, który posiada bazę danych MySQL zabezpieczoną przed nieuprawnionym dostępem za pomocą hasła dla administratora. Na serwerze zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, który pozwala na kontakt z bazą danych.
 
-\subsection{Backlog Item 7}
+\subsection{Backlog Item 8}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłać prośbę o przypomnienie hasła w tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
 \paragraph{Priorytet.} 5.
 \paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia pracownikom przypomienie hasła oraz jego zmianę w systemie.
 
-\subsection{Backlog Item 8}
+\subsection{Backlog Item 9}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
 \paragraph{Priorytet.} 3.
@@ -208,6 +212,11 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
 \end{itemize}
 
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\begin{itemize}
+\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
+\end{itemize}
+
 \subsection{Realizacja}
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
@@ -223,7 +232,15 @@ for (i=1; i<10; i++)
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
-
+ 
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze, przy pomocy jezyków progeramowania PHP oraz HTML z CSS. Kod zapisany został zapisany przy użyciu programu Notepad++, który umożliwia kontrole poprawności pisowni wybranego przez nas języka co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu moglismy zasymulować łączenie się z bazą danych oraz obsługe skryptów PHP na naszej stronie. Po wykonaniu pierwontnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie RaspberryPi. Na obecnym etapie strona ma pozwalac na sprawdzenie danych odczytanych z kart pracowników. Z realizacją tej częścią projektu, wykonawcy nie mieli zadnych problemów została, ona wykonana sprawnie i bez wiekszych przeszkód.  
+Kod programu (środowisko \texttt{verbatim}): 
+\begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
 
 \subsection{Sprint Review/Demo}
 <<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
