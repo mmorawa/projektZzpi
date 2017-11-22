@@ -237,9 +237,16 @@ for (i=1; i<10; i++)
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
 \subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze, przy pomocy jezyków progeramowania PHP oraz HTML z CSS. Kod zapisany został zapisany przy użyciu programu Notepad++, który umożliwia kontrole poprawności pisowni wybranego przez nas języka co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu moglismy zasymulować łączenie się z bazą danych oraz obsługe skryptów PHP na naszej stronie. Po wykonaniu pierwontnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie RaspberryPi. Na obecnym etapie strona ma pozwalac na sprawdzenie danych odczytanych z kart pracowników. Z realizacją tej częścią projektu, wykonawcy nie mieli zadnych problemów została, ona wykonana sprawnie i bez wiekszych przeszkód.  
 Kod programu (środowisko \texttt{verbatim}): 
+Kod programu dotyczący łączenia się z bazą danych.
 \begin{verbatim}
-for (i=1; i<10; i++)
-...
+<?php
+$config['db']['host'] = 'localhost';
+$config['db']['user'] = 'user';
+$config['db']['pass'] = 'zpi';
+$config['db']['dbname'] = 'zpi';
+$db = mysqli_connect($config['db']['host'], $config['db']['user'], $config['db']['pass'] , $config['db']['dbname']) or die('Błąd połączenia z bazą') ;
+mysqli_query($db, "SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
+?>
 \end{verbatim}>>.
 
 \subsection{Sprint Review/Demo}
