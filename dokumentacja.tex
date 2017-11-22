@@ -233,17 +233,34 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.}W celu rejestracji wejść i wyjść  z zakładu użyty został czytnik RFID MF RC522 podłączony do RaspberryPi  odpowiednio:
+\begin{itemize}
+ \item  SDA   -->Pin 24
+ \item  SCK   --> Pin 23
+ \item  MOSI  --> Pin 19
+ \item  MISO  --> Pin 21
+ \item  GND   --> Pin 6
+ \item  RST   --> Pin 22
+ \item  3.3V  --> Pin 1
+\end{itemize}
+W  menu konfiguracyjnym Raspberry, otworzonym za pomocą komendy:
+\begin{verbatim}
+sudo raspi-config
+\end{verbatim}
+został włączony interfejs SPI umożliwiający kontrolę wcześniej wspomnianego czytnika.
+Po podłączeniu oraz włączeniu SPI zostały pobrane i zainstalowane biblioteki odpowiedzialne za obsługę modułu RFID. Wykonano niezbędne testy potwierdzające prawidłowe działanie czytnika.
+Dodatkowo w celach informacyjnych o wczytaniu karty obok czytnika zamieszczono 2 diody informacyjne oraz buzzer wydający sygnały dźwiękowe. Podjęto pracę nad skryptem w języku pyton, który umożliwi  odczytanie danych  z kart, prześle je do bazy danych oraz będzie kontrolował diody LED wraz z buzzerem. 
+
 
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.} Jako system operacyjny dla naszego serwera (RaspberryPi) został wybrany Raspbian Strech. W celu zainstalowania go użyty został program Win32DiskImager, który pozwala na przeniesienie systemu z pliku obrazu na kartę pamięci. Na serwerze główne konta zostały zabezpieczone mocnymi hasłami w celach ograniczenia dostępu osobom niepowołanym oraz utworzono użytkownika „informatyk” z hasłem „zpi” mającego zarządzać serwerem. W celu ułatwienia  zarządzania na serwerze uruchomiono usługi SSH oraz usługę pulpitu zdalnego(VNC). Używając podstawej komendy instalacyjnej:
+\begin{verbatim}
+sudo apt-get install
+\end{verbatim}
+zainstalowano niezbędne komponenty, czyli: apache2 , mysql-serwer, php7, phpmyadmin.
+Po poprawnym zainstalowaniu komponentów  sprawdzono ich działanie oraz odpowiednio je skonfigurowano. Dodatkowo w celu ułatwienia pracy nad stroną internetową zakładu zainstalowano oraz skonfigurowano serwer ftp.
+
  
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
