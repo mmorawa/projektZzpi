@@ -48,11 +48,11 @@ Prowadzący: dr hab. Marcin Mazur
 
 \subsection{Cel projektu (produkt)}
 
-Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia Raspberry Pi oraz modułowi RFID (czytnik oraz karta magnetyczna) pracownicy zobowiązani będą identyfikowali swojej godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Właściciel za pomocą strony internetowej będzie mógł sprawdzić ilu jest  pracowników na zakładzie, czas ich pracy oraz spóźnienia.
+Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Pracodawca za pomocą strony internetowej będzie mógł sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
 
 \subsection{Potencjalny odbiorca produktu (klient)}
 
-Potencjalnym odbiorcą oferowanego przez nas systemu jest przedsiębiorca zatrudniający grupę pracowników. Przy takiej ilości osób trudno jest zarządzać ich czasem pracy bez użycia odpowiedniego systemu.  
+Potencjalnym odbiorcą oferowanego przez nas systemu jest przedsiębiorca zatrudniający grupę co najmniej kilkunastu pracowników. Przy takiej ilości osób trudno jest zarządzać ich czasem pracy bez użycia odpowiedniego systemu.  
 
 \subsection{Metodyka}
 
@@ -62,10 +62,10 @@ Projekt będzie realizowany przy użyciu (zaadaptowanej do istniejących warunk�
 Lista wymagań użytkownika w postaci ,,historyjek'' (User stories). Każda historyjka opisuje jedną cechę systemu. Struktura: As a [type of user], I want [to perform some task] so that I can [achieve some goal/benefit/value] (zob. np. \cite{us}).
 
 \subsection{User story 1}
-Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu pracownicy identyfikowali się za pomocą kart magnetycznych, po to by wiedzieć ilu pracowników jest obecnie na zakładzie.
+Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu pracownicy dokonywali identyfikacji za pomocą kart RFID, po to by można było ustalić ilu pracowników jest obecnie na zakładzie.
 
 \subsection{User story 2}
-Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika,abym mógł łatwiej obliczyć należną wypłatę.
+Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną wypłatę.
 
 \subsection{User story 3 - opcjonalna}
 Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
@@ -77,7 +77,7 @@ Jako księgowy chcę mieć możliwość drukowania zestawienia miesięcznego wyn
 Jako kadrowy chcę mieć możliwość dodawania i usuwania nowych pracowników do bazy danych, aby w łatwy sposób uaktualnić informacje o zatrudnionych pracownikach w firmie. 
 
 \subsection{User story 6}
-Jako pracodawca chcę, aby logowanie się na zakładowej stronie internetowej była możliwa tylko przez sieć wewnętrzną, aby zapewnić bezpieczeństwo danych w firmie.
+Jako pracodawca chcę, aby logowanie się na zakładowej stronie internetowej było możliwe tylko przez sieć wewnętrzną, aby zapewnić bezpieczeństwo danych w firmie.
 
 \subsection{User story 7}
 Jako pracodawca chciałbym, aby każdy korzystający z zakładowej strony internetowej miał możliwość przypomnienia hasła, żeby móc je przywrócić.
@@ -139,15 +139,15 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 1}
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
-\paragraph{Opis zadania.} Do realizacji powyższego zadania zostanie użyty Raspberry Pi i podłączony do niego czytnik kart magnetycznych, do którego swoje karty przykładać będą pracownicy w celu rejestracji przybycia lub opuszczenia zakładu. Następnie specjalny program napisany w języku Python będzie zgromadzone dane zapisywał do pliku i okresowo wysyłał do bazy danych na firmowym serwerze.
+\paragraph{Opis zadania.} Do realizacji powyższego zadania zostanie użyty Raspberry Pi i podłączony do niego czytnik kart RFID, do którego swoje karty przykładać będą pracownicy w celu rejestracji przybycia lub opuszczenia zakładu. Następnie specjalny program napisany w języku Python będzie zgromadzone dane zapisywał do pliku i okresowo wysyłał do bazy danych na firmowym serwerze.
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Dane odnośnie wejścia i wyjścia odczytane są z karty pracownika przez czytnik RFID podłączony do Raspberry Pi i wysyłane do bazy danych, znajdującej się na tym urządzeniu.
 
 \subsection{Backlog Item 2}
-\paragraph{Tytuł zadania.} Utworzenie strony www do obsługi systemu.
-\paragraph{Opis zadania.} Zostanie utworzona strona do obsługi systemu. Strona będzie umozliwiać łatwy dostęp do informacji dla pracowników o ich przepracowanych godzinach i przysługującym im wynagrodzeniu za przepracowane godziny. Kierownictwo będzie miało dostęp do wszystkich funkcji zaimplementowanych na stronie takich jak: dodawanie oraz usuwanie pracowników, sprawdzanie wynagrodzenia, drukowanie zestawienia miesięcznego, informacje o wejsciach i wyjściach pracowników .  
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\paragraph{Opis zadania.} Zostanie utworzona strona do obsługi systemu, która umożliwi przeglądanie danych pobranych z bazy danych, dotyczących zarejestrowanych przez czytnik RFID godzin przybycia lub opuszczenia terenu zakładu przez pracowników.
 \paragraph{Priorytet.} 1.
-\paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL.
+\paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL. Umożliwi ona wyświetlanie danych odnośnie wejścia i wyjścia pracowników z zakładu.
 
 \subsection{Backlog Item 3}
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
@@ -174,16 +174,16 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
 \subsection{Backlog Item 7}
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
-\paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP oraz baza danych.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
+\paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP.
 \paragraph{Priorytet.} 1.
-\paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer, który posiada bazę danych MySQL zabezpieczoną przed nieuprawnionym dostępem za pomocą hasła dla administratora. Na serwerze zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, który pozwala na kontakt z bazą danych.
+\paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer HTTP Apache, na którym zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, która pozwala na kontakt z bazą danych.
 
 \subsection{Backlog Item 8}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
-\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której pracownik będzie mógł wysłać prośbę o przypomnienie hasła w tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail pracownika. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi na pracowniku ustawienie nowego hasła.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której kierownik, kadrowy czy pracownik będzie mógł wysłać prośbę o przypomnienie hasła. W tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail danej osoby. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi jego zmianę na nowe prywatne hasło.
 \paragraph{Priorytet.} 5.
-\paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia pracownikom przypomienie hasła oraz jego zmianę w systemie.
+\paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia kierownikowi, kadrowemu oraz pracownikom przypomnienie hasła oraz jego zmianę w systemie.
 
 \subsection{Backlog Item 9}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
@@ -199,13 +199,14 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \end {itemize}
 
 \subsection{Backlog Item 10}
-\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz z skonfigurowaniem serwera baz danych
-\paragraph{Opis zadania.} Utworzona baza ma gromadzić informację niezbędne do funkcjonowania systemu. Na przykład po przyłożeniu karty magnetycznej do czytnika jest wprowadzona informacja, do odpowiedniej tabeli w bazie, o godzinie wejścia pracownika do pracy. 
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
+\paragraph{Opis zadania.} Utworzona baza ma gromadzić informację niezbędne do funkcjonowania systemu. Na przykład po przyłożeniu karty do czytnika RFID jest wprowadzona informacja, do odpowiedniej tabeli w bazie, o godzinie wejścia lub wyjścia pracownika na teren zakładu. 
 \paragraph{Priorytet.} 1.
-
+\paragraph{Definition of Done.} Działa serwer baz danych MySQL obsługujący bazę danych z danymi pracowników oraz godzinami ich wejścia lub wyjścia na teren zakładu. 
 
 \section{Sprint 1}
-\subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID(karta magnetyczna, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony, na której wyświetlane będą informacje( imię i nazwisko pracownika, data, godzina wejścia, godzina wyjścia, ID karty).
+\subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia, godzina wyjścia, ID karty.
+
 \subsection{Sprint Planning/Backlog}
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
@@ -213,14 +214,19 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Estymata: Large przy użyciu skali rozmiarów T-shirtów (13 osobogodzin).
 \end{itemize}
 
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
 \begin{itemize}
-\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
+\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (4 osobogodzin).
 \end{itemize}
 
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \begin{itemize}
 \item Estymata: Small przy użyciu skali rozmiarów T-shirtów (4 osobogodziny).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
+\begin{itemize}
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (7 osobogodziny).
 \end{itemize}
 
 \subsection{Realizacja}
@@ -232,8 +238,8 @@ for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera dla systemu.
-\subparagraph{Wykonawca.} Łukasz Mirek, Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
@@ -241,9 +247,9 @@ for (i=1; i<10; i++)
  
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
-\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy jezyków progeramowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności pisowni wybranego przez nas języka co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu moglismy zasymulować łączenie się z bazą danych oraz obsługe skryptów PHP na naszej stronie. Po wykonaniu pierwontnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie RaspberryPi. Na obecnym etapie strona ma pozwalac na sprawdzenie danych odczytanych z kart pracowników. Z realizacją tej częścią projektu, wykonawcy nie mieli zadnych problemów została ona wykonana sprawnie i bez wiekszych przeszkód.  
-Kod programu (środowisko \texttt{verbatim}): 
-Kod programu dotyczący łączenia się z bazą danych.
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej częścią projektu, wykonawcy nie mieli żadnych problemów. Została ona wykonana sprawnie i bez większych przeszkód.  
+
+Kod programu dotyczący łączenia się z bazą danych:
 \begin{verbatim}
 <?php
 $config['db']['host'] = 'localhost';
@@ -253,29 +259,31 @@ $config['db']['dbname'] = 'zpi';
 $db = mysqli_connect($config['db']['host'], $config['db']['user'], $config['db']['pass'] , $config['db']['dbname']) or die('Błąd połączenia z bazą') ;
 mysqli_query($db, "SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
 ?>
-\end{verbatim}>>.
+\end{verbatim}
 
-\paragraph{Tytuł zadania.} Utworzenie podstawowej wersji bazy danych potrzebnej do zaprezentowania założeń pierwszego sprintu.
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak.
-\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy jezyka sql. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności pisowni wybranego przez nas języka co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzene poprawnie rekordy w bazie. Po wykonaniu pierwontnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie RaspberryPi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odczytanych z kart pracowników. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
-Kod programu (środowisko \texttt{verbatim}): 
-Kod sql przedstawiający utworzenie konta użytkownika user" do zarządzania bazą z uprawnieniami CREATE oraz możliwością wykonywania zapytań typu DML.
+\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
+ 
+Kod w języku SQL przedstawiający utworzenie konta użytkownika user do zarządzania bazą z uprawnieniami CREATE oraz możliwością wykonywania zapytań typu DML.
 \begin{verbatim}
 CREATE USER 'user'@'%' IDENTIFIED BY 'zpi';
 GRANT SELECT, INSERT, UPDATE, DELETE ON zpi.* TO 'user'@'%';
-\end{verbatim}>>.
-Kod przedstawiający ustawienie metody kodowania znaków w bazie danych na UT8:
-\begin {verbatim}
+\end{verbatim}
+
+Kod przedstawiający ustawienie metody kodowania znaków w bazie danych na UTF-8:
+\begin{verbatim}
 CREATE DATABASE zpi CHARACTER SET utf8 COLLATE utf8_general_ci;
-\end {verbatim}>>.
+\end{verbatim}
+
 Kod przedstawiający utworzenie tabeli Stanowisko:
-\begin {verbatim}
+\begin{verbatim}
 CREATE TABLE Stanowisko (
 Id INT NOT NULL auto_increment,
 Nazwa VARCHAR(100) NOT NULL,
 PRIMARY KEY(Id)
 )ENGINE = InnoDB;
-\end{verbatim}>>.
+\end{verbatim}
 
 
 \subsection{Sprint Review/Demo}
@@ -319,7 +327,7 @@ for (i=1; i<10; i++)
 
 
 \subsection{Sprint Review/Demo}
-<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demostracja przyrostu produktu>>.
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
 
 \section*{<<Tutaj dodawać kolejne Sprint'y>>}
 
