@@ -144,7 +144,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Dane odnośnie wejścia i wyjścia odczytane są z karty pracownika przez czytnik RFID podłączony do Raspberry Pi i wysyłane do bazy danych, znajdującej się na tym urządzeniu.
 
 \subsection{Backlog Item 2}
-\paragraph{Tytuł zadania.} Utworzenie strony www do obsługi sytstemu.
+\paragraph{Tytuł zadania.} Utworzenie strony www do obsługi systemu.
 \paragraph{Opis zadania.} Zostanie utworzona strona do obsługi systemu. Strona będzie umozliwiać łatwy dostęp do informacji dla pracowników o ich przepracowanych godzinach i przysługującym im wynagrodzeniu za przepracowane godziny. Kierownictwo będzie miało dostęp do wszystkich funkcji zaimplementowanych na stronie takich jak: dodawanie oraz usuwanie pracowników, sprawdzanie wynagrodzenia, drukowanie zestawienia miesięcznego, informacje o wejsciach i wyjściach pracowników .  
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL.
@@ -197,6 +197,12 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
 \item Zmiany stawki wynagrodzenia pracownika.
 \end {itemize}
+
+\subsection{Backlog Item 10}
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz z skonfigurowaniem serwera baz danych
+\paragraph{Opis zadania.} Utworzona baza ma gromadzić informację niezbędne do funkcjonowania systemu. Na przykład po przyłożeniu karty magnetycznej do czytnika jest wprowadzona informacja, do odpowiedniej tabeli w bazie, o godzinie wejścia pracownika do pracy. 
+\paragraph{Priorytet.} 1.
+
 
 \section{Sprint 1}
 \subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID(karta magnetyczna, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony, na której wyświetlane będą informacje( imię i nazwisko pracownika, data, godzina wejścia, godzina wyjścia, ID karty).
