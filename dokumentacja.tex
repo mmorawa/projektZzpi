@@ -233,34 +233,30 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.}W celu rejestracji wejść i wyjść  z zakładu użyty został czytnik RFID MF RC522 podłączony do RaspberryPi  odpowiednio:
+\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej:
 \begin{itemize}
- \item  SDA   -->Pin 24
- \item  SCK   --> Pin 23
- \item  MOSI  --> Pin 19
- \item  MISO  --> Pin 21
- \item  GND   --> Pin 6
- \item  RST   --> Pin 22
- \item  3.3V  --> Pin 1
+ \item  SDA   --- Pin 24
+ \item  SCK   --- Pin 23
+ \item  MOSI  --- Pin 19
+ \item  MISO  --- Pin 21
+ \item  GND   --- Pin 6
+ \item  RST   --- Pin 22
+ \item  3.3V  --- Pin 1
 \end{itemize}
-W  menu konfiguracyjnym Raspberry, otworzonym za pomocą komendy:
+W  menu konfiguracyjnym Raspberry Pi, otworzonym za pomocą komendy:
 \begin{verbatim}
 sudo raspi-config
 \end{verbatim}
-został włączony interfejs SPI umożliwiający kontrolę wcześniej wspomnianego czytnika.
-Po podłączeniu oraz włączeniu SPI zostały pobrane i zainstalowane biblioteki odpowiedzialne za obsługę modułu RFID. Wykonano niezbędne testy potwierdzające prawidłowe działanie czytnika.
-Dodatkowo w celach informacyjnych o wczytaniu karty obok czytnika zamieszczono 2 diody informacyjne oraz buzzer wydający sygnały dźwiękowe. Podjęto pracę nad skryptem w języku pyton, który umożliwi  odczytanie danych  z kart, prześle je do bazy danych oraz będzie kontrolował diody LED wraz z buzzerem. 
+został włączony szeregowy interfejs SPI (ang. Serial Peripheral Interface) zapewniający komunikację z wcześniej wspomnianym czytnikiem. Po wykonaniu odpowiednich podłączeń oraz włączeniu SPI zostały pobrane i zainstalowane biblioteki odpowiedzialne za obsługę modułu RFID. Wykonano niezbędne testy potwierdzające prawidłowe działanie czytnika. Dodatkowo w celach informacyjnych obok czytnika umieszczono buzzer oraz 2 diody LED sygnalizujące odczyt karty. W dalszej kolejności utworzony został skrypt w języku Python, który umożliwia  odczytanie numeru ID z karty a następnie przesłanie go do bazy danych oraz steruje diodami i buzzerem. 
 
 
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} Jako system operacyjny dla naszego serwera (RaspberryPi) został wybrany Raspbian Strech. W celu zainstalowania go użyty został program Win32DiskImager, który pozwala na przeniesienie systemu z pliku obrazu na kartę pamięci. Na serwerze główne konta zostały zabezpieczone mocnymi hasłami w celach ograniczenia dostępu osobom niepowołanym oraz utworzono użytkownika „informatyk” z hasłem „zpi” mającego zarządzać serwerem. W celu ułatwienia  zarządzania na serwerze uruchomiono usługi SSH oraz usługę pulpitu zdalnego(VNC). Używając podstawej komendy instalacyjnej:
+\subparagraph{Realizacja.} Jako system operacyjny dla naszego serwera (znajdującego się na Raspberry Pi) został wybrany Raspbian Stretch. W celu jego instalacji użyty został program Win32DiskImager, który pozwala na przeniesienie systemu zapisanego w pliku obrazu o rozszerzeniu .iso na kartę pamięci. Na serwerze główne konta zostały zabezpieczone mocnymi hasłami w celu ograniczenia dostępu osobom niepowołanym oraz utworzono użytkownika „informatyk” mającego uprawnienia do zarządzania serwerem. W celu ułatwienia wykonywania zadań administracyjnych na serwerze uruchomiono usługę SSH oraz pulpit zdalny VNC (ang. Virtual Network Computing). Używając podstawowej komendy instalacyjnej:
 \begin{verbatim}
 sudo apt-get install
 \end{verbatim}
-zainstalowano niezbędne komponenty, czyli: apache2 , mysql-serwer, php7, phpmyadmin.
-Po poprawnym zainstalowaniu komponentów  sprawdzono ich działanie oraz odpowiednio je skonfigurowano. Dodatkowo w celu ułatwienia pracy nad stroną internetową zakładu zainstalowano oraz skonfigurowano serwer ftp.
-
+zainstalowano niezbędne pakiety serwera HTTP czyli: apache2 oraz php7. Po poprawnej realizacji tego zadania sprawdzono ich działanie oraz odpowiednio je skonfigurowano. Dodatkowo w celu ułatwienia pracy nad stroną internetową zakładu zainstalowano oraz skonfigurowano serwer FTP (ang. File Transfer Protocol) umożliwiający dwukierunkowy transfer plików z klientem FTP przy użyciu połączenia TCP.
  
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
@@ -273,8 +269,10 @@ $config['db']['host'] = 'localhost';
 $config['db']['user'] = 'user';
 $config['db']['pass'] = 'zpi';
 $config['db']['dbname'] = 'zpi';
-$db = mysqli_connect($config['db']['host'], $config['db']['user'], $config['db']['pass'] , $config['db']['dbname']) or die('Błąd połączenia z bazą') ;
-mysqli_query($db, "SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
+$db = mysqli_connect($config['db']['host'], $config['db']['user'], 
+$config['db']['pass'], $config['db']['dbname']) 
+or die('Błąd połączenia z bazą');
+mysqli_query($db,"SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
 ?>
 \end{verbatim}
 
@@ -346,8 +344,85 @@ for (i=1; i<10; i++)
 \subsection{Sprint Review/Demo}
 <<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
 
-\section*{<<Tutaj dodawać kolejne Sprint'y>>}
+\section{Sprint 3}
 
+\subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+
+\subsection{Sprint Review/Demo}
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
+
+\section{Sprint 4}
+
+\subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+
+\subsection{Sprint Review/Demo}
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
 
 \begin{thebibliography}{9}
 
