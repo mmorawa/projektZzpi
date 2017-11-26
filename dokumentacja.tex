@@ -174,7 +174,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
 \subsection{Backlog Item 7}
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
 \paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP.
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer HTTP Apache, na którym zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, która pozwala na kontakt z bazą danych.
@@ -205,7 +205,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Działa serwer baz danych MySQL obsługujący bazę danych z danymi pracowników oraz godzinami ich wejścia lub wyjścia na teren zakładu. 
 
 \section{Sprint 1}
-\subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia, godzina wyjścia, ID karty.
+\subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia lub wyjścia, ID karty.
 
 \subsection{Sprint Planning/Backlog}
 
@@ -214,7 +214,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Estymata: Large przy użyciu skali rozmiarów T-shirtów (13 osobogodzin).
 \end{itemize}
 
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
 \begin{itemize}
 \item Estymata: Small przy użyciu skali rozmiarów T-shirtów (4 osobogodzin).
 \end{itemize}
@@ -250,7 +250,7 @@ sudo raspi-config
 został włączony szeregowy interfejs SPI (ang. Serial Peripheral Interface) zapewniający komunikację z wcześniej wspomnianym czytnikiem. Po wykonaniu odpowiednich podłączeń oraz włączeniu SPI zostały pobrane i zainstalowane biblioteki odpowiedzialne za obsługę modułu RFID. Wykonano niezbędne testy potwierdzające prawidłowe działanie czytnika. Dodatkowo w celach informacyjnych obok czytnika umieszczono buzzer oraz 2 diody LED sygnalizujące odczyt karty. W dalszej kolejności utworzony został skrypt w języku Python, który umożliwia  odczytanie numeru ID z karty a następnie przesłanie go do bazy danych oraz steruje diodami i buzzerem. 
 
 
-\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP dla systemu.
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} Jako system operacyjny dla naszego serwera (znajdującego się na Raspberry Pi) został wybrany Raspbian Stretch. W celu jego instalacji użyty został program Win32DiskImager, który pozwala na przeniesienie systemu zapisanego w pliku obrazu o rozszerzeniu .iso na kartę pamięci. Na serwerze główne konta zostały zabezpieczone mocnymi hasłami w celu ograniczenia dostępu osobom niepowołanym oraz utworzono użytkownika „informatyk” mającego uprawnienia do zarządzania serwerem. W celu ułatwienia wykonywania zadań administracyjnych na serwerze uruchomiono usługę SSH oraz pulpit zdalny VNC (ang. Virtual Network Computing). Używając podstawowej komendy instalacyjnej:
 \begin{verbatim}
