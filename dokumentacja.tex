@@ -2,6 +2,7 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{url}
+\usepackage{graphicx}
 
 \title{\bf{System elektronicznej kontroli pracowników}}
 \author{{\em Mateusz Morawa (kierownik projektu)}\\
@@ -112,7 +113,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Data zakończenia: 20.12.17 r.
 \item Scrum Master: Łukasz Horowski.
 \item Product Owner: Mateusz Morawa.
-\item Development Team: Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
+\item Development Team:  Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
 \end{itemize}
 
 \subsection{Sprint 3}
@@ -303,12 +304,13 @@ PRIMARY KEY(Id)
 
 \subsection{Sprint Review/Demo}
 
-Dnia 29.11.17r. odbyła się prezentacja ze Sprintu 1. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała kto wszedł, wyszedł z zakładu oraz pracowników którzy znajdują się obecnie na zakładzie.    
-Zrzut  ze strony poniżej:
-\begin{figure}
-\includegraphics{obrazy\strona.png}
+Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego Sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
+Zrzut ze strony poniżej:
+\begin{figure}[!htbp]
+	\makebox[\textwidth]{\includegraphics[width=260px]{obrazy/strona.png}}
 \end{figure}
-Odczytywanie danych pracowników realizowało się poprzez przyłożenie karty do czytnika RFID. Dioda oraz buzzer zaimplementowany w systemie informował czy dane pracownika zostały odczytane - zielony kolor diody oraz pojedyńczy dzwięk. Po około 3 sekundach urządzenie wydawało podwójny dzwięk oraz dioda zmieniała kolor na czerwony. W tym momencie kolejny pracownik mógł przyłożyć swoją kartę aby odczytało jego dane.
+
+Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dane za każdym razem, gdy pracownik przykładał kartę do czytnika RFID. Buzzer oraz diody LED  zaimplementowane w systemie informowały czy dane pracownika zostały poprawnie odczytane  poprzez zgaszenie  zielonej diody i zaświecenie się czerwonej diody, czemu towarzyszył pojedynczy dźwięk. Następnie po około 3 sekundach urządzenie sygnalizowało gotowość do kolejnego odczytu poprzez podwójny dźwięk i przywrócenie pierwotnego stanu diod. W tym momencie kolejny pracownik mógł już przyłożyć swoją kartę do czytnika a na stronie pojawiały się odpowiednie zmiany.
 
 \section{Sprint 2}
 
@@ -318,12 +320,12 @@ Odczytywanie danych pracowników realizowało się poprzez przyłożenie karty d
 
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \begin{itemize}
-\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
 \end{itemize}
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
 \begin{itemize}
-\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
 
 \subsection{Realizacja}
