@@ -1,5 +1,5 @@
 <?php
-require_once('config/errors.php');
+//require_once('config/errors.php');
 ob_start();
 require_once('config/database.php');
 session_start();
@@ -13,10 +13,6 @@ $home = array(
 
 $page = array(
 "start",
-"logout",
-"pracownicy",
-"stanowiska",
-"dodaj",
 );
 
 if(in_array($action, $page)){
