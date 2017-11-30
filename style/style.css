@@ -1,3 +1,8 @@
+body{
+	margin: 0px;
+	padding:0px;
+} 
+
 #all{
 	width: 1000px;
 	margin-left: auto;
@@ -18,12 +23,34 @@
 	min-height: 620px;
 	padding: 10px;
 }
+
 #page{
 	float: left;
 	padding: 20px;
-	width: 640px;
-	}
-	
+	width: 820px;
+}
+
+#tables{
+	margin: 0px;
+	position: relative;
+}
+
+#left {
+	float: left;
+	padding: 10px;
+}
+#middle {
+	float: left;
+	padding: 10px;
+}
+#right {
+    float: left;
+	margin-top: 5 px;
+	padding: 10px;
+}
+
+
+
 #footer{
 	clear: both;
 	background-color: black;
