@@ -1,0 +1,449 @@
+\documentclass[a4paper]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{graphicx}
+
+\title{\bf{System elektronicznej kontroli pracowników}}
+\author{{\em Mateusz Morawa (kierownik projektu)}\\
+{\em Łukasz Mirek}\\
+{\em Grzegorz Jasiński}\\
+{\em Bartłomiej Kmak}\\
+{\em Łukasz Horowski}\\
+}
+\date{}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\bigskip
+\begin{center}
+Zespołowe przedsięwzięcie inżynierskie\\[2mm]
+
+Informatyka\\[2mm]
+
+Rok. akad. 2017/2018, sem. I\\[2mm]
+
+Prowadzący: dr hab. Marcin Mazur
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+\section{Opis projektu}
+
+\subsection{Członkowie zespołu}
+
+\begin{enumerate}
+\item Mateusz Morawa (kierownik projektu).
+\item Łukasz Mirek.
+\item Grzegorz Jasiński.
+\item Bartłomiej Kmak.
+\item Łukasz Horowski.
+\end{enumerate}
+
+\subsection{Cel projektu (produkt)}
+
+Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Pracodawca za pomocą strony internetowej będzie mógł sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
+
+\subsection{Potencjalny odbiorca produktu (klient)}
+
+Potencjalnym odbiorcą oferowanego przez nas systemu jest przedsiębiorca zatrudniający grupę co najmniej kilkunastu pracowników. Przy takiej ilości osób trudno jest zarządzać ich czasem pracy bez użycia odpowiedniego systemu.  
+
+\subsection{Metodyka}
+
+Projekt będzie realizowany przy użyciu (zaadaptowanej do istniejących warunków) metodyki {\em Scrum}. 
+
+\section{Wymagania użytkownika}
+Lista wymagań użytkownika w postaci ,,historyjek'' (User stories). Każda historyjka opisuje jedną cechę systemu. Struktura: As a [type of user], I want [to perform some task] so that I can [achieve some goal/benefit/value] (zob. np. \cite{us}).
+
+\subsection{User story 1}
+Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu pracownicy dokonywali identyfikacji za pomocą kart RFID, po to by można było ustalić ilu pracowników jest obecnie na zakładzie.
+
+\subsection{User story 2}
+Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną wypłatę.
+
+\subsection{User story 3 - opcjonalna}
+Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
+
+\subsection{User story 4}
+Jako księgowy chcę mieć możliwość drukowania zestawienia miesięcznego wynagrodzenia brutto pracowników, żeby mieć papierową dokumentację w razie kontroli.
+
+\subsection{User story 5}
+Jako kadrowy chcę mieć możliwość dodawania i usuwania nowych pracowników do bazy danych, aby w łatwy sposób uaktualnić informacje o zatrudnionych pracownikach w firmie. 
+
+\subsection{User story 6}
+Jako pracodawca chcę, aby logowanie się na zakładowej stronie internetowej było możliwe tylko przez sieć wewnętrzną, aby zapewnić bezpieczeństwo danych w firmie.
+
+\subsection{User story 7}
+Jako pracodawca chciałbym, aby każdy korzystający z zakładowej strony internetowej miał możliwość przypomnienia hasła, żeby móc je przywrócić.
+
+\subsection{User story 8}
+Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanych na stronie zakładowej, ponieważ w razie nagłych wypadków chcę mieć kontrolę nad całym systemem.
+
+
+\section{Harmonogram}
+
+\subsection{Rejestr zadań (Product Backlog)}
+
+\begin{itemize}
+\item Data rozpoczęcia: 25.10.17 r.
+\item Data zakończenia: 08.11.17 r.
+\end{itemize}
+
+\subsection{Sprint 1}
+
+\begin{itemize}
+\item Data rozpoczęcia: 08.11.17 r.
+\item Data zakończenia: 29.11.17 r.
+\item Scrum Master: Łukasz Mirek.
+\item Product Owner: Grzegorz Jasiński.
+\item Development Team: Mateusz Morawa, Łukasz Horowski, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak.
+\end{itemize}
+
+\subsection{Sprint 2}
+
+\begin{itemize}
+\item Data rozpoczęcia: 29.11.17 r.
+\item Data zakończenia: 20.12.17 r.
+\item Scrum Master: Łukasz Horowski.
+\item Product Owner: Mateusz Morawa.
+\item Development Team:  Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
+\end{itemize}
+
+\subsection{Sprint 3}
+
+\begin{itemize}
+\item Data rozpoczęcia: 20.12.17 r.
+\item Data zakończenia: 10.01.18 r.
+\item Scrum Master: Mateusz Morawa.
+\item Product Owner: Kmak Bartłomiej.
+\item Development Team: Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Bartłomiej Kmak, Łukasz Horowski.
+\end{itemize}
+
+\subsection{Sprint 4}
+
+\begin{itemize}
+\item Data rozpoczęcia: 10.01.18 r.
+\item Data zakończenia: 24.01.18 r.
+\item Scrum Master: Bartłomiej Kmak.
+\item Product Owner: Łukasz Mirek.
+\item Development Team: Mateusz Morawa, Grzegorz Jasiński, Łukasz Mirek, Łukasz Horowski.
+\end{itemize}
+
+\section{Product Backlog}
+
+\subsection{Backlog Item 1}
+\paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
+\paragraph{Opis zadania.} Do realizacji powyższego zadania zostanie użyty Raspberry Pi i podłączony do niego czytnik kart RFID, do którego swoje karty przykładać będą pracownicy w celu rejestracji przybycia lub opuszczenia zakładu. Następnie specjalny program napisany w języku Python będzie zgromadzone dane zapisywał do pliku i okresowo wysyłał do bazy danych na firmowym serwerze.
+\paragraph{Priorytet.} 1.
+\paragraph{Definition of Done.} Dane odnośnie wejścia i wyjścia odczytane są z karty pracownika przez czytnik RFID podłączony do Raspberry Pi i wysyłane do bazy danych, znajdującej się na tym urządzeniu.
+
+\subsection{Backlog Item 2}
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\paragraph{Opis zadania.} Zostanie utworzona strona do obsługi systemu, która umożliwi przeglądanie danych pobranych z bazy danych, dotyczących zarejestrowanych przez czytnik RFID godzin przybycia lub opuszczenia terenu zakładu przez pracowników.
+\paragraph{Priorytet.} 1.
+\paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL. Umożliwi ona wyświetlanie danych odnośnie wejścia i wyjścia pracowników z zakładu.
+
+\subsection{Backlog Item 3}
+\paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
+\paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesięczne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
+\paragraph{Priorytet.} 2.
+\paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje otrzymanie za nią wynagrodzenia. Istotna jest punktualność.
+
+\subsection{Backlog Item 4}
+\paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
+\paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
+\paragraph{Priorytet.} 4.
+\paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
+
+\subsection{Backlog Item 5}
+\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca dział księgowy będzie musiał wydrukować dokumenty zawierające dane o miesięcznych wynagrodzeniach brutto pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie opcje do wykonania tej czynności.
+\paragraph{Priorytet.} 4.
+\paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+
+\subsection{Backlog Item 6}
+\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
+\paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy będą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
+\paragraph{Priorytet.} 2.
+\paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
+
+\subsection{Backlog Item 7}
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
+\paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP.
+\paragraph{Priorytet.} 1.
+\paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer HTTP Apache, na którym zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, która pozwala na kontakt z bazą danych.
+
+\subsection{Backlog Item 8}
+\paragraph{Tytuł zadania.} Przywracanie hasła.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której kierownik, kadrowy czy pracownik będzie mógł wysłać prośbę o przypomnienie hasła. W tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail danej osoby. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi jego zmianę na nowe prywatne hasło.
+\paragraph{Priorytet.} 5.
+\paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia kierownikowi, kadrowemu oraz pracownikom przypomnienie hasła oraz jego zmianę w systemie.
+
+\subsection{Backlog Item 9}
+\paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
+\paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
+\paragraph{Priorytet.} 3.
+\paragraph{Definition of Done.} Kierownik jest w stanie dokonać następujących zmian w systemie poprzez stronę internetową:
+\begin{itemize}
+\item Dodawanie nowego pracownika.
+\item Usuwanie istniejącego pracownika.
+\item Edycja danych osobowych pracownika.
+\item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
+\item Zmiany stawki wynagrodzenia pracownika.
+\end {itemize}
+
+\subsection{Backlog Item 10}
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
+\paragraph{Opis zadania.} Utworzona baza ma gromadzić informację niezbędne do funkcjonowania systemu. Na przykład po przyłożeniu karty do czytnika RFID jest wprowadzona informacja, do odpowiedniej tabeli w bazie, o godzinie wejścia lub wyjścia pracownika na teren zakładu. 
+\paragraph{Priorytet.} 1.
+\paragraph{Definition of Done.} Działa serwer baz danych MySQL obsługujący bazę danych z danymi pracowników oraz godzinami ich wejścia lub wyjścia na teren zakładu. 
+
+\section{Sprint 1}
+\subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia lub wyjścia, ID karty.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
+\begin{itemize}
+\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (13 osobogodzin).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
+\begin{itemize}
+\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (4 osobogodzin).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\begin{itemize}
+\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (4 osobogodziny).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
+\begin{itemize}
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (7 osobogodziny).
+\end{itemize}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
+\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej:
+\begin{itemize}
+ \item  SDA   --- Pin 24
+ \item  SCK   --- Pin 23
+ \item  MOSI  --- Pin 19
+ \item  MISO  --- Pin 21
+ \item  GND   --- Pin 6
+ \item  RST   --- Pin 22
+ \item  3.3V  --- Pin 1
+\end{itemize}
+W  menu konfiguracyjnym Raspberry Pi, otworzonym za pomocą komendy:
+\begin{verbatim}
+sudo raspi-config
+\end{verbatim}
+został włączony szeregowy interfejs SPI (ang. Serial Peripheral Interface) zapewniający komunikację z wcześniej wspomnianym czytnikiem. Po wykonaniu odpowiednich podłączeń oraz włączeniu SPI zostały pobrane i zainstalowane biblioteki odpowiedzialne za obsługę modułu RFID. Wykonano niezbędne testy potwierdzające prawidłowe działanie czytnika. Dodatkowo w celach informacyjnych obok czytnika umieszczono buzzer oraz 2 diody LED sygnalizujące odczyt karty. W dalszej kolejności utworzony został skrypt w języku Python, który umożliwia  odczytanie numeru ID z karty a następnie przesłanie go do bazy danych oraz steruje diodami i buzzerem. 
+
+
+\paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
+\subparagraph{Realizacja.} Jako system operacyjny dla naszego serwera (znajdującego się na Raspberry Pi) został wybrany Raspbian Stretch. W celu jego instalacji użyty został program Win32DiskImager, który pozwala na przeniesienie systemu zapisanego w pliku obrazu o rozszerzeniu .iso na kartę pamięci. Na serwerze główne konta zostały zabezpieczone mocnymi hasłami w celu ograniczenia dostępu osobom niepowołanym oraz utworzono użytkownika „informatyk” mającego uprawnienia do zarządzania serwerem. W celu ułatwienia wykonywania zadań administracyjnych na serwerze uruchomiono usługę SSH oraz pulpit zdalny VNC (ang. Virtual Network Computing). Używając podstawowej komendy instalacyjnej:
+\begin{verbatim}
+sudo apt-get install
+\end{verbatim}
+zainstalowano niezbędne pakiety serwera HTTP czyli: apache2 oraz php7. Po poprawnej realizacji tego zadania sprawdzono ich działanie oraz odpowiednio je skonfigurowano. Dodatkowo w celu ułatwienia pracy nad stroną internetową zakładu zainstalowano oraz skonfigurowano serwer FTP (ang. File Transfer Protocol) umożliwiający dwukierunkowy transfer plików z klientem FTP przy użyciu połączenia TCP.
+ 
+\paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
+\subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej częścią projektu, wykonawcy nie mieli żadnych problemów. Została ona wykonana sprawnie i bez większych przeszkód.  
+
+Kod programu dotyczący łączenia się z bazą danych:
+\begin{verbatim}
+<?php
+$config['db']['host'] = 'localhost';
+$config['db']['user'] = 'user';
+$config['db']['pass'] = 'zpi';
+$config['db']['dbname'] = 'zpi';
+$db = mysqli_connect($config['db']['host'], $config['db']['user'], 
+$config['db']['pass'], $config['db']['dbname']) 
+or die('Błąd połączenia z bazą');
+mysqli_query($db,"SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
+?>
+\end{verbatim}
+
+\paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak.
+\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni języka sql, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad bazą danych skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
+ 
+Kod w języku SQL przedstawiający utworzenie konta użytkownika user do zarządzania bazą z uprawnieniami SELECT oraz możliwością wykonywania zapytań typu DML.
+\begin{verbatim}
+CREATE USER 'user'@'%' IDENTIFIED BY 'zpi';
+GRANT SELECT, INSERT, UPDATE, DELETE ON zpi.* TO 'user'@'%';
+\end{verbatim}
+
+Kod przedstawiający ustawienie metody kodowania znaków w bazie danych na UTF-8:
+\begin{verbatim}
+CREATE DATABASE zpi CHARACTER SET utf8 COLLATE utf8_general_ci;
+\end{verbatim}
+
+Kod przedstawiający utworzenie tabeli Stanowisko:
+\begin{verbatim}
+CREATE TABLE Stanowisko (
+Id INT NOT NULL auto_increment,
+Nazwa VARCHAR(100) NOT NULL,
+PRIMARY KEY(Id)
+)ENGINE = InnoDB;
+\end{verbatim}
+
+
+\subsection{Sprint Review/Demo}
+
+Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego Sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
+Zrzut ze strony poniżej:
+\begin{figure}[!htbp]
+	\makebox[\textwidth]{\includegraphics[width=260px]{obrazy/strona.png}}
+\end{figure}
+
+Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dane za każdym razem, gdy pracownik przykładał kartę do czytnika RFID. Buzzer oraz diody LED  zaimplementowane w systemie informowały czy dane pracownika zostały poprawnie odczytane  poprzez zgaszenie  zielonej diody i zaświecenie się czerwonej diody, czemu towarzyszył pojedynczy dźwięk. Następnie po około 3 sekundach urządzenie sygnalizowało gotowość do kolejnego odczytu poprzez podwójny dźwięk i przywrócenie pierwotnego stanu diod. W tym momencie kolejny pracownik mógł już przyłożyć swoją kartę do czytnika a na stronie pojawiały się odpowiednie zmiany.
+
+\section{Sprint 2}
+
+\subsection{Cel} Celem drugiego sprintu jest rozbudowa strony o możliwość obliczania wynagrodzenia oraz funkcję dodawania i usuwania pracowników. Dzięki temu księgowy będzie mógł w łatwy sposób dokonywać co miesięcznych zestawień z wynagrodzeniami pracowników. Kadrowy natomiast dzięki funkcji dodawania i usuwania pracowników będzie miał kontrolę nad stanem załogi zakładu.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
+\begin{itemize}
+\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
+\begin{itemize}
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
+\end{itemize}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
+\subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+
+\subsection{Sprint Review/Demo}
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
+
+\section{Sprint 3}
+
+\subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+
+\subsection{Sprint Review/Demo}
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
+
+\section{Sprint 4}
+
+\subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
+
+\subsection{Sprint Planning/Backlog}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\begin{itemize}
+	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\end{itemize}
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+\subsection{Realizacja}
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} <<Tytuł>>.
+\subparagraph{Wykonawca.} <<Wykonawca>>.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{<<Tutaj dodawać kolejne zadania>>}
+
+
+\subsection{Sprint Review/Demo}
+<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
+
+\begin{thebibliography}{9}
+
+\bibitem{Cov} S. R. Covey, {\em 7 nawyków skutecznego działania}, Rebis, Poznań, 2007.
+
+\bibitem{Oet} Tobias Oetiker i wsp., Nie za krótkie wprowadzenie do systemu \LaTeX  \ $2_\varepsilon$, \url{ftp://ftp.gust.org.pl/TeX/info/lshort/polish/lshort2e.pdf}
+
+\bibitem{SchSut} K. Schwaber, J. Sutherland, {\em Scrum Guide}, \url{http://www.scrumguides.org/}, 2016.
+
+\bibitem{apr} \url{https://agilepainrelief.com/notesfromatooluser/tag/scrum-by-example}
+
+\bibitem{us} \url{https://www.tutorialspoint.com/scrum/scrum_user_stories.htm}
+
+\end{thebibliography}
+
+\end{document}
+
+% ----------------------------------------------------------------
