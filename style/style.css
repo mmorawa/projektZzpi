@@ -1,0 +1,60 @@
+body{
+	margin: 0px;
+	padding:0px;
+} 
+
+#all{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header{
+	background-color: black;
+	width: 1000px;
+	color: white;
+	text-align: center;
+	padding: 15px;
+}
+
+#nav{
+	float: left;
+	width: 120px;
+	min-height: 620px;
+	padding: 10px;
+}
+
+#page{
+	float: left;
+	padding: 20px;
+	width: 820px;
+}
+
+#tables{
+	margin: 0px;
+	position: relative;
+}
+
+#left {
+	float: left;
+	padding: 10px;
+}
+#middle {
+	float: left;
+	padding: 10px;
+}
+#right {
+    float: left;
+	margin-top: 5 px;
+	padding: 10px;
+}
+
+
+
+#footer{
+	clear: both;
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}	
