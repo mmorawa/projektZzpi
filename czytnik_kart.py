@@ -1,4 +1,4 @@
-!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf8 -*-
 
 import RPi.GPIO as GPIO
@@ -56,8 +56,18 @@ while odczyt:
     if status == Czytnik.MI_OK:
 		idkarty = str(uid[0])+str(uid[1])+str(uid[2])+str(uid[3])
 		print "ID karty: "+idkarty
-		db.execute("INSERT INTO tmp(idkarty) VALUES ("+idkarty+");")
-		connect.commit()
+		# Obsługa bazy danych
+		db.execute("SELECT Id,NaZakladzie FROM Pracownicy WHERE IdKarty='"+idkarty+"';")
+		user = db.fetchone()
+		uid = str(user[0])
+		if (user[1]==0):
+			db.execute("INSERT INTO RejestrWe(IdPracownika) VALUES ("+uid+");")
+			db.execute("UPDATE Pracownicy SET NaZakladzie=1 WHERE Id="+uid+";")
+		elif (user[1]==1):
+			db.execute("INSERT INTO RejestrWy(IdPracownika) VALUES ("+uid+");")
+			db.execute("UPDATE Pracownicy SET NaZakladzie=0 WHERE Id="+uid+";")			
+		connect.commit()	
+		# Obsługa diod oraz buzzera	
 		GPIO.output(13, 1)
 		time.sleep(1)
 		GPIO.output(13, 0)
@@ -65,9 +75,11 @@ while odczyt:
 	 	GPIO.output(13, 1)
 		time.sleep(0.2)
 		GPIO.output(13, 0)
-                time.sleep(0.2)
-                GPIO.output(13, 1)
-                time.sleep(0.2)
-                GPIO.output(13, 0)
-                GPIO.output(11, 1)
-                GPIO.output(12, 0)
+        time.sleep(0.2)
+        GPIO.output(13, 1)
+        time.sleep(0.2)
+        GPIO.output(13, 0)
+        GPIO.output(11, 1)
+        GPIO.output(12, 0)
+
+
