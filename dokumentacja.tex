@@ -151,14 +151,14 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL. Umożliwi ona wyświetlanie danych odnośnie wejścia i wyjścia pracowników z zakładu.
 
 \subsection{Backlog Item 3}
-\paragraph{Tytuł zadania.} Odczytywanie nowych kart dla pracowników.
-\paragraph{Opis zadania.} Zostanie utworzony nowy skrypt w języku python, który za pomocą czytnika RFID odczyta id nowej karty oraz wpisze je do bazy danych, tak aby podczas rejestracji nowego użytkownika można było mu przypisać odpowiednią kartę identyfikacyjną. 
+\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\paragraph{Opis zadania.} Zostanie utworzony nowy skrypt w języku Python, który za pomocą czytnika RFID odczyta numer ID nowej karty oraz wpisze je do bazy danych, tak aby podczas rejestracji nowego użytkownika można było mu przypisać odpowiednią kartę identyfikacyjną. 
 \paragraph{Priorytet.} 2.
-\paragraph{Definition of Done.} Program po przyłożeniu nowej karty do czytnika doda jej id do bazy danych oraz odpowiednio wyda sygnał diodami i buzzerem o poprawnym wykonaniu bądź o tym że dane id już jest w bazie.
+\paragraph{Definition of Done.} Program po przyłożeniu nowej karty do czytnika doda jej numer ID do bazy danych oraz odpowiednio wyda sygnał diodami i buzzerem o poprawnym wykonaniu tego zadania lub o tym, że dany numer ID jest już w bazie.
 
 \subsection{Backlog Item 4}
 \paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
-\paragraph{Opis zadania.} Strona zakładowa będzie posiadac funkcję logowania na konto użytownika. Na początku w bazie danych zostanie ręcznie utworzone konto kierownika, na które będzie mógł się zalogować. Funkcjonalność tworzenia nowych kont zostanie zaimplementowana przy dodawaniu nowych pracowników.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję logowania na konto użytkownika. Na początku w bazie danych zostanie ręcznie utworzone konto kierownika, na które będzie mógł się zalogować. Funkcjonalność tworzenia nowych kont zostanie zaimplementowana przy dodawaniu nowych pracowników.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Istnieje konto kierownika z możliwością zalogowania się na stronie.
 
@@ -181,7 +181,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 
 \subsection{Backlog Item 8}
-\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
+\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
 \paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy będą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
@@ -335,10 +335,22 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 \item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
 \end{itemize}
 
+\paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
+\begin{itemize}
+	\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
+\end{itemize}
+
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
 \begin{itemize}
 \item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
+
+\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\begin{itemize}
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (6 osobogodzin).
+\end{itemize}
+
+
 
 \subsection{Realizacja}
 
@@ -349,11 +361,25 @@ for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
+\paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} W języku python został utworzony program, który za pomocą czytnika RFID odczytuje id kart i dodaje je do bazy danych (tabela Karty). Program ten sprawdza czy odczytane id istnieje już w tej tabeli czy też nie i wydaje odpowiednio sygnały buzzerem oraz diodami led: jeśli id nieistnieje zapala się zielona dioda wydawanyn jest jeden dłuższy sygnał a  po 3sekundach 2 krótsze a id jest dopisywane do bazy, w przeciwnym wypadku nadal pali się czerwona dioda a buzzer wydaje 5x krótki sygnał.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
+\paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
+
+\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
+\subparagraph{Realizacja.} W języku Python został utworzony program, który za pomocą czytnika RFID odczytuje numery ID kart i dodaje je do bazy danych (tabela Karty). Program ten sprawdza czy odczytane ID istnieje już w tej tabeli czy też nie i wydaje odpowiednie sygnały buzzerem oraz diodami LED. Jeśli ID nie istnieje, zapala się zielona dioda i wydawany jest jeden dłuższy sygnał a po 3 sekundach 2 krótsze, wtedy numer ID jest dopisywany do bazy. W przeciwnym wypadku nadal pali się czerwona dioda a buzzer wydaje 5x krótki sygnał.
+
+
 
 
 \subsection{Sprint Review/Demo}
