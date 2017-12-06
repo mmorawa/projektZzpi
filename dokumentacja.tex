@@ -151,48 +151,54 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL. Umożliwi ona wyświetlanie danych odnośnie wejścia i wyjścia pracowników z zakładu.
 
 \subsection{Backlog Item 3}
+\paragraph{Tytuł zadania.} Odczytywanie nowych kart dla pracowników.
+\paragraph{Opis zadania.} Zostanie utworzony nowy skrypt w języku python, który za pomocą czytnika RFID odczyta id nowej karty oraz wpisze je do bazy danych, tak aby podczas rejestracji nowego użytkownika można było mu przypisać odpowiednią kartę identyfikacyjną. 
+\paragraph{Priorytet.} 2.
+\paragraph{Definition of Done.} Program po przyłożeniu nowej karty do czytnika doda jej id do bazy danych oraz odpowiednio wyda sygnał diodami i buzzerem o poprawnym wykonaniu bądź o tym że dane id już jest w bazie.
+
+\subsection{Backlog Item 4}
 \paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
 \paragraph{Opis zadania.} Strona zakładowa będzie posiadac funkcję logowania na konto użytownika. Na początku w bazie danych zostanie ręcznie utworzone konto kierownika, na które będzie mógł się zalogować. Funkcjonalność tworzenia nowych kont zostanie zaimplementowana przy dodawaniu nowych pracowników.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Istnieje konto kierownika z możliwością zalogowania się na stronie.
 
-\subsection{Backlog Item 4}
+\subsection{Backlog Item 5}
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \paragraph{Opis zadania.} System na podstawie danych zgromadzonych w bazie, będzie zliczał godziny przepracowane przez poszczególnego pracownika, po czym wyznaczy miesięczne wynagrodzenie zgodnie z określoną stawką godzinową zawartą w umowie. Pracownicy otrzymywać będą wynagrodzenie tylko za pełne godziny przepracowane na zakładzie w przedziale czasowym od ósmej do szesnastej. Gdy pracownik przyjdzie do zakładu w trakcie trwającej godziny pracy będzie mógł otrzymać zapłatę dopiero za następną pełną godzinę.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} System będzie wyliczał wynagrodzenie miesięczne pracowników na podstawie przepracowanych pełnych godzin. Zliczanie rozpoczyna się od godz. 8.00, kończy o godz. 16.00. Tylko przepracowanie pełnej godziny gwarantuje otrzymanie za nią wynagrodzenia. Istotna jest punktualność.
 
-\subsection{Backlog Item 5}
+\subsection{Backlog Item 6}
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
 
-\subsection{Backlog Item 6}
+\subsection{Backlog Item 7}
 \paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 \paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca dział księgowy będzie musiał wydrukować dokumenty zawierające dane o miesięcznych wynagrodzeniach brutto pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie opcje do wykonania tej czynności.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 
-\subsection{Backlog Item 7}
+\subsection{Backlog Item 8}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
 \paragraph{Opis zadania.} Za pośrednictwem strony zakładowej, kadrowy będzie miał możliwość dodawania nowych pracowników oraz ich usuwania w przypadku zwolnienia. Nowi pracownicy będą dodawani do bazy danych oraz będą mieli możliwość logowania się na stronę zakładu.
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Kadrowy będzie mógł dodawać i usuwać pracowników z systemu za pomocą strony zakładowej.
 
-\subsection{Backlog Item 8}
+\subsection{Backlog Item 9}
 \paragraph{Tytuł zadania.} Utworzenie lokalnego serwera HTTP i FTP dla systemu.
 \paragraph{Opis zadania.} Dostęp do serwera powinien być ograniczony do sieci wewnętrznej w celu zabezpieczenia przed zewnętrznymi atakami. Na serwerze znajdować się będzie usługa WWW z obsługą PHP.
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Istnieje w pełni działający lokalny serwer HTTP Apache, na którym zostanie zainstalowany interpreter PHP w celu uruchomienia strony internetowej zakładu, która pozwala na kontakt z bazą danych.
 
-\subsection{Backlog Item 9}
+\subsection{Backlog Item 10}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której kierownik, kadrowy czy pracownik będzie mógł wysłać prośbę o przypomnienie hasła. W tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail danej osoby. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi jego zmianę na nowe prywatne hasło.
 \paragraph{Priorytet.} 5.
 \paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia kierownikowi, kadrowemu oraz pracownikom przypomnienie hasła oraz jego zmianę w systemie.
 
-\subsection{Backlog Item 10}
+\subsection{Backlog Item 11}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
 \paragraph{Priorytet.} 3.
@@ -205,7 +211,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \item Zmiany stawki wynagrodzenia pracownika.
 \end {itemize}
 
-\subsection{Backlog Item 11}
+\subsection{Backlog Item 12}
 \paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
 \paragraph{Opis zadania.} Utworzona baza ma gromadzić informację niezbędne do funkcjonowania systemu. Na przykład po przyłożeniu karty do czytnika RFID jest wprowadzona informacja, do odpowiedniej tabeli w bazie, o godzinie wejścia lub wyjścia pracownika na teren zakładu. 
 \paragraph{Priorytet.} 1.
