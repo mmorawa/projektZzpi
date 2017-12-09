@@ -13,6 +13,7 @@ CREATE TABLE Pracownicy	(
 Id INT NOT NULL auto_increment,
 IdKarty INT (100) NOT NULL,
 IdStanowiska INT (100) NOT NULL,
+NaZakladzie INT (11) NOT NULL,
 Nazwisko VARCHAR(100) NOT NULL,
 Imie VARCHAR(300) NOT NULL,
 DataZatrudnienia DATE,
@@ -24,29 +25,34 @@ KodPocztowy VARCHAR (10) NOT NULL,
 Stawka FLOAT,
 StawkaNadgodzin FLOAT ,
 PRIMARY KEY(Id),
-FOREIGN KEY(IdStanowiska) REFERENCES Stanowisko(Id)
-) ENGINE = InnoDB;
+FOREIGN KEY(IdStanowiska) REFERENCES Stanowisko(Id),
+FOREIGN KEY(IdKarty) REFERENCES Karty(Id)
+) ENGINE= InnoDB;
+
+CREATE TABLE Karty(
+Id INT (10) NOT NULL auto_increment,
+IdKarty VARCHAR (100) NOT NULL,
+PRIMARY KEY(Id)
+)ENGINE= InnoDB;
 
 CREATE TABLE  RejestrWe (
-Id INT NOT NULL auto_increment,
-IdPracownika INT NOT NULL,
-godz_WE TIME NOT NULL,
-kiedy	DATE	NOT NULL,
+Id INT (11) NOT NULL auto_increment,
+IdPracownika INT (11) NOT NULL,
+godz_WE TIMESTAMP,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
 ) ENGINE= InnoDB;
 
 CREATE TABLE  RejestrWy (
-Id INT NOT NULL auto_increment,
-IdPracownika INT NOT NULL,
-godz_WY TIME NOT NULL,
-kiedy	DATE	NOT NULL,
+Id INT (11) NOT NULL auto_increment,
+IdPracownika INT (11) NOT NULL,
+godz_WY TIMESTAMP,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
 ) ENGINE= InnoDB;
 
 CREATE TABLE ZestawienieDzienne(
-Id	INT NOT NULL auto_increment,
+Id	INT (11) NOT NULL auto_increment,
 IdPracownika	INT(100) NOT NULL,
 Dzien DATE,
 CzasPracy TIME,
@@ -62,7 +68,7 @@ IdPracownika	INT(100) NOT NULL,
 DataPodsumowania DATE,
 CzasPracy TIME,
 Nadgodziny TIME,
-LiczbaSpoznien INT NOT NULL,
+LiczbaSpoznien INT (11),
 CzasSpoznien TIME,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
@@ -72,15 +78,15 @@ FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
 CREATE TABLE Wynagrodzenie	(
 Id INT NOT NULL auto_increment,
 IdPracownika INT (100) NOT NULL,
-DataPodsumowania DATE,
+DataPodsumowania DATETIME,
 Kwota FLOAT NOT NULL,
 PRIMARY KEY(Id),
 FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE WebSiteUsers(
-Id INT NOT NULL auto_increment,
-IdPracownika INT NOT NULL,
+Id INT (11) NOT NULL auto_increment,
+IdPracownika INT (11) NOT NULL,
 Login VARCHAR(100) NOT NULL,
 Haslo	VARCHAR(300) NOT NULL,
 Email	VARCHAR(100) NOT NULL,
