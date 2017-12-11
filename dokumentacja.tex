@@ -151,7 +151,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Zostanie utworzona strona www przy pomocy technologi HTML, PHP którą będzie połączona z bazą danych MySQL. Umożliwi ona wyświetlanie danych odnośnie wejścia i wyjścia pracowników z zakładu.
 
 \subsection{Backlog Item 3}
-\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\paragraph{Tytuł zadania.} Dodawanie nowych kart do bazy danych.
 \paragraph{Opis zadania.} Zostanie utworzony nowy skrypt w języku Python, który za pomocą czytnika RFID odczyta numer ID nowej karty oraz wpisze je do bazy danych, tak aby podczas rejestracji nowego użytkownika można było mu przypisać odpowiednią kartę identyfikacyjną. 
 \paragraph{Priorytet.} 2.
 \paragraph{Definition of Done.} Program po przyłożeniu nowej karty do czytnika doda jej numer ID do bazy danych oraz odpowiednio wyda sygnał diodami i buzzerem o poprawnym wykonaniu tego zadania lub o tym, że dany numer ID jest już w bazie.
@@ -326,7 +326,8 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 
 \section{Sprint 2}
 
-\subsection{Cel} Celem drugiego sprintu jest rozbudowa strony o możliwość obliczania wynagrodzenia oraz funkcję dodawania i usuwania pracowników. Dzięki temu księgowy będzie mógł w łatwy sposób dokonywać co miesięcznych zestawień z wynagrodzeniami pracowników. Kadrowy natomiast dzięki funkcji dodawania i usuwania pracowników będzie miał kontrolę nad stanem załogi zakładu.
+\subsection{Cel} Celem drugiego sprintu jest rozbudowa strony internetowej zakładu o takie funkcje jak: logowanie, funkcję dodawania i usuwania pracowników oraz możliwość obliczania ich wynagrodzenia. W efekcie dostęp do strony zostanie zabezpieczony przed nieuprawnionymi osobami a kadrowy i księgowy zyskają nowe narzędzia ułatwiające ich pracę. Ten pierwszy uzyska kontrolę nad zmianami liczebności załogi zakładu natomiast ten drugi będzie mógł w łatwy sposób dokonywać co miesięcznych zestawień z wynagrodzeniami pracowników. Ponadto dodana zostanie funkcja ułatwiająca dodawanie nowych kart pracowniczych do bazy danych w ten sposób, iż nie trzeba będzie ręcznie wprowadzać numeru ID karty do bazy, ale wystarczy jedynie przyłożenie jej do czytnika RFID a program wykona odpowiednie operacje.
+
 
 \subsection{Sprint Planning/Backlog}
 
@@ -345,7 +346,7 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 \item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
 
-\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\paragraph{Tytuł zadania.} Dodawanie nowych kart do bazy danych.
 \begin{itemize}
 \item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (6 osobogodzin).
 \end{itemize}
@@ -375,7 +376,7 @@ for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytuł zadania.} Dodawanie nowych kart dla pracowników.
+\paragraph{Tytuł zadania.} Dodawanie nowych kart do bazy danych.
 \subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
 \subparagraph{Realizacja.} W języku Python został utworzony program, który za pomocą czytnika RFID odczytuje numery ID kart i dodaje je do bazy danych (tabela Karty). Program ten sprawdza czy odczytane ID istnieje już w tej tabeli czy też nie i wydaje odpowiednie sygnały buzzerem oraz diodami LED. Jeśli ID nie istnieje, zapala się zielona dioda i wydawany jest jeden dłuższy sygnał a po 3 sekundach 2 krótsze, wtedy numer ID jest dopisywany do bazy. W przeciwnym wypadku nadal pali się czerwona dioda a buzzer wydaje 5x krótki sygnał.
 
