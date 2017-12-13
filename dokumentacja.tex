@@ -364,9 +364,33 @@ for (i=1; i<10; i++)
 
 \paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
+ \subparagraph{Realizacja.} W języku PHP został napisany fragment kodu uzupełniający stronę zakładową, odpowiadający za logowanie się użytkowników. Został on napisany w edytorze tekstu Notepad++, który pozwala na sprawną modyfikację kodu oraz kontrolę składni wybranego języka. Po wejściu na stronę wyświetla się formularz z miejscem na wpisanie loginu użytkownika oraz hasła. Na stronę będą mogli się zalogowac pracownicy dodani do bazy MySQL. Pracownik, który wejdzie na strone i będzie chciał się zalogować będzie musiał wpisać login oraz hasło. Fragment kodu przedstawionego poniżej programu sprawdzi w bazie czy istnieje pracownik z podanym loginem oraz czy podane hasło odpowiada zaszyfrowanemu hasłu w bazie danych. Jesli login i hasło zostaną podane poprawnie, pracownik otrzyma dostep do zawartości strony zakładowej i odpowiednich funkcji stosownych do jego stanowiska. W razie podanych błędnych danych do logowania, zostaną wyświetlone odpowiednie komunikaty odpowiednie dla błędnego loginu "Nie istnieje takie konto użytkownika!" lub błędnego hasła "Podane hasło jest nieprawidłowe!". 
+Kod programu (środowisko \texttt{verbatim}): 
+\begin{verbatim}
+if(!empty($_POST)){
+	if (!empty($_POST['login']) && (!empty($_POST['password']))){
+		$login=$_POST['login'];
+		$password=$_POST['password'];
+		//sprawdzenie poprawności
+		$dane = mysqli_query($db , "SELECT * FROM websiteusers WHERE Login='$login' LIMIT 1");
+		if (mysqli_num_rows($dane)===1){
+			$dane=mysqli_fetch_assoc($dane);
+			if (md5($password)===$dane['Haslo']){
+                //logowanie i pobranie sesji
+				$_SESSION['id'] = $dane['Id'];
+				header("Location: ?a=start");
+			}
+			else {
+				echo '<CENTER>Podane hasło jest nieprawidłowe!</CENTER><BR>';
+			}
+		}
+		else {
+			echo '<CENTER>Nie istnieje takie konto użytkownika!</CENTER><BR>';
+		}		
+	}else {
+		echo '<CENTER>Uzupełnij wszystkie dane!</CENTER><BR>';
+	}
+};
 \end{verbatim}>>.
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
