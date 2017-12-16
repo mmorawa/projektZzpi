@@ -9,7 +9,7 @@
 
 <div id="all">
 	<div id="header">
-	<h1>Najlepszu sssstronku Łukasza Mirka :)</h1>
+	<h1>Strona zakładowa v0.2</h1>
 	</div>
 	<div id="nav">
 	</div>
