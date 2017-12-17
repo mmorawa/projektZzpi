@@ -9,8 +9,33 @@
 
 <div id="all">
 	<div id="header">
-	<h1>Strona Zakładowa v0.1</h1>
+	<?php
+	$pracownik = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM Pracownicy WHERE Id=".$_SESSION['id'].""));
+	$imie = $pracownik['Imie'];
+	$nazwisko = $pracownik['Nazwisko'];
+	$idstanowiska = $pracownik['IdStanowiska'];
+	$stanowisko = mysqli_fetch_array(mysqli_query($db, "SELECT Nazwa FROM Stanowisko WHERE Id=".$idstanowiska.""));
+	$stanowisko = $stanowisko[0];
+	echo "Zalogowano jako ".$imie." ".$nazwisko." na stanowisku ".$stanowisko;
+	?>
+	
 	</div>
 	<div id="nav">
+	<a href="?a=start"> Strona główna </a><BR><BR>
+	<a href="?a=nazakladzie"> Pracownicy na zakładzie </a><BR><BR>
+	<?php
+	if ($idstanowiska != 4){
+		echo "<a href='?a=podsumowanie'> Podsumowanie </a><BR><BR>";
+
+		echo "<a href='?a=dodaj'> Dodaj nowego pracownika </a><BR>";
+	}
+	?>
+	<BR>
+	<BR>
+	
+	
+	
+	
+	<a href="?a=logout"> Wyloguj </a>
 	</div>
 	<div id="page">
