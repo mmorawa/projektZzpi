@@ -401,9 +401,37 @@ if(!empty($_POST)){
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
+\subparagraph{Realizacja.} W jezyku PHP zostały napisany skrypty i umieszczony na stronę zakładową w odpowiedniej zakładce menu, odpowiadające za dodanie do bazy danych pracownika za pomocą zamieszczonego formularza. Podczas dodawania pracownika kierownik bądź kadrowy po uzupełnieniu danych osobowych nowego pracownika, będzie tworzył dla niego konto umożliwiające logowanie na stronę zakładową z odpowiednim loginem oraz hasłem. Za usuwanie pracownika będzie odpowiadał osobny skrypt. Operacja usuwania będzię się odbywała w osobnej zakłądce menu, kierownik bądź kadrowy na liście pracowników znajdzie pracownika do usunięcia następnie wpisze jego ID w formularzu i usunie go.
+Dodawanie pracownika.
+Kod programu (środowisko \texttt{verbatim}): 
+\begin{verbatim}
+$password = md5($password);
+$db->query("INSERT INTO websiteusers (Id, Login, Password, Email) VALUES (NULL, '$login','$password','$email')");
+$db->query("INSERT INTO pracownicy (Id, IdKarty, IdStanowiska, NaZakladzie, Nazwisko, Imie, Miejscowosc, Ulica, NrDomu, NrMieszkania, KodPocztowy, Stawka)VALUES (NULL, '$idkarty','$idstanowiska','NULL','$nazwisko','$imie', '$miejscowosc', '$ulica',
+'$nrdomu', '$nrmieszkania', '$kodpocztowy', '$stawka');");
+echo "<CENTER>Konto zostało pomyślnie założone!</CENTER>";
+\end{verbatim}>>.
+Usuwanie pracownika.
+Kod programu (środowisko \texttt{verbatim}): 
+\begin{verbatim}
+if ( $id > 1){ 
+		$zapytanie="DELETE from RejestrWe WHERE IdPracownika='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+		$zapytanie="DELETE from RejestrWy WHERE IdPracownika='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+		$zapytanie="DELETE from WebSiteUsers WHERE IdPracownika='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+		$zapytanie="DELETE from ZestawienieDzienne WHERE IdPracownika='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+		$zapytanie="DELETE from ZestawienieMiesieczne WHERE IdPracownika='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+		$zapytanie="DELETE from Pracownicy WHERE Id='$id'"; 
+		$wykonaj = mysqli_query($db,$zapytanie);
+	}
+	else{
+		echo "Nie można zwolnić głównego kierownika!";
+	}
+}
 \end{verbatim}>>.
 
 \paragraph{Tytuł zadania.} Dodawanie nowych kart do bazy danych.
