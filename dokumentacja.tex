@@ -401,15 +401,57 @@ if(!empty($_POST)){
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} W jezyku PHP został napisany skrypt i umieszczony na stronę zakładową w odpowiedniej zakładce menu, odpowiadający za dodanie do bazy danych pracownika za pomocą zamieszczonego formularza. Podczas dodawania pracownika kierownik bądź kadrowy po uzupełnieniu danych osobowych nowego pracownika, będzie tworzył dla niego konto umożliwiające logowanie na stronę zakładową z odpowiednim loginem oraz hasłem. Za usuwanie pracownika będzie odpowiadał osobny skrypt. Operacja usuwania będzię się odbywała w osobnej zakłądce menu, kierownik bądź kadrowy na liście pracowników znajdzie pracownika do usunięcia następnie wpisze jego ID w formularzu i usunie go.
+\subparagraph{Realizacja.} W jezyku PHP został napisany skrypt i umieszczony na stronę zakładową w odpowiedniej zakładce menu, odpowiadający za dodanie do bazy danych pracownika za pomocą zamieszczonego formularza. Podczas dodawania pracownika kierownik bądź kadrowy po uzupełnieniu danych osobowych nowego pracownika, będzie tworzył dla niego konto umożliwiające zalogowanie się na stronę zakładową z odpowiednim loginem oraz hasłem. Za usuwanie pracownika będzie odpowiadał osobny skrypt. Operacja usuwania będzię się odbywała w osobnej zakładce menu, kierownik bądź kadrowy na liście pracowników znajdzie pracownika do usunięcia następnie wpisze jego ID w formularzu i usunie go.
 Dodawanie pracownika.
 Kod programu (środowisko \texttt{verbatim}): 
 \begin{verbatim}
-$password = md5($password);
-$db->query("INSERT INTO websiteusers (Id, Login, Password, Email) VALUES (NULL, '$login','$password','$email')");
-$db->query("INSERT INTO pracownicy (Id, IdKarty, IdStanowiska, NaZakladzie, Nazwisko, Imie, Miejscowosc, Ulica, NrDomu, NrMieszkania, KodPocztowy, Stawka)VALUES (NULL, '$idkarty','$idstanowiska','NULL','$nazwisko','$imie', '$miejscowosc', '$ulica',
-'$nrdomu', '$nrmieszkania', '$kodpocztowy', '$stawka');");
-echo "<CENTER>Konto zostało pomyślnie założone!</CENTER>";
+<?php
+if(!empty($_POST)){
+if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email'])) echo '<CENTER>Uzupełnij wszystkie pola!</CENTER><BR>';
+else
+	{
+	$connection	= new mysqli("localhost","root", "" ,"zpi");
+	$login = ($_POST['login']);
+	$password = ($_POST['password']);
+	$email = ($_POST['email']);
+	$idkarty = $_POST['idkarty'];
+	
+	$idstanowiska =	($_POST['idstanowiska']);
+	$nazwisko = $_POST['nazwisko'];
+	$imie = $_POST['imie'];
+	$datazatrudnienia =	$_POST['datazatrudnienia'];
+	$miejscowosc = $_POST['miejscowosc'];
+	$ulica	= $_POST['ulica'];
+	$nrdomu	= $_POST['nrdomu'];
+	$nrmieszkania = $_POST['nrmieszkania'];
+	$kodpocztowy = $_POST['kodpocztowy'];
+	$stawka	=	$_POST['stawka'];
+	$connection->query("SELECT * FROM stanowisko WHERE id =$idstanowiska");
+	$connection->query("SELECT * FROM karty WHERE id =$idkarty");
+	//sprawdzanie poprawności znaków
+	if (! ctype_alnum($login) ) echo '<CENTER>Wprowadzono nieprawidłową nazwę użytkownika!</CENTER><BR>';
+	else if (! filter_var($email,FILTER_VALIDATE_EMAIL) ) echo '<CENTER>Wprowadzono nieprawidłowy adres email!</CENTER><BR>!';
+	else{ 
+
+		// sprawdzanie czy dane istnieją
+		$login2 = ($connection->query("SELECT Login FROM websiteusers WHERE Login='$login' "));
+		$login2 = mysqli_fetch_assoc($login2);
+		$email2 = ($connection->query("SELECT Email FROM websiteusers WHERE Email='$email' "));
+		$email2 = mysqli_fetch_assoc($email2);
+		//warunki jeżeli zajęty login lub email
+		if (($login2['Login'])!='') echo '<CENTER>Nazwa użytkownika jest już zajęta!</CENTER><BR>';
+		elseif (($email2['Email'])!='') echo '<CENTER>Wprowadzony adres E-mail jest już zajęty!</CENTER><BR>';
+		else{
+			// zakladanie konta
+			$password = md5($password);
+			$connection->query("INSERT INTO users (Login,Password,Email) VALUES ('$login','$password','$email')");
+			$connection->query("INSERT INTO pracownicy (IdKarty, Nazwisko, Imie, Miejscowosc, Ulica, NrDomu, NrMieszkania, KodPocztowy, Stawka)VALUES ('$idkarty', '$nazwisko', '$imie', '$miejscowosc', '$ulica', '$nrdomu', '$nrmieszkania', '$kodpocztowy', '$stawka');");
+			echo "<CENTER>Konto zostało pomyślnie założone!</CENTER>";
+		}
+	}
+}
+};
+?>
 \end{verbatim}>>.
 Usuwanie pracownika.
 Kod programu (środowisko \texttt{verbatim}): 
