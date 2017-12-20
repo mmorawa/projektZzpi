@@ -332,8 +332,7 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 
 \section{Sprint 2}
 
-\subsection{Cel} Celem drugiego sprintu jest rozbudowa strony internetowej zakładu o takie funkcje jak: logowanie, funkcję dodawania i usuwania pracowników oraz możliwość obliczania ich łącznie przepracowanego czasu. W efekcie dostęp do strony zostanie zabezpieczony przed nieuprawnionymi osobami a kadrowy i księgowy zyskają nowe narzędzia ułatwiające ich pracę. Ten pierwszy uzyska kontrolę nad zmianami liczebności załogi zakładu natomiast ten drugi będzie mógł w łatwy sposób dokonywać co miesięcznych zestawień z wynagrodzeniami pracowników. Ponadto dodana zostanie funkcja ułatwiająca dodawanie nowych kart pracowniczych do bazy danych w ten sposób, iż nie trzeba będzie ręcznie wprowadzać numeru ID karty do bazy, ale wystarczy jedynie przyłożenie jej do czytnika RFID a program wykona odpowiednie operacje.
-
+\subsection{Cel} Celem drugiego sprintu jest rozbudowa strony internetowej zakładu o takie funkcje jak: logowanie, funkcję dodawania i usuwania pracowników oraz możliwość obliczania przepracowanego przez nich czasu. W efekcie dostęp do strony zostanie zabezpieczony przed nieuprawnionymi osobami a kadrowy i księgowy zyskają nowe narzędzia ułatwiające ich pracę. Ten pierwszy uzyska kontrolę nad zmianami liczebności załogi zakładu, natomiast ten drugi będzie mógł w łatwy sposób dokonywać co miesięcznych zestawień przepracowanych godzin przez zatrudnione osoby. Ponadto dodana zostanie funkcja ułatwiająca dodawanie nowych kart pracowniczych do bazy danych w ten sposób, iż nie trzeba będzie ręcznie wprowadzać numeru ID karty do bazy, ale wystarczy samo jej przyłożenie do czytnika RFID a program automatycznie wykona powyższą operację.
 
 \subsection{Sprint Planning/Backlog}
 
@@ -344,7 +343,7 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 
 \paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
 \begin{itemize}
-	\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
+\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie nowych pracowników.
@@ -363,14 +362,33 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 
 \paragraph{Tytuł zadania.} Podsumowanie przepracowanych godzin.
 \subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.} W celu realizacji powyższego zadania została stworzona nowa zakładka w menu strony zakładowej zawierająca kod wykonany w języku PHP. Po jej kliknięciu następuje sprawdzenie, kiedy miało miejsce ostatnie podsumowanie przepracowanych godzin oraz wyświetlenie daty tego zestawienia. Jeśli operacja ta odbyła się w innym miesiącu niż obecny to pojawia się możliwość zainicjowania nowego podsumowania poprzez naciśnięcie przycisku "Podsumuj". Wtedy uruchomiona zostaje pętla sprawdzająca i wyświetlająca czas pracy każdego pracownika, znajdującego się w bazie danych, w poszczególnych dniach miesiąca. Otrzymane w ten sposób wartości są zaokrąglane poprzez funkcję floor w celu uzyskania pełnych godzin spędzonych na zakładzie. Po zakończeniu wykonywania się pętli zostaje wyświetlona tabela podsumowująca ilość godzin przepracowanych przez każdego pracownika w danym miesiącu. Powyższe zadanie było jak dotąd najtrudniejsze ze wszystkich do wykonania - w szczególności kwestia obliczania czasu pracy pracownika, który w ciągu dnia kilkakrotnie przychodził i opuszczał zakład, sprawiła najwięcej problemów, dlatego będzie w pełni zaimplementowana dopiero w kolejnym sprincie jako osobne zadanie.
+Kod programu wyświetlający miesięczne podsumowanie godzin przepracowanych przez zatrudnione osoby (środowisko \texttt{verbatim}): \begin{verbatim}
+for($i=0;$i<=$liczbapracownikow-1;$i++){
+   for ($j=0;$j<=3;$j++){
+       switch($j){
+          case 0:
+             echo "Pracownik : ";
+             break;
+          case 1:
+             echo " WE : ";
+             break;
+          case 2:
+             echo " WY : ";
+             break;	
+          case 3:
+             echo " Godziny: ";
+             break;
+       }
+       echo $podsum[$i][$j];
+   }
+   echo "</BR>";
+}
+\end{verbatim}
 
 \paragraph{Tytuł zadania.} Logowanie do strony zakładowej.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
- \subparagraph{Realizacja.} W języku PHP został napisany fragment kodu uzupełniający stronę zakładową, odpowiadający za logowanie się użytkowników. Został on napisany w edytorze tekstu Notepad++, który pozwala na sprawną modyfikację kodu oraz kontrolę składni wybranego języka. Po wejściu na stronę wyświetla się formularz z miejscem na wpisanie loginu użytkownika oraz hasła. Na stronę będą mogli się zalogować kierownik, księgowy, kadrowy oraz pracownicy dodani do bazy MySQL. Pracownik, który wejdzie na strone i będzie chciał się zalogować będzie musiał wpisać login oraz hasło. Fragment kodu przedstawionego poniżej programu sprawdzi w bazie czy istnieje pracownik z podanym loginem oraz czy podane hasło odpowiada zaszyfrowanemu hasłu w bazie danych. Jesli login i hasło zostaną podane poprawnie, pracownik otrzyma dostep do zawartości strony zakładowej i odpowiednich funkcji stosownych do jego stanowiska. W razie podanych błędnych danych do logowania, zostaną wyświetlone odpowiednie komunikaty odpowiednie dla błędnego loginu "Nie istnieje takie konto użytkownika!" lub błędnego hasła "Podane hasło jest nieprawidłowe!". 
+\subparagraph{Realizacja.} W języku PHP został napisany fragment kodu uzupełniający stronę zakładową, odpowiadający za logowanie się użytkowników. Został on napisany w edytorze tekstu Notepad++, który pozwala na sprawną modyfikację kodu oraz kontrolę składni wybranego języka. Po wejściu na stronę wyświetla się formularz z miejscem na wpisanie loginu użytkownika oraz hasła. Na stronę będą mogli się zalogować kierownik, księgowy, kadrowy oraz pracownicy dodani do bazy MySQL. Pracownik, który wejdzie na stronę i będzie chciał się zalogować musi wpisać login oraz hasło. Fragment kodu przedstawionego poniżej programu sprawdzi w bazie czy istnieje pracownik z podanym loginem oraz czy podane hasło odpowiada zaszyfrowanemu hasłu w bazie danych. Jeśli login i hasło zostaną podane poprawnie, pracownik otrzyma dostęp do zawartości strony zakładowej i odpowiednich funkcji stosownych do jego stanowiska. W razie podania błędnych danych do logowania, zostaną wyświetlone odpowiednie komunikaty: dla błędnego loginu "Nie istnieje takie konto użytkownika!" lub dla błędnego hasła "Podane hasło jest nieprawidłowe!". 
 Kod programu (środowisko \texttt{verbatim}): 
 \begin{verbatim}
 if(!empty($_POST)){
@@ -378,7 +396,8 @@ if(!empty($_POST)){
 		$login=$_POST['login'];
 		$password=$_POST['password'];
 		//sprawdzenie poprawności
-		$dane = mysqli_query($db , "SELECT * FROM websiteusers WHERE Login='$login' LIMIT 1");
+		$dane = mysqli_query($db , "SELECT * FROM websiteusers 
+		WHERE Login='$login' LIMIT 1");
 		if (mysqli_num_rows($dane)===1){
 			$dane=mysqli_fetch_assoc($dane);
 			if (md5($password)===$dane['Haslo']){
@@ -397,17 +416,18 @@ if(!empty($_POST)){
 		echo '<CENTER>Uzupełnij wszystkie dane!</CENTER><BR>';
 	}
 };
-\end{verbatim}>>.
+\end{verbatim}
 
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} W jezyku PHP został napisany skrypt i umieszczony na stronę zakładową w odpowiedniej zakładce menu, odpowiadający za dodanie do bazy danych pracownika za pomocą zamieszczonego formularza. Podczas dodawania pracownika kierownik bądź kadrowy po uzupełnieniu danych osobowych nowego pracownika, będzie tworzył dla niego konto umożliwiające zalogowanie się na stronę zakładową z odpowiednim loginem oraz hasłem. Za usuwanie pracownika będzie odpowiadał osobny skrypt. Operacja usuwania będzię się odbywała w osobnej zakładce menu, kierownik bądź kadrowy na liście pracowników znajdzie pracownika do usunięcia następnie wpisze jego ID w formularzu i usunie go.
-Dodawanie pracownika.
-Kod programu (środowisko \texttt{verbatim}): 
+\subparagraph{Realizacja.} W języku PHP został napisany skrypt i umieszczony na stronie zakładowej w odpowiedniej zakładce menu, odpowiadający za dodanie do bazy danych pracownika za pomocą zamieszczonego formularza. Podczas tej operacji kierownik bądź kadrowy, po uzupełnieniu danych osobowych nowego pracownika, będzie tworzył dla niego konto umożliwiające logowanie na stronę zakładową z odpowiednim loginem oraz hasłem. Za usuwanie pracownika odpowiada osobny skrypt znajdujący się w osobnej zakładce menu. Dzięki niemu kierownik bądź kadrowy po znalezieniu na liście pracowników osoby do zwolnienia wpisuje jej ID w formularzu i poprzez kliknięcie na przycisk dokonuje jej usunięcia z bazy danych.
+Kod programu odpowiedzialny za dodawanie pracownika. (środowisko \texttt{verbatim}): 
 \begin{verbatim}
 <?php
 if(!empty($_POST)){
-if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email'])) echo '<CENTER>Uzupełnij wszystkie pola!</CENTER><BR>';
+if (empty($_POST['login']) || empty($_POST['password'])
+|| empty($_POST['email']))
+echo '<CENTER>Uzupełnij wszystkie pola!</CENTER><BR>';
 else
 	{
 	$connection	= new mysqli("localhost","root", "" ,"zpi");
@@ -429,32 +449,43 @@ else
 	$connection->query("SELECT * FROM stanowisko WHERE id =$idstanowiska");
 	$connection->query("SELECT * FROM karty WHERE id =$idkarty");
 	//sprawdzanie poprawności znaków
-	if (! ctype_alnum($login) ) echo '<CENTER>Wprowadzono nieprawidłową nazwę użytkownika!</CENTER><BR>';
-	else if (! filter_var($email,FILTER_VALIDATE_EMAIL) ) echo '<CENTER>Wprowadzono nieprawidłowy adres email!</CENTER><BR>!';
+	if (! ctype_alnum($login) ) 
+	echo '<CENTER>Wprowadzono nieprawidłową nazwę 
+	użytkownika!</CENTER><BR>';
+	else if (! filter_var($email,FILTER_VALIDATE_EMAIL) ) 
+	echo '<CENTER>Wprowadzono 
+	nieprawidłowy adres email!</CENTER><BR>!';
 	else{ 
 
 		// sprawdzanie czy dane istnieją
-		$login2 = ($connection->query("SELECT Login FROM websiteusers WHERE Login='$login' "));
+		$login2 = ($connection->query("SELECT Login FROM websiteusers 
+		WHERE Login='$login' "));
 		$login2 = mysqli_fetch_assoc($login2);
-		$email2 = ($connection->query("SELECT Email FROM websiteusers WHERE Email='$email' "));
+		$email2 = ($connection->query("SELECT Email FROM websiteusers 
+		WHERE Email='$email' "));
 		$email2 = mysqli_fetch_assoc($email2);
 		//warunki jeżeli zajęty login lub email
-		if (($login2['Login'])!='') echo '<CENTER>Nazwa użytkownika jest już zajęta!</CENTER><BR>';
-		elseif (($email2['Email'])!='') echo '<CENTER>Wprowadzony adres E-mail jest już zajęty!</CENTER><BR>';
+		if (($login2['Login'])!='') echo '<CENTER>Nazwa użytkownika 
+		jest już zajęta!</CENTER><BR>';
+		elseif (($email2['Email'])!='') echo '<CENTER>Wprowadzony 
+		adres E-mail jest już zajęty!</CENTER><BR>';
 		else{
 			// zakladanie konta
 			$password = md5($password);
-			$connection->query("INSERT INTO users (Login,Password,Email) VALUES ('$login','$password','$email')");
-			$connection->query("INSERT INTO pracownicy (IdKarty, Nazwisko, Imie, Miejscowosc, Ulica, NrDomu, NrMieszkania, KodPocztowy, Stawka)VALUES ('$idkarty', '$nazwisko', '$imie', '$miejscowosc', '$ulica', '$nrdomu', '$nrmieszkania', '$kodpocztowy', '$stawka');");
+			$connection->query("INSERT INTO users (Login,Password,Email) 
+			VALUES ('$login','$password','$email')");
+			$connection->query("INSERT INTO pracownicy (IdKarty, Nazwisko, 
+			Imie, Miejscowosc, Ulica, NrDomu, NrMieszkania, KodPocztowy, Stawka)
+			VALUES ('$idkarty', '$nazwisko', '$imie', '$miejscowosc', '$ulica',
+			 '$nrdomu', '$nrmieszkania', '$kodpocztowy', '$stawka');");
 			echo "<CENTER>Konto zostało pomyślnie założone!</CENTER>";
 		}
 	}
 }
 };
 ?>
-\end{verbatim}>>.
-Usuwanie pracownika.
-Kod programu (środowisko \texttt{verbatim}): 
+\end{verbatim}
+Kod programu odpowiedzialny za usuwanie pracownika. (środowisko \texttt{verbatim}): 
 \begin{verbatim}
 if ( $id > 1){ 
 		$zapytanie="DELETE from RejestrWe WHERE IdPracownika='$id'"; 
@@ -474,13 +505,31 @@ if ( $id > 1){
 		echo "Nie można zwolnić głównego kierownika!";
 	}
 }
-\end{verbatim}>>.
+\end{verbatim}
 
 \paragraph{Tytuł zadania.} Dodawanie nowych kart do bazy danych.
 \subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
 \subparagraph{Realizacja.} W języku Python został utworzony program, który za pomocą czytnika RFID odczytuje numery ID kart i dodaje je do bazy danych (tabela Karty). Program ten sprawdza czy odczytane ID istnieje już w tej tabeli czy też nie i wydaje odpowiednie sygnały buzzerem oraz diodami LED. Jeśli ID nie istnieje, zapala się zielona dioda i wydawany jest jeden dłuższy sygnał a po 3 sekundach 2 krótsze, wtedy numer ID jest dopisywany do bazy. W przeciwnym wypadku nadal pali się czerwona dioda a buzzer wydaje 5x krótki sygnał.
-
-
+Kod programu ilustrujący procedurę dodawania nowej karty do bazy danych oraz towarzyszące temu sygnały świetlne i dźwiękowe. (środowisko \texttt{verbatim}): 
+\begin{verbatim}
+if (uid == "None"):
+    db.execute("INSERT INTO Karty(IdKarty) VALUES ("+idkarty+");")
+    connect.commit()
+    print "Dodano nową kartę"
+    GPIO.output(11, 0)
+    GPIO.output(12, 1)
+    GPIO.output(13, 1)
+    time.sleep(0.5)
+    GPIO.output(13, 0)
+    time.sleep(2)
+    GPIO.output(13, 1)
+    time.sleep(0.2)
+    GPIO.output(13, 0)
+    time.sleep(0.2)
+    GPIO.output(13, 1)
+    time.sleep(0.2)
+    GPIO.output(13, 0)
+\end{verbatim}
 
 
 \subsection{Sprint Review/Demo}
