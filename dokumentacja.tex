@@ -362,7 +362,7 @@ Dane przedstawione na stronie pochodziły z bazy danych, która otrzymywała dan
 
 \paragraph{Tytuł zadania.} Podsumowanie przepracowanych godzin.
 \subparagraph{Wykonawca.} Łukasz Horowski, Mateusz Morawa.
-\subparagraph{Realizacja.} W celu realizacji powyższego zadania została stworzona nowa zakładka w menu strony zakładowej zawierająca kod wykonany w języku PHP. Po jej kliknięciu następuje sprawdzenie, kiedy miało miejsce ostatnie podsumowanie przepracowanych godzin oraz wyświetlenie daty tego zestawienia. Jeśli operacja ta odbyła się w innym miesiącu niż obecny to pojawia się możliwość zainicjowania nowego podsumowania poprzez naciśnięcie przycisku "Podsumuj". Wtedy uruchomiona zostaje pętla sprawdzająca i wyświetlająca czas pracy każdego pracownika, znajdującego się w bazie danych, w poszczególnych dniach miesiąca. Otrzymane w ten sposób wartości są zaokrąglane poprzez funkcję floor w celu uzyskania pełnych godzin spędzonych na zakładzie. Po zakończeniu wykonywania się pętli zostaje wyświetlona tabela podsumowująca ilość godzin przepracowanych przez każdego pracownika w danym miesiącu. Powyższe zadanie było jak dotąd najtrudniejsze ze wszystkich do wykonania - w szczególności kwestia obliczania czasu pracy pracownika, który w ciągu dnia kilkakrotnie przychodził i opuszczał zakład, sprawiła najwięcej problemów, dlatego będzie w pełni zaimplementowana dopiero w kolejnym sprincie jako osobne zadanie.
+\subparagraph{Realizacja.} W celu realizacji powyższego zadania została stworzona nowa zakładka w menu strony zakładowej zawierająca kod wykonany w języku PHP. Po jej kliknięciu następuje sprawdzenie, kiedy miało miejsce ostatnie podsumowanie przepracowanych godzin oraz wyświetlenie daty tego zestawienia. Jeśli operacja ta odbyła się w innym miesiącu niż obecny to pojawia się możliwość zainicjowania nowego podsumowania poprzez naciśnięcie przycisku "Podsumuj". Wtedy uruchomiona zostaje pętla sprawdzająca i wyświetlająca czas pracy każdego pracownika, znajdującego się w bazie danych, w poszczególnych dniach miesiąca. Otrzymane w ten sposób wartości są zaokrąglane poprzez funkcję floor w celu uzyskania pełnych godzin spędzonych na zakładzie. Po zakończeniu wykonywania się pętli zostaje wyświetlona tabela podsumowująca ilość godzin przepracowanych przez każdego pracownika w danym miesiącu. Powyższe zadanie było jak dotąd najtrudniejsze ze wszystkich do wykonania - w szczególności kwestia obliczania czasu pracy pracownika, który w ciągu dnia kilkakrotnie przychodził i opuszczał zakład, sprawiła najwięcej problemów.
 Kod programu wyświetlający miesięczne podsumowanie godzin przepracowanych przez zatrudnione osoby (środowisko \texttt{verbatim}): \begin{verbatim}
 for($i=0;$i<=$liczbapracownikow-1;$i++){
    for ($j=0;$j<=3;$j++){
@@ -547,30 +547,39 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 \item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
 \end{itemize}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
+\paragraph{Tytuł zadania.} Przywracanie hasła.
 \begin{itemize}
-\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (10 osobogodzin).
 \end{itemize}
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
+\paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
+\begin{itemize}
+\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (2 osobogodzin).
+\end{itemize}
+
 
 \subsection{Realizacja}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
-\end{verbatim}>>.
+\end{verbatim}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytuł zadania.} Przywracanie hasła.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
-\end{verbatim}>>.
+\end{verbatim}
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
+\paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
+\subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}
 
 
 \subsection{Sprint Review/Demo}
