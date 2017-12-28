@@ -9,8 +9,37 @@
 
 <div id="all">
 	<div id="header">
-	<h1>Strona Zakładowa v0.1</h1>
+	<?php
+	$pracownik = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM Pracownicy WHERE Id=".$_SESSION['id'].""));
+	$imie = $pracownik['Imie'];
+	$nazwisko = $pracownik['Nazwisko'];
+	$idstanowiska = $pracownik['IdStanowiska'];
+	$stanowisko = mysqli_fetch_array(mysqli_query($db, "SELECT Nazwa FROM Stanowisko WHERE Id=".$idstanowiska.""));
+	$stanowisko = $stanowisko[0];
+	echo "Zalogowano jako ".$imie." ".$nazwisko." na stanowisku ".$stanowisko;
+	?>
+	
 	</div>
 	<div id="nav">
+	<a href="?a=start">Strona główna</a><BR><BR>
+	<a href="?a=nazakladzie">Pracownicy na zakładzie</a><BR><BR>
+	<?php
+	if ($idstanowiska != 4){
+		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
+		$data = $ostatnie['DataPodsumowania'];
+		$data = strtotime( $data );
+		if (date('m-Y',$data)!=date('m-Y')){		
+			echo "<a href='?a=podsumowanie' >! Podsumowanie !</a><BR><BR>";
+		}
+		else{
+			echo "<a href='?a=podsumowanie'>Podsumowanie</a><BR><BR>";
+		}
+		echo "<a href='?a=zatrudnij'>Zatrudnij pracownika</a><BR><BR>";
+		echo "<a href='?a=zwolnij'>Zwolnij pracownika</a><BR><BR>";
+	}
+	?>
+	<BR>
+	<BR>
+	<a href="?a=logout"> Wyloguj </a>
 	</div>
 	<div id="page">
