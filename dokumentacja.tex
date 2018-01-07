@@ -200,9 +200,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 11}
 \paragraph{Tytuł zadania.} Przywracanie hasła.
-\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której kierownik, kadrowy czy pracownik będzie mógł wysłać prośbę o przypomnienie hasła. W tym celu dodatkowo uruchomiona zostanie usługa pocztowa SMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail danej osoby. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi jego zmianę na nowe prywatne hasło.
+\paragraph{Opis zadania.} Strona zakładowa będzie posiadać funkcję, dzięki której kierownik, kadrowy czy pracownik będzie mógł wysłać prośbę o przypomnienie hasła. W tym celu dodatkowo uruchomiona zostanie serwer poczty elektronicznej (MTA) o nazwie SSMTP na serwerze. Wiadomość z nowym hasłem zostanie wysłana na e-mail danej osoby. Po zalogowaniu się za pomocą wygenerowanego hasła, system wymusi jego zmianę na nowe prywatne hasło.
 \paragraph{Priorytet.} 5.
-\paragraph{Definition of Done.} Działa serwer SMTP wysyłający maile, który umożliwia kierownikowi, kadrowemu oraz pracownikom przypomnienie hasła oraz jego zmianę w systemie.
+\paragraph{Definition of Done.} Działa serwer poczty elektronicznej SSMTP wysyłający maile, który umożliwia kierownikowi, kadrowemu oraz pracownikom przypomnienie hasła oraz jego zmianę w systemie.
 
 \subsection{Backlog Item 12}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
@@ -538,7 +538,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \section{Sprint 3}
 
-\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez usługę pocztową SMTP zainstalowaną na serwerze. Wiadomość z nowym hasłem będzie wysyłana na adres e-mail danej osoby. Po zalogowaniu się z użyciem tymczasowego hasła mechanizm umieszczony na stronie będzie wymuszał jego zmianę na nowe, prywatne hasło. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
+\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wiadomość z nowym hasłem będzie wysyłana na adres e-mail danej osoby. Po zalogowaniu się z użyciem tymczasowego hasła mechanizm umieszczony na stronie będzie wymuszał jego zmianę na nowe, prywatne hasło. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
 
 
 \subsection{Sprint Planning/Backlog}
@@ -563,13 +563,13 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawi się gdy rozpocznie się nowy miesiąc a po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz obliczanie wynagrodzenia zgodnie z stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowanoiem lecz tutaj nie mamy wyboru co chcemy podsumować,lecz automatycznie podsumowywanyjest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania tak aby można było sprawdzić tam statystyki w obenycm miesiącu.
+\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawi się gdy rozpocznie się nowy miesiąc a po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz zostaje obliczone wynagrodzenie zgodnie ze stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowaniem, lecz tutaj nie mamy wyboru, co chcemy podsumować, lecz automatycznie podsumowywany jest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania, tak aby można było sprawdzić tam statystyki w obecnym miesiącu.
 
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
+\subparagraph{Realizacja.} Pierwszym krokiem niezbędnym do wykonania zadania było zainstalowanie na Raspberry Pi serwera poczty elektronicznej (MTA) o nazwie SSMTP oraz zbioru narzędzi do obsługi poczty - pakiet mailutils. Odbyło się to poprzez użycie polecenia: sudo apt-get install ssmtp mailutils. Następnie konieczna była edycja pliku konfiguracyjnego ssmtp.conf, w którym podajemy dane logowania do serwera IMAP oraz ustawiamy odpowiedni poziom zabezpieczeń. W celu przetestowania działania serwera poczty elektronicznej stworzone zostały przykładowe konta pocztowe na zewnętrznym serwisie webmail, na które rozesłane zostały testowe e-maile. Kiedy ten etap zakończył się sukcesem utworzony został skrypt w języku PHP, który po kliknięciu na link: "Nie pamiętam hasła" wysyła wiadomość z nowym hasłem na adres e-mail danego pracownika. Wtedy musi on po zalogowaniu się za pomocą wygenerowanego hasła zmienić je na nowe prywatne hasło, tym samym ponownie uzyskując dostęp do strony internetowej.
+Kod skryptu (środowisko \texttt{verbatim}): \begin{verbatim}
+
 \end{verbatim}
 
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
