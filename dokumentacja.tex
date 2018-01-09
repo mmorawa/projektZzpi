@@ -538,8 +538,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \section{Sprint 3}
 
-\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wiadomość z nowym hasłem będzie wysyłana na adres e-mail danej osoby. Po zalogowaniu się z użyciem tymczasowego hasła mechanizm umieszczony na stronie będzie wymuszał jego zmianę na nowe, prywatne hasło. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
-
+\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie on mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wysyłał on będzie wiadomość z nowym hasłem na adres e-mail danej osoby, dzięki czemu będzie ona mogła odzyskać do niej dostęp. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
 
 \subsection{Sprint Planning/Backlog}
 
@@ -567,17 +566,29 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} Pierwszym krokiem niezbędnym do wykonania zadania było zainstalowanie na Raspberry Pi serwera poczty elektronicznej (MTA) o nazwie SSMTP oraz zbioru narzędzi do obsługi poczty - pakiet mailutils. Odbyło się to poprzez użycie polecenia: sudo apt-get install ssmtp mailutils. Następnie konieczna była edycja pliku konfiguracyjnego ssmtp.conf, w którym podajemy dane logowania do serwera IMAP oraz ustawiamy odpowiedni poziom zabezpieczeń. W celu przetestowania działania serwera poczty elektronicznej stworzone zostały przykładowe konta pocztowe na zewnętrznym serwisie webmail, na które rozesłane zostały testowe e-maile. Kiedy ten etap zakończył się sukcesem utworzony został skrypt w języku PHP, który po kliknięciu na link: "Nie pamiętam hasła" wysyła wiadomość z nowym hasłem na adres e-mail danego pracownika. Wtedy musi on po zalogowaniu się za pomocą wygenerowanego hasła zmienić je na nowe prywatne hasło, tym samym ponownie uzyskując dostęp do strony internetowej.
-Kod skryptu (środowisko \texttt{verbatim}): \begin{verbatim}
-
+\subparagraph{Realizacja.} Pierwszym krokiem niezbędnym do wykonania zadania było zainstalowanie na Raspberry Pi serwera poczty elektronicznej (MTA) o nazwie SSMTP oraz zbioru narzędzi do obsługi poczty - pakiet mailutils. Odbyło się to poprzez użycie polecenia: 
+\begin{verbatim} sudo apt-get install ssmtp mailutils\end{verbatim} 
+Następnie koniecznym było dokonanie edycji pliku konfiguracyjnego ssmtp.conf, w którym ustawione zostały dane logowania do serwera IMAP oraz odpowiedni poziom zabezpieczeń. W celu przetestowania działania serwera poczty elektronicznej stworzone zostały przykładowe konta pocztowe na zewnętrznym serwisie webmail, na które rozesłane zostały testowe e-maile. Kiedy ten etap zakończył się sukcesem utworzony został skrypt w języku PHP, który po kliknięciu na link: "Odzyskaj hasło" i podaniu loginu oraz adresu e-mail wysyła wiadomość z nowym hasłem dla danego pracownika. Wtedy może on za jego pomocą zalogować się na swoje konto, tym samym ponownie uzyskując dostęp do funkcjonalności strony internetowej. Kod skryptu PHP odpowiedzialny za wysyłanie e-maila (środowisko \texttt{verbatim}):
+\begin{verbatim}
+$to = $email;
+$subject = "Odzyskiwanie konta do strony zakladowej";
+$message = "Nowe hasło do strony zakładowej: ".$nowehaslo;
+$from = "konto.zakladu@gmail.pl";
+$headers = "From:".$from;
+mail($to,$subject,$message,$headers);
+$md5haslo = md5($nowehaslo);
+mysqli_query($db ,"UPDATE `WebSiteUsers` SET Haslo = '".$md5haslo."' 
+WHERE Login='".$login."';");
+echo "<CENTER>Wysłano nowe hasło na podany adres email.</BR>
 \end{verbatim}
 
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.}  Do realizacji powyższego zadania użyliśmy instrukcji warunkowej IF. Sprawdzamy w niej czy idstanowiska zalogowanej osoby ( 1 - kierownik, 2- księgowy, 3 - kadrowy, 4 - pracownik ) zgadza się z zapisem w warunku. Przykładowo dla kierownika: 
+\subparagraph{Realizacja.}  Do realizacji powyższego zadania użyliśmy instrukcji warunkowej IF. Sprawdzamy w niej czy idstanowiska zalogowanej osoby (1 - kierownik, 2 - księgowy, 3 - kadrowy, 4 - pracownik) zgadza się z zapisem w warunku. Przykładowo poniższy kod przydziela kierownikowi pełne prawa do zarządzania na stronie: 
 \begin{verbatim}
 if ($idstanowiska == 1){
-		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
+		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM
+		ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
 		$data = $ostatnie['DataPodsumowania'];
 		$data = strtotime( $data );
 		if (date('m-Y',$data)!=date('m-Y')){		
@@ -587,8 +598,7 @@ if ($idstanowiska == 1){
 		echo "<a href='?a=zwolnij'>Zwolnij pracownika</a><BR><BR>";
 	}
 \end{verbatim}
-Otrzymuje on pełne prawa do zarządzania na stronie. 
-Natomiast logujący się pracownik z idstanowiska 4 posiada tylko prawo do sprawdzenia, kto aktualnie jest na zakładzie oraz wyświetlenia podsumowania za aktualny miesiąc. 
+Natomiast logujący się pracownik z idstanowiska równym 4 posiada tylko prawo do sprawdzenia, kto aktualnie jest na zakładzie oraz wyświetlenia podsumowania za aktualny miesiąc. 
 
 
 \subsection{Sprint Review/Demo}
