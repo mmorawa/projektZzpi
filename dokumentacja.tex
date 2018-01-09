@@ -574,7 +574,7 @@ Kod skryptu (środowisko \texttt{verbatim}): \begin{verbatim}
 
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.}  Do realizacji powyższego zadania użyliśmy instrukcji warunkowej IF. Sprawdzamy w niej czy idsanowiska zalogowanej osoby ( 1 - kierownik, 2- księgowy, 3 - kadrowy, 4 - pracownik ) zgadza się z zapisem w warunku. Przykładowo dla kierownika: 
+\subparagraph{Realizacja.}  Do realizacji powyższego zadania użyliśmy instrukcji warunkowej IF. Sprawdzamy w niej czy idstanowiska zalogowanej osoby ( 1 - kierownik, 2- księgowy, 3 - kadrowy, 4 - pracownik ) zgadza się z zapisem w warunku. Przykładowo dla kierownika: 
 \begin{verbatim}
 if ($idstanowiska == 1){
 		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
