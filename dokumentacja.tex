@@ -574,10 +574,21 @@ Kod skryptu (środowisko \texttt{verbatim}): \begin{verbatim}
 
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
+\subparagraph{Realizacja.}  Do realizacji powyższego zadania użyliśmy instrukcji warunkowej IF. Sprawdzamy w niej czy idsanowiska zalogowanej osoby ( 1 - kierownik, 2- księgowy, 3 - kadrowy, 4 - pracownik ) zgadza się z zapisem w warunku. Przykładowo dla kierownika: 
+\begin{verbatim}
+if ($idstanowiska == 1){
+		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
+		$data = $ostatnie['DataPodsumowania'];
+		$data = strtotime( $data );
+		if (date('m-Y',$data)!=date('m-Y')){		
+			echo "<a href='?a=wynagrodzenie' >! Wynagrodzenie !</a><BR><BR>";
+		}
+		echo "<a href='?a=zatrudnij'>Zatrudnij pracownika</a><BR><BR>";
+		echo "<a href='?a=zwolnij'>Zwolnij pracownika</a><BR><BR>";
+	}
 \end{verbatim}
+Otrzymuje on pełne prawa do zarządzania na stronie. 
+Natomiast logujący się pracownik z idstanowiska 4 posiada tylko prawo do sprawdzenia, kto aktualnie jest na zakładzie oraz wyświetlenia podsumowania za aktualny miesiąc. 
 
 
 \subsection{Sprint Review/Demo}
