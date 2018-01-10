@@ -223,6 +223,12 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Priorytet.} 1.
 \paragraph{Definition of Done.} Działa serwer baz danych MySQL obsługujący bazę danych z danymi pracowników oraz godzinami ich wejścia lub wyjścia na teren zakładu. 
 
+\subsection{Backlog Item 14}
+\paragraph{Tytuł zadania.} Finalne testy całego systemu.
+\paragraph{Opis zadania.} 
+\paragraph{Priorytet.} 6.
+\paragraph{Definition of Done.}
+
 \section{Sprint 1}
 \subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia lub wyjścia, ID karty.
 
@@ -602,52 +608,61 @@ Natomiast logujący się pracownik z idstanowiska równym 4 posiada tylko prawo 
 
 
 \subsection{Sprint Review/Demo}
-W dniu 10.01.2018r zostało przedstawione demo sprintu nr 3. Celem tego sprintu było uzupełnienie strony zakładowej o nowe funkcje tj:
+W dniu 10.01.2018 r. zostało przedstawione demo sprintu nr 3. Celem tego sprintu było uzupełnienie strony zakładowej o nowe funkcje tj:
 \begin{itemize}
-\item pełne prawa Kierownika na stronie.
-\item obliczanie wynagrodzenia za poprzedni miesiąc.
-\item odzyskiwanie hasła dla każdego użytkownika strony.
+	\item pełne prawa Kierownika na stronie.
+	\item obliczanie wynagrodzenia za poprzedni miesiąc.
+	\item odzyskiwanie hasła dla każdego użytkownika strony.
 \end{itemize}
 Wszystkie założone zadania na ten sprint zostały zrealizowane. Kierownikowi zostały przypisane wszystkie prawa i ma on dostęp do wszystkich funkcji zamieszczonych na stronie.
-Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres email istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat : Podano nieprawidłowy adres e-mail bądź login. Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail dzięki czemu użytkownik może bez problemu zalogować się na stronie.
+Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres e-mail istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat : Podano nieprawidłowy adres e-mail bądź login. Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail, dzięki czemu użytkownik może bez problemu zalogować się na stronie.
 Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych godzin przez pracownika oraz pomnożeniu ich przez stawkę. Można to wykonać tylko po zakończonym pełnym miesiącu.
-
 
 \section{Sprint 4}
 
-\subsection{Cel} <<Określić, w jakim celu tworzony jest przyrost produktu>>.
+\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia brutto każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z całego roku, co pozwoli pracownikowi na sprawdzenie swoich całorocznych zarobków. Dodatkowo zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
 
 \subsection{Sprint Planning/Backlog}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
+\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
 \begin{itemize}
-	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+	\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
+\paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \begin{itemize}
-	\item Estymata: <<szacowana czasochłonność (w ,,koszulkach'')>>.
+	\item Estymata: Small przy użyciu skali rozmiarów T-shirtów (2 osobogodzin).
+\end{itemize}
+
+\paragraph{Tytuł zadania.} Finalne testy całego systemu.
+\begin{itemize}
+	\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (15 osobogodzin).
 \end{itemize}
 
 \paragraph{<<Tutaj dodawać kolejne zadania>>}
 
 \subsection{Realizacja}
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytuł zadania.} <<Tytuł>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
+\subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
+\paragraph{Tytuł zadania.} Finalne testy całego systemu.
+\subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
 
 
 \subsection{Sprint Review/Demo}
