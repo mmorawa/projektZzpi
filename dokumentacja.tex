@@ -659,7 +659,17 @@ for (i=1; i<10; i++)
 
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+\subparagraph{Realizacja.} 
+W celu sprawdzenia poprawności działania całego systemu, przeprowadziliśmy finalne testy wszystkich komponentów działających w systemie. W pierwszej kolejności przetestowaliśmy połączenie modułu RFID z urządzeniem RaspberryPi. Zdjęcie połączenia urządzeń przedstawiono poniżej.
+\begin{figure}
+{\includegraphics[width=260px]{obrazy/schematpol.png}
+\end{figure}
+Schemat połączeniowy został wykonany zgodnie z wcześniejszymi założeniami. Całość działą poprawnie.
+Następnie rozpoczeliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie i rejestracje pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników i przeprowadzilismy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywane dane pracowników i firmy.
+Na wcześniej utworzonych kotach pracowników skorzystaliśmy z funkcji przywrócenia hasła w celu jej weryfikacji. Na podany adres e-mail pracownika który był wymagany podczas rejestracji, otrzymaliśmy wiadomość z nowo wygenerowanym hasłem, e-mail z nowym hasłem został wysłany do pracownika po ówczesnej werfikacji i sprawdzeniu poprawności adresu e-mail i loginu pracownika.
+Całą procedura przebiegła pomyślnie, za pomocą nowego hasła pracownik ponownie mógł zalogować się na stronę zakładową.
+Kolejnym elementem który przetestowaliśmy jest system rejestracji wejść i wyjść pracowników oraz wyświetlanie tabeli z pracownikami obecnymio na zakładzie.
+<<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
