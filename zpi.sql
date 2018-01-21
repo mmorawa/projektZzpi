@@ -1,95 +1,119 @@
 CREATE USER 'user'@'%' IDENTIFIED BY 'zpi';
 GRANT SELECT, INSERT, UPDATE, DELETE ON zpi.* TO 'user'@'%';
 
-CREATE DATABASE zpi CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE zpi;
-CREATE TABLE Stanowisko (
-Id INT NOT NULL auto_increment,
-Nazwa VARCHAR(100) NOT NULL,
-PRIMARY KEY(Id)
-)ENGINE = InnoDB;
+DROP DATABASE IF EXISTS `zpi`;
+CREATE DATABASE IF NOT EXISTS `zpi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `zpi`;
 
-CREATE TABLE Pracownicy	(
-Id INT NOT NULL auto_increment,
-IdKarty INT (100) NOT NULL,
-IdStanowiska INT (100) NOT NULL,
-NaZakladzie INT (11) NOT NULL,
-Nazwisko VARCHAR(100) NOT NULL,
-Imie VARCHAR(300) NOT NULL,
-DataZatrudnienia DATE,
-Miejscowosc VARCHAR (100) NOT NULL,
-Ulica	VARCHAR (100) NOT NULL,
-NrDomu VARCHAR (10) NOT NULL,
-NrMieszkania INT (10) NOT NULL,
-KodPocztowy VARCHAR (10) NOT NULL,
-Stawka FLOAT,
-StawkaNadgodzin FLOAT ,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdStanowiska) REFERENCES Stanowisko(Id),
-FOREIGN KEY(IdKarty) REFERENCES Karty(Id)
-) ENGINE= InnoDB;
+CREATE TABLE `Karty` (
+  `Id` int(10) NOT NULL,
+  `IdKarty` varchar(100) NOT NULL
+  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE Karty(
-Id INT (10) NOT NULL auto_increment,
-IdKarty VARCHAR (100) NOT NULL,
-PRIMARY KEY(Id)
-)ENGINE= InnoDB;
+CREATE TABLE `Pracownicy` (
+  `Id` int(11) NOT NULL,
+  `IdKarty` varchar(100) NOT NULL,
+  `IdStanowiska` int(100) NOT NULL,
+  `NaZakladzie` int(11) NOT NULL DEFAULT '0',
+  `Nazwisko` varchar(100) NOT NULL,
+  `Imie` varchar(300) NOT NULL,
+  `DataZatrudnienia` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Miejscowosc` varchar(100) NOT NULL,
+  `Ulica` varchar(100) NOT NULL,
+  `NrDomu` varchar(10) NOT NULL,
+  `NrMieszkania` int(10) NOT NULL,
+  `KodPocztowy` varchar(10) NOT NULL,
+  `Stawka` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE  RejestrWe (
-Id INT (11) NOT NULL auto_increment,
-IdPracownika INT (11) NOT NULL,
-godz_WE TIMESTAMP,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-) ENGINE= InnoDB;
+CREATE TABLE `RejestrWe` (
+  `Id` int(11) NOT NULL,
+  `IdPracownika` int(11) NOT NULL,
+  `godz_WE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE  RejestrWy (
-Id INT (11) NOT NULL auto_increment,
-IdPracownika INT (11) NOT NULL,
-godz_WY TIMESTAMP,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-) ENGINE= InnoDB;
+CREATE TABLE `RejestrWy` (
+  `Id` int(11) NOT NULL,
+  `IdPracownika` int(11) NOT NULL,
+  `godz_WY` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ZestawienieDzienne(
-Id	INT (11) NOT NULL auto_increment,
-IdPracownika	INT(100) NOT NULL,
-Dzien DATE,
-CzasPracy TIME,
-Nadgodziny TIME,
-CzasSpoznienia TIME,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-)ENGINE = InnoDB;
+CREATE TABLE `Stanowisko` (
+  `Id` int(11) NOT NULL,
+  `Nazwa` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ZestawienieMiesieczne(
-Id	INT NOT NULL auto_increment,
-IdPracownika	INT(100) NOT NULL,
-DataPodsumowania DATE,
-CzasPracy TIME,
-Nadgodziny TIME,
-LiczbaSpoznien INT (11),
-CzasSpoznien TIME,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-)ENGINE = InnoDB;
+CREATE TABLE `WebSiteUsers` (
+  `Id` int(11) NOT NULL,
+  `IdPracownika` int(11) NOT NULL,
+  `Login` varchar(100) NOT NULL,
+  `Haslo` varchar(300) NOT NULL,
+  `Email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ZestawienieDzienne` (
+  `Id` int(11) NOT NULL,
+  `IdPracownika` int(100) NOT NULL,
+  `Dzien` date DEFAULT NULL,
+  `CzasPracy` int(11) DEFAULT NULL,
+  `Zarobek` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ZestawienieMiesieczne` (
+  `Id` int(11) NOT NULL,
+  `IdPracownika` int(100) NOT NULL,
+  `DataPodsumowania` date DEFAULT NULL,
+  `CzasPracy` int(11) DEFAULT NULL,
+  `Wynagrodzenie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `Karty`
+  ADD PRIMARY KEY (`Id`);
+
+ALTER TABLE `Pracownicy`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdStanowiska` (`IdStanowiska`);
+
+ALTER TABLE `RejestrWe`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdPracownika` (`IdPracownika`);
+
+ALTER TABLE `RejestrWy`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdPracownika` (`IdPracownika`);
 
 
-CREATE TABLE Wynagrodzenie	(
-Id INT NOT NULL auto_increment,
-IdPracownika INT (100) NOT NULL,
-DataPodsumowania DATETIME,
-Kwota FLOAT NOT NULL,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-) ENGINE = InnoDB;
+ALTER TABLE `Stanowisko`
+  ADD PRIMARY KEY (`Id`);
 
-CREATE TABLE WebSiteUsers(
-Id INT (11) NOT NULL auto_increment,
-IdPracownika INT (11) NOT NULL,
-Login VARCHAR(100) NOT NULL,
-Haslo	VARCHAR(300) NOT NULL,
-Email	VARCHAR(100) NOT NULL,
-PRIMARY KEY(Id),
-FOREIGN KEY(IdPracownika) REFERENCES Pracownicy(Id)
-) ENGINE = InnoDB;
+
+ALTER TABLE `WebSiteUsers`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdPracownika` (`IdPracownika`);
+
+ALTER TABLE `ZestawienieDzienne`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdPracownika` (`IdPracownika`);
+
+ALTER TABLE `ZestawienieMiesieczne`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IdPracownika` (`IdPracownika`);
+
+ALTER TABLE `Pracownicy`
+  ADD CONSTRAINT `Pracownicy_ibfk_1` FOREIGN KEY (`IdStanowiska`) REFERENCES `Stanowisko` (`Id`);
+
+ALTER TABLE `RejestrWe`
+  ADD CONSTRAINT `RejestrWe_ibfk_1` FOREIGN KEY (`IdPracownika`) REFERENCES `Pracownicy` (`Id`);
+
+ALTER TABLE `RejestrWy`
+  ADD CONSTRAINT `RejestrWy_ibfk_1` FOREIGN KEY (`IdPracownika`) REFERENCES `Pracownicy` (`Id`);
+
+ALTER TABLE `WebSiteUsers`
+  ADD CONSTRAINT `WebSiteUsers_ibfk_1` FOREIGN KEY (`IdPracownika`) REFERENCES `Pracownicy` (`Id`);
+
+ALTER TABLE `ZestawienieDzienne`
+  ADD CONSTRAINT `ZestawienieDzienne_ibfk_1` FOREIGN KEY (`IdPracownika`) REFERENCES `Pracownicy` (`Id`);
+
+ALTER TABLE `ZestawienieMiesieczne`
+  ADD CONSTRAINT `ZestawienieMiesieczne_ibfk_1` FOREIGN KEY (`IdPracownika`) REFERENCES `Pracownicy` (`Id`);
