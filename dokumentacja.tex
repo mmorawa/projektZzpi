@@ -665,11 +665,18 @@ W celu sprawdzenia poprawności działania całego systemu, przeprowadziliśmy f
 {\includegraphics[width=260px]{obrazy/schematpol.png}
 \end{figure}
 Schemat połączeniowy został wykonany zgodnie z wcześniejszymi założeniami. Całość działą poprawnie.
-Następnie rozpoczeliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie i rejestracje pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników i przeprowadzilismy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywane dane pracowników i firmy.
+Następnie rozpoczeliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników w bazie danych i przeprowadzilismy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywane dane pracowników i firmy.
 Na wcześniej utworzonych kotach pracowników skorzystaliśmy z funkcji przywrócenia hasła w celu jej weryfikacji. Na podany adres e-mail pracownika który był wymagany podczas rejestracji, otrzymaliśmy wiadomość z nowo wygenerowanym hasłem, e-mail z nowym hasłem został wysłany do pracownika po ówczesnej werfikacji i sprawdzeniu poprawności adresu e-mail i loginu pracownika.
 Całą procedura przebiegła pomyślnie, za pomocą nowego hasła pracownik ponownie mógł zalogować się na stronę zakładową.
-Kolejnym elementem który przetestowaliśmy jest system rejestracji wejść i wyjść pracowników oraz wyświetlanie tabeli z pracownikami obecnymio na zakładzie.
-<<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
+Kolejnym elementem który przetestowaliśmy jest system rejestracji wejść i wyjść pracowników oraz wyświetlanie tych informacji w tabeli.
+W tym celu musieliśmy skorzystać z kart, które wcześniej przypisaliśmy do testowego konta. Po przyłożeniu karty do czytnika, wydawał on pojedyńczy dźwięk oraz sygnalizował wejście zapalającą się zieloną diodą. Po około 3 sekundach można było przyłożyć ponownie kartę, aby zczytać godzinę. System poprawnie wykrywa czy dany pracownik który przykłada kartę, próbuje wyjść, czy dopiero ma zamiar zarejestrować wejście na zakład. Wszystkie te dane zostają przekazane do bazy danych, z której na stronie internetowej tworzy się oraz wyświetla tabela z wejściami, wyjściami pracowników oraz osobami, które znajdują się aktualnie na zakładzie. Po dokładnym przetestowaniu tej funkcjonalności, stwierdziliśmy, że działa ona poprawnie.
+Przetestowaliśmy również, opcję dodawania oraz usuwania pracowników. Wchodząć w tą zakładkę, mamy formularz, w którym wybieramy stanowisko, nr karty( pracownik może zostać dodany tylko jeżeli instnieje wolna karta ) oraz uzupełniamy dane osobowe pracownika. Przy dodawaniu użytkownika wszystkie pola muszą zostać uzupełnione, w razie braku którejś informacji, system poinformuję o błędzie w formularzu. Uzupełniając dane do logowania, w polu adres e-mail musi występować poprawna składnia adresu, w przeciwnym wypadku nie stworzymy konta. Po utworzeniu konta na stronie, sprawdziliśmy czy zostało ono poprawnie dodane do bazy.
+Naszym testom została poddana również funkcja usuwania pracowników. Działa ona prawidłowo. Po usunięciu pracownika na stronie, usuwa się on również z bazy danych. Zostało przetestowane zabezpieczenie uniemożliwiające usunięcie głównego kierownika zakładu, który posiada uprawnienia administratora.
+Każdy z pracowników posiada odpowiednie uprawnienia co do stanowiska jakie obejmuje. Stprawdziliśmy to przez zalogowanie się na konta użytkowników należących do każdej z grupy uprawnień tj. kierownik, kadrowy, księgowy oraz pracownik.
+
+
+Kod programu (środowisko \texttt{verbatim}): 
+\begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
