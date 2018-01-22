@@ -72,7 +72,7 @@ Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał m
 Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
 
 \subsection{User story 4}
-Jako księgowy chcę mieć możliwość drukowania zestawienia miesięcznego wynagrodzenia brutto pracowników, żeby mieć papierową dokumentację w razie kontroli.
+Jako księgowy chcę mieć możliwość drukowania do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników, żeby mieć gotową zarchiwizowaną dokumentację w razie kontroli.
 
 \subsection{User story 5}
 Jako kadrowy chcę mieć możliwość dodawania i usuwania nowych pracowników do bazy danych, aby w łatwy sposób uaktualnić informacje o zatrudnionych pracownikach w firmie. 
@@ -181,10 +181,10 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 \paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
 
 \subsection{Backlog Item 8}
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
-\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca dział księgowy będzie musiał wydrukować dokumenty zawierające dane o miesięcznych wynagrodzeniach brutto pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie opcje do wykonania tej czynności.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
+\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca księgowy będzie musiał wydrukować do pliku PDF dokumentację płacową zawierającą dane o miesięcznych wynagrodzeniach pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie narzędzia do wykonania tej czynności.
 \paragraph{Priorytet.} 4.
-\paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Definition of Done.} System umożliwia księgowemu drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 
 \subsection{Backlog Item 9}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
@@ -610,21 +610,21 @@ Natomiast logujący się pracownik z idstanowiska równym 4 posiada tylko prawo 
 \subsection{Sprint Review/Demo}
 W dniu 10.01.2018 r. zostało przedstawione demo sprintu nr 3. Celem tego sprintu było uzupełnienie strony zakładowej o nowe funkcje tj:
 \begin{itemize}
-	\item pełne prawa Kierownika na stronie.
-	\item obliczanie wynagrodzenia za poprzedni miesiąc.
+	\item pełne prawa Kierownika na stronie,
+	\item obliczanie wynagrodzenia za poprzedni miesiąc,
 	\item odzyskiwanie hasła dla każdego użytkownika strony.
 \end{itemize}
 Wszystkie założone zadania na ten sprint zostały zrealizowane. Kierownikowi zostały przypisane wszystkie prawa i ma on dostęp do wszystkich funkcji zamieszczonych na stronie.
-Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres e-mail istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat : Podano nieprawidłowy adres e-mail bądź login. Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail, dzięki czemu użytkownik może bez problemu zalogować się na stronie.
-Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych godzin przez pracownika oraz pomnożeniu ich przez stawkę. Można to wykonać tylko po zakończonym pełnym miesiącu.
+Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SSMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres e-mail istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat: "Podano nieprawidłowy adres e-mail bądź login". Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail, dzięki czemu użytkownik może bez problemu zalogować się na stronie.
+Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez pracownika godzin  oraz pomnożenie ich przez stawkę. Można to wykonać tylko po zakończonym pełnym miesiącu.
 
 \section{Sprint 4}
 
-\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia brutto każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z całego roku, co pozwoli pracownikowi na sprawdzenie swoich całorocznych zarobków. Dodatkowo zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
+\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z całego roku, co pozwoli pracownikowi na sprawdzenie swoich całorocznych zarobków. Na końcu zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
 
 \subsection{Sprint Planning/Backlog}
 
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \begin{itemize}
 	\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
@@ -639,11 +639,9 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych godzin prze
 	\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (15 osobogodzin).
 \end{itemize}
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
-
 \subsection{Realizacja}
 
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
@@ -660,26 +658,20 @@ for (i=1; i<10; i++)
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
 \subparagraph{Realizacja.} 
-W celu sprawdzenia poprawności działania całego systemu, przeprowadziliśmy finalne testy wszystkich komponentów działających w systemie. W pierwszej kolejności przetestowaliśmy połączenie modułu RFID z urządzeniem RaspberryPi. Zdjęcie połączenia urządzeń przedstawiono poniżej.
-\begin{figure}
-{\includegraphics[width=260px]{obrazy/schematpol.png}
+W celu sprawdzenia poprawności działania całego systemu, przeprowadziliśmy finalne testy wszystkich komponentów działających w systemie. W pierwszej kolejności przetestowaliśmy połączenie modułu RFID z urządzeniem Raspberry Pi. Zdjęcie połączenia urządzeń przedstawiono poniżej.
+
+\begin{figure}[!htbp]
+	\makebox[\textwidth]{\includegraphics[width=260px]{obrazy/schematpol.png}}
 \end{figure}
-Schemat połączeniowy został wykonany zgodnie z wcześniejszymi założeniami. Całość działą poprawnie.
-Następnie rozpoczeliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników w bazie danych i przeprowadzilismy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywane dane pracowników i firmy.
-Na wcześniej utworzonych kotach pracowników skorzystaliśmy z funkcji przywrócenia hasła w celu jej weryfikacji. Na podany adres e-mail pracownika który był wymagany podczas rejestracji, otrzymaliśmy wiadomość z nowo wygenerowanym hasłem, e-mail z nowym hasłem został wysłany do pracownika po ówczesnej werfikacji i sprawdzeniu poprawności adresu e-mail i loginu pracownika.
-Całą procedura przebiegła pomyślnie, za pomocą nowego hasła pracownik ponownie mógł zalogować się na stronę zakładową.
-Kolejnym elementem który przetestowaliśmy jest system rejestracji wejść i wyjść pracowników oraz wyświetlanie tych informacji w tabeli.
-W tym celu musieliśmy skorzystać z kart, które wcześniej przypisaliśmy do testowego konta. Po przyłożeniu karty do czytnika, wydawał on pojedyńczy dźwięk oraz sygnalizował wejście zapalającą się zieloną diodą. Po około 3 sekundach można było przyłożyć ponownie kartę, aby zczytać godzinę. System poprawnie wykrywa czy dany pracownik który przykłada kartę, próbuje wyjść, czy dopiero ma zamiar zarejestrować wejście na zakład. Wszystkie te dane zostają przekazane do bazy danych, z której na stronie internetowej tworzy się oraz wyświetla tabela z wejściami, wyjściami pracowników oraz osobami, które znajdują się aktualnie na zakładzie. Po dokładnym przetestowaniu tej funkcjonalności, stwierdziliśmy, że działa ona poprawnie.
-Przetestowaliśmy również, opcję dodawania oraz usuwania pracowników. Wchodząć w tą zakładkę, mamy formularz, w którym wybieramy stanowisko, nr karty( pracownik może zostać dodany tylko jeżeli instnieje wolna karta ) oraz uzupełniamy dane osobowe pracownika. Przy dodawaniu użytkownika wszystkie pola muszą zostać uzupełnione, w razie braku którejś informacji, system poinformuję o błędzie w formularzu. Uzupełniając dane do logowania, w polu adres e-mail musi występować poprawna składnia adresu, w przeciwnym wypadku nie stworzymy konta. Po utworzeniu konta na stronie, sprawdziliśmy czy zostało ono poprawnie dodane do bazy.
-Naszym testom została poddana również funkcja usuwania pracowników. Działa ona prawidłowo. Po usunięciu pracownika na stronie, usuwa się on również z bazy danych. Zostało przetestowane zabezpieczenie uniemożliwiające usunięcie głównego kierownika zakładu, który posiada uprawnienia administratora.
-Każdy z pracowników posiada odpowiednie uprawnienia co do stanowiska jakie obejmuje. Stprawdziliśmy to przez zalogowanie się na konta użytkowników należących do każdej z grupy uprawnień tj. kierownik, kadrowy, księgowy oraz pracownik.
 
+Schemat połączeniowy został wykonany zgodnie z wcześniejszymi założeniami. Całość działa poprawnie. Następnie rozpoczęliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie się pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników w bazie danych i przeprowadziliśmy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywanie danych pracowników i firmy.
 
-Kod programu (środowisko \texttt{verbatim}): 
-\begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+Na wcześniej utworzonych kontach pracowników skorzystaliśmy z funkcji przywrócenia hasła w celu jej weryfikacji. Na podany adres e-mail pracownika, który był wymagany podczas rejestracji, otrzymaliśmy wiadomość z nowo wygenerowanym hasłem. E-mail z nowym hasłem został wysłany do pracownika po wcześniejszej weryfikacji i sprawdzeniu poprawności adresu e-mail i loginu pracownika. Cała procedura przebiegła pomyślnie a za pomocą nowego hasła pracownik ponownie mógł zalogować się na stronę zakładową.
+
+Kolejnym elementem który przetestowaliśmy był system rejestracji wejść i wyjść pracowników oraz wyświetlanie tych informacji w tabeli. W tym celu musieliśmy skorzystać z kart, które wcześniej przypisaliśmy do testowego konta. Po przyłożeniu karty do czytnika, wydawał on pojedynczy dźwięk oraz sygnalizował wejście zapalającą się zieloną diodą. Po około 3 sekundach można było przyłożyć ponownie kartę, aby sczytać godzinę. System poprawnie wykrywa czy dany pracownik który przykłada kartę, próbuje wyjść, czy dopiero ma zamiar zarejestrować wejście na zakład. Wszystkie te dane zostają przekazane do bazy danych, z której na stronie internetowej tworzy się oraz wyświetla tabela z wejściami, wyjściami pracowników oraz osobami, które znajdują się aktualnie na zakładzie. Po dokładnym przetestowaniu tej funkcjonalności stwierdziliśmy, że działa ona poprawnie.
+
+Przetestowaliśmy również opcję dodawania oraz usuwania pracowników. W jednej z zakładek znajduje się formularz, w którym wybieramy stanowisko, nr karty (pracownik może zostać dodany tylko jeżeli istnieje wolna karta) oraz uzupełniamy dane osobowe pracownika. Przy dodawaniu użytkownika wszystkie pola muszą zostać uzupełnione, w razie braku którejś informacji system poinformuje o błędzie w formularzu. Uzupełniając dane do logowania, w polu adres e-mail musi występować poprawna składnia adresu, w przeciwnym wypadku nie stworzymy konta. Po utworzeniu konta na stronie, sprawdziliśmy czy zostało ono poprawnie dodane do bazy. Naszym testom została poddana również funkcja usuwania pracowników. Działa ona prawidłowo. Po usunięciu pracownika na stronie, usuwa się on również z bazy danych. Zostało przetestowane zabezpieczenie uniemożliwiające usunięcie głównego kierownika zakładu, który posiada uprawnienia administratora.
+Każdy z pracowników posiada odpowiednie uprawnienia, co do stanowiska jakie obejmuje. Sprawdziliśmy to przez zalogowanie się na konta użytkowników należących do każdej z grupy uprawnień tj. kierownik, kadrowy, księgowy oraz pracownik.
 
 
 \subsection{Sprint Review/Demo}
