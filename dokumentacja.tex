@@ -182,7 +182,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 8}
 \paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
-\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca księgowy będzie musiał wydrukować do pliku PDF dokumentację płacową zawierającą dane o miesięcznych wynagrodzeniach pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie narzędzia do wykonania tej czynności.
+\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca księgowy będzie musiał wydrukować do pliku PDF dokumentację płacową zawierającą dane o miesięcznych wynagrodzeniach pracowników, system po zalogowaniu się księgowego na stronie udostępni mu przycisk do wykonania tej czynności.
 \paragraph{Priorytet.} 4.
 \paragraph{Definition of Done.} System umożliwia księgowemu drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 
@@ -643,10 +643,20 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez praco
 
 \paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>
+\subparagraph{Realizacja.} Zadanie, polegające na umożliwieniu księgowemu wykonania wydruku zestawienia miesięcznego wynagrodzenia pracowników do pliku PDF, wymagało napisania skryptu PHP i umieszczenia go na stronie w zakładce Wynagrodzenia. Do jego poprawnego działania konieczne było użycie klasy FPDF, dostępnej na wolnej licencji wraz z plikami czcionki Arial, zawierającej polskie znaki. Skrypt ten jest wywoływany po kliknięciu na przycisk "Drukuj", co powoduje utworzenie pliku PDF i wysłanie go do przeglądarki w celu zapisania go na dysku twardym. W pliku tym znajduje się tabela z danymi pracowników oraz ich wynagrodzeniami za dany miesiąc. Kod programu odpowiedzialny za wygenerowanie pliku PDF (środowisko \texttt{verbatim}): \begin{verbatim}
+require('fpdf/fpdf.php');
+$pdf = new PDF();
+$pdf->AddFont('arial_ce','','arial_ce.php');
+$pdf->SetFont('arial_ce','',14);
+$pdf->AddPage();
+$pdf->Ln();
+$opis=iconv('UTF-8','windows-1250//TRANSLIT',
+'Zestawienie miesięczne wynagrodzenia za: ');
+$headerUTF = array('Imię i nazwisko', 'Wynagrodzenie (w zł)');
+$pdf->Cell(10,10, $opis.date('m-Y'));
+$pdf->Ln();
+$pdf->Table($header,$data);
+\end{verbatim}
 
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
