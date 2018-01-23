@@ -285,7 +285,7 @@ zainstalowano niezbędne pakiety serwera HTTP czyli: apache2 oraz php7. Po popra
  
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
-\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej częścią projektu, wykonawcy nie mieli żadnych problemów. Została ona wykonana sprawnie i bez większych przeszkód.  
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID.  
 
 Kod programu dotyczący łączenia się z bazą danych:
 \begin{verbatim}
@@ -303,7 +303,7 @@ mysqli_query($db,"SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
 
 \paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak.
-\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni języka sql, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad bazą danych skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
+\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni języka SQL, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad bazą danych skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID.  
  
 Kod w języku SQL przedstawiający utworzenie konta użytkownika user do zarządzania bazą z uprawnieniami SELECT oraz możliwością wykonywania zapytań typu DML.
 \begin{verbatim}
@@ -328,7 +328,7 @@ PRIMARY KEY(Id)
 
 \subsection{Sprint Review/Demo}
 
-Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego Sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
+Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
 Zrzut ze strony poniżej:
 \begin{figure}[!htbp]
 	\makebox[\textwidth]{\includegraphics[width=260px]{obrazy/strona.png}}
@@ -544,7 +544,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \section{Sprint 3}
 
-\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie on mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wysyłał on będzie wiadomość z nowym hasłem na adres e-mail danej osoby, dzięki czemu będzie ona mogła odzyskać do niej dostęp. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
+\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wysyłał on będzie wiadomość z nowym hasłem na adres e-mail danej osoby, dzięki czemu będzie ona mogła odzyskać do niej dostęp. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
 
 \subsection{Sprint Planning/Backlog}
 
@@ -568,7 +568,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawi się gdy rozpocznie się nowy miesiąc a po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz zostaje obliczone wynagrodzenie zgodnie ze stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowaniem, lecz tutaj nie mamy wyboru, co chcemy podsumować, lecz automatycznie podsumowywany jest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania, tak aby można było sprawdzić tam statystyki w obecnym miesiącu.
+\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawia się gdy rozpocznie się nowy miesiąc. Po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz zostaje obliczone wynagrodzenie zgodnie ze stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowaniem, lecz tutaj nie mamy wyboru, co chcemy podsumować, lecz automatycznie podsumowywany jest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania, tak aby można było sprawdzić tam statystyki w obecnym miesiącu.
 
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
