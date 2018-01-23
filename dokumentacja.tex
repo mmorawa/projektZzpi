@@ -620,7 +620,7 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez praco
 
 \section{Sprint 4}
 
-\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z całego roku, co pozwoli pracownikowi na sprawdzenie swoich całorocznych zarobków. Na końcu zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
+\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z każdego miesiąca w roku, co pozwoli pracownikowi na sprawdzenie swoich wcześniejszych zarobków. Na końcu zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
 
 \subsection{Sprint Planning/Backlog}
 
@@ -660,10 +660,8 @@ $pdf->Table($header,$data);
 
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>
+\subparagraph{Realizacja.} W ramach realizacji tego zadania w głównej mierze została wykorzystana poprzenia funkcja obliczania wynagrodzenia gdyż obie funkcje działają na podobnej zasadzie. Plik odpowiadający za funkcję wynagrodzenia został skopiowany i odpowiednio zmodyfikowany aby wyswietlał tylko dane(bez aktualizacji ich do bazy) tak aby można było wybrać sobie w nim konkretny miesiąc, w tym także obecny. Dodatkowo została utworzona została w nim odpowiednia funkcja sprawdzająca na jakim stanowisku został zalogowany uzytkownik: jeśli zalogowano jako pracownik dane ,które są wyswietlane tyczą się tylko tego pracownika, jeżeli zaś zalogowano się na którymkolwiek stanowisku administracyjnym wtedy dane są wyświetlane dla każdego pracownika firmy.   
+ 
 
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
