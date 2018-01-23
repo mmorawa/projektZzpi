@@ -4,7 +4,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 
-\title{\bf{System elektronicznej kontroli pracowników}}
+\title{\bf{System elektronicznej rejestracji \\ czasu pracy}}
 \author{{\em Mateusz Morawa (kierownik projektu)}\\
 {\em Łukasz Mirek}\\
 {\em Grzegorz Jasiński}\\
@@ -49,7 +49,7 @@ Prowadzący: dr hab. Marcin Mazur
 
 \subsection{Cel projektu (produkt)}
 
-Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Pracodawca za pomocą strony internetowej będzie mógł sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
+Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Ponadto za pomocą strony internetowej będzie można sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
 
 \subsection{Potencjalny odbiorca produktu (klient)}
 
@@ -66,7 +66,7 @@ Lista wymagań użytkownika w postaci ,,historyjek'' (User stories). Każda hist
 Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu pracownicy dokonywali identyfikacji za pomocą kart RFID, po to by można było ustalić ilu pracowników jest obecnie na zakładzie.
 
 \subsection{User story 2}
-Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną wypłatę.
+Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną mu wypłatę.
 
 \subsection{User story 3 - opcjonalna}
 Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
@@ -206,16 +206,16 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 12}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
-\paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
+\paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. W związku z tym zostaną mu one udostępnione po zalogowaniu się przez niego na swoje konto. 
 \paragraph{Priorytet.} 3.
 \paragraph{Definition of Done.} Kierownik jest w stanie dokonać następujących zmian w systemie poprzez stronę internetową:
 \begin{itemize}
-\item Dodawanie nowego pracownika.
-\item Usuwanie istniejącego pracownika.
-\item Edycja danych osobowych pracownika.
-\item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
-\item Zmiany stawki wynagrodzenia pracownika.
-\end {itemize}
+\item dodawanie nowego pracownika,
+\item usuwanie istniejącego pracownika,
+\item edycja danych osobowych pracownika,
+\item możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników,
+\item zmiany stawki wynagrodzenia pracownika.
+\end{itemize}
 
 \subsection{Backlog Item 13}
 \paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
@@ -646,14 +646,14 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez praco
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
-\end{verbatim}>>.
+\end{verbatim}>>
 
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
-\end{verbatim}>>.
+\end{verbatim}>>
 
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
