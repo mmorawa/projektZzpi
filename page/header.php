@@ -3,9 +3,11 @@
 <head>
 <title>ZPI</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="./style/style.css" type="text/css" />
+<link rel="stylesheet" href="./style/page.css" type="text/css" />
+<script type="text/javascript"  src="../script/script.js" > </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
-<body>
+<body onload='zegar()'>
 
 <div id="all">
 	<div id="header">
@@ -20,21 +22,28 @@
 	?>
 	
 	</div>
+	<div id="content">
 	<div id="nav">
-	<a href="?a=start">Strona główna</a><BR><BR>
-	<a href="?a=nazakladzie">Pracownicy na zakładzie</a><BR><BR>
+	<dl>
+	<dt>MENU</dt>
+	<dd><a href="?a=start">Strona główna</a></dd>
+	<dd><a href="?a=nazakladzie">Rejestr wejścia/wyjścia</a></dd>
+	<dd><a href='?a=podsumowanie'>Podsumowanie</a></dd>
+	
 	<?php
-		// menu dla kierownika
+	// menu dla kierownikensa
 	if ($idstanowiska == 1){
 		$ostatnie = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne ORDER BY id DESC LIMIT 1"));
 		$data = $ostatnie['DataPodsumowania'];
 		$data = strtotime( $data );
+	
 		if (date('m-Y',$data)!=date('m-Y')){		
-			echo "<a href='?a=wynagrodzenie' >! Wynagrodzenie !</a><BR><BR>";
+			echo "<dd><a href='?a=wynagrodzenie' >! Wynagrodzenie !</a></dd>";
 		}
-		echo "<a href='?a=zatrudnij'>Zatrudnij pracownika</a><BR><BR>";
-		echo "<a href='?a=zwolnij'>Zwolnij pracownika</a><BR><BR>";
+		echo "<dd><a href='?a=zatrudnij'>Zatrudnij pracownika</a></dd>";
+		echo "<dd><a href='?a=zwolnij'>Zwolnij pracownika</a></dd>";
 	}
+	
 	?>
 	<?php
 	// menu dla ksiegowego
@@ -43,7 +52,7 @@
 		$data = $ostatnie['DataPodsumowania'];
 		$data = strtotime( $data );
 		if (date('m-Y',$data)!=date('m-Y')){		
-			echo "<a href='?a=wynagrodzenie' >! Wynagrodzenie !</a><BR><BR>";
+			echo "<dd><a href='?a=wynagrodzenie' >! Wynagrodzenie !</a></dd>";
 		}
 	
 	}
@@ -57,12 +66,19 @@
 		if (date('m-Y',$data)!=date('m-Y')){		
 		
 		}
-		echo "<a href='?a=zatrudnij'>Zatrudnij pracownika</a><BR><BR>";
-		echo "<a href='?a=zwolnij'>Zwolnij pracownika</a><BR><BR>";
+		echo "<dd><a href='?a=zatrudnij'>Zatrudnij pracownika</a></dd>";
+		echo "<dd><a href='?a=zwolnij'>Zwolnij pracownika</a></dd>";
+		
 	}
 	?>
+	</dl>
 	<BR>
 	<BR>
-	<a href="?a=logout"> Wyloguj </a>
+	<dl>
+	<dd><a href='?a=opcje'>Opcje konta</a></dd>
+	</dl>
+	<dl>
+	<dd><a href="?a=logout"> Wyloguj </a></dd>
+	</dl>
 	</div>
 	<div id="page">

@@ -7,7 +7,7 @@ echo "<CENTER>Odzyskiwanie hasła
 			Login:
 			</td>
 			<td>
-			<input type='text' style='width:200px' name='login' />
+			<input class='button' type='text' style='width:200px' name='login' />
 			<td>
 		</tr>
 		<tr>
@@ -15,7 +15,7 @@ echo "<CENTER>Odzyskiwanie hasła
 				E-mail:
 			</td>
 			<td>
-				<input type='text' style='width:200px' name='email' />
+				<input class='button' type='text' style='width:200px' name='email' />
 			</td>
 		</tr>
 
@@ -23,11 +23,13 @@ echo "<CENTER>Odzyskiwanie hasła
 			<td>
 			</td>
 			<td>
-				<input type='submit' style='width:100px' value='Odzyskaj'/>
+				<input class='button' type='submit' style='width:100px' value='Odzyskaj'/>
 			</td>
 		</tr>
 	</table>
 </form>
+<a href='?a=home'><button class='button'>Powrót</button></a></CENTER>
+</BR>
 </CENTER>";
 
 if(!empty($_POST)){
@@ -56,15 +58,15 @@ if(!empty($_POST)){
 				mail($to,$subject,$message,$headers);
 				$md5haslo = md5($nowehaslo);
 				mysqli_query($db ,"UPDATE `WebSiteUsers` SET Haslo = '".$md5haslo."' WHERE Login='".$login."';");
-				echo "<CENTER>Wysłano nowe hasło na podany adres email.</BR>
-					<a href='?a=home'>Powrót</a></CENTER>";
+				echo "<CENTER>Wysłano nowe hasło na podany adres email.</BR>";
+					
 			}
 			else {
-				echo '<CENTER>Podane email jest niepoprawny!</CENTER><BR>';
+				echo '<CENTER>Podano nieprawidłowe dane!</CENTER><BR>';
 			}
 		}
 		else {
-			echo '<CENTER>Nie znaleziono takiego loginu w bazie.</CENTER><BR>';
+			echo '<CENTER>Podano nieprawidłowe dane!</CENTER><BR>';
 		}		
 	}
 	else{

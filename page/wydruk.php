@@ -1,5 +1,6 @@
 <?php
-require('fpdf/fpdf.php');
+require('../fpdf/fpdf.php');
+require('../config/database.php');
 
 //Zmiana kodowania
 function convert( $array, $z, $do)
@@ -44,6 +45,13 @@ function Table($header, $data)
 }
 
 
+$miesiac = date('m');
+$rok = date('Y');
+
+
+$liczbapracownikow = mysqli_fetch_array(mysqli_query($db, "SELECT count(*) FROM Pracownicy"));
+
+
 
 //Nowy PDF
 $pdf = new PDF();
@@ -60,11 +68,26 @@ $headerUTF = array('Imię i nazwisko', 'Wynagrodzenie (w zł)');
 $header = convert($headerUTF,'UTF-8','windows-1250//TRANSLIT');
 
 //To do zmiany - przykładowe dane
-$dataUTF = array('Jan Kowalski', '234','Michał Kowalski', '214','Marek Nowy','0','Piotr Kozak','34');
+$dataUTF = array();
 
+$dataUTF = array();
+$sql =  mysqli_query($db, "SELECT * FROM ZestawienieMiesieczne WHERE DataPodsumowania LIKE '".$rok."-".$miesiac."%'");
+while($r = mysqli_fetch_assoc($sql)){ 
+	$sql2 = mysqli_fetch_assoc(mysqli_query($db, "SELECT * FROM Pracownicy WHERE Id = ".$r['IdPracownika'].";"));
+	array_push($dataUTF,  $sql2['Imie']." ".$sql2['Nazwisko']);
+	array_push($dataUTF,  $r['Wynagrodzenie']);
+}
 $dataLONG = convert($dataUTF,'UTF-8','windows-1250//TRANSLIT');
 $data=array_chunk($dataLONG, 2);
 
+if (date('m') > 01){
+	$miesiac = date('m');
+	$rok = date('Y');
+}
+else{
+	$miesiac = 12;
+	$rok = (date('Y')-1);
+}
 
 //Nowa strona
 $pdf->AddPage();
@@ -73,14 +96,15 @@ $pdf->AddPage();
 //Opis tabeli
 $pdf->Ln();
 $opis=iconv('UTF-8','windows-1250//TRANSLIT','Zestawienie miesięczne wynagrodzenia za: ');
-$pdf->Cell(10,10, $opis.date('m-Y'));
+$pdf->Cell(10,10, $opis.$miesiac."-".$rok);
 $pdf->Ln();
 
 //Tabela
 $pdf->Table($header,$data);
 
+
 //Wyświetlenie pliku w przeglądarce przy pomocy wtyczki obsługującej format PDF
-$pdf->Output();
+//$pdf->Output();
 //Pobranie pliku PDF
-//$pdf->Output(D);
+$pdf->Output(D , $miesiac.".".$rok.".pdf");
 ?>

@@ -1,0 +1,142 @@
+body{
+	margin: 0px;
+	padding:0px;
+	background-image:url(../img/bg.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+} 
+
+#all{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header{
+	background-color: black;
+	width: 964px;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	border: medium solid grey;
+	border-radius: 20px 20px 0px 0px; 
+	background-image:url(../img/he.jpg)
+	
+}
+
+#content{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: auto;
+	border-left: medium solid grey;
+	background-image:url(../img/bg2.jpg);
+}
+
+#nav{
+	float: left;
+	width: 155px;
+	min-height: 500px;
+}
+
+#page{
+	float: left;
+	padding: 10px;
+	width: 816px;
+	min-height: 500px;
+	border-left: medium solid grey;
+	border-right: medium solid grey;
+	.background-image:url(../img/bg2.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+#tables{
+	margin: 0px;
+	position: relative;
+}
+
+#left {
+	float: left;
+	padding: 10px;
+}
+#middle {
+	float: left;
+	padding: 10px;
+}
+#right {
+    float: left;
+	margin-top: 5 px;
+	padding: 10px;
+}
+
+
+
+#footer{
+	clear: both;
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	border: medium solid grey;
+	border-radius: 0px 0px 20px 20px; 
+	background-image:url(../img/he.jpg)
+}	
+
+dl, dt, dd {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+dl {
+	
+	padding: 1px;
+	background-color: lightgrey;
+	border: 0,5 px double black;
+	border-radius: 5px 5px 5px 5px; 
+	
+}
+
+dt {
+	padding: 5px 10px;
+	font-weight: bold;
+	font-size: larger;
+	background-color: grey;
+	color: black;
+	text-align: right;
+	border-right: 10px solid ;
+	margin-top: 1px;
+	border-radius: 5px 5px 5px 5px; 
+}
+
+dd {
+	border-top: 1px solid lightgrey;
+	border-radius: 5px 5px 5px 5px; 
+	
+}
+
+dl a:link, dl a:visited {
+	display: block;
+	width: 135px;
+	text-decoration: none;
+	padding: 7px;
+	font-weight: bold;
+	background-color: lightgrey;
+	color: black;
+	border-left: 5px solid black;
+	border-radius: 5px 5px 5px 5px; 
+}
+
+dl a:hover {
+	width: 138px;
+	background-color: grey;
+	color: #fff;
+	border-left: 16px black;
+	border-radius: 5px 5px 5px 5px; 
+}
+
+.button{
+	border: small solid grey;
+	border-radius: 5px 5px 5px 5px; 
+}
