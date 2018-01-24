@@ -258,7 +258,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej:
+\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej \cite{Rasp}:
 \begin{itemize}
  \item  SDA   --- Pin 24
  \item  SCK   --- Pin 23
@@ -643,7 +643,7 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez praco
 
 \paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} Zadanie, polegające na umożliwieniu księgowemu wykonania wydruku zestawienia miesięcznego wynagrodzenia pracowników do pliku PDF, wymagało napisania skryptu PHP i umieszczenia go na stronie w zakładce Wynagrodzenia. Do jego poprawnego działania konieczne było użycie klasy FPDF, dostępnej na wolnej licencji wraz z plikami czcionki Arial, zawierającej polskie znaki. Skrypt ten jest wywoływany po kliknięciu na przycisk "Drukuj", co powoduje utworzenie pliku PDF i wysłanie go do przeglądarki w celu zapisania go na dysku twardym. W pliku tym znajduje się tabela z danymi pracowników oraz ich wynagrodzeniami za dany miesiąc. Kod programu odpowiedzialny za wygenerowanie pliku PDF (środowisko \texttt{verbatim}): \begin{verbatim}
+\subparagraph{Realizacja.} Zadanie, polegające na umożliwieniu księgowemu wykonania wydruku zestawienia miesięcznego wynagrodzenia pracowników do pliku PDF, wymagało napisania skryptu PHP i umieszczenia go na stronie w zakładce Wynagrodzenia. Do jego poprawnego działania konieczne było użycie klasy FPDF, dostępnej na wolnej licencji wraz z plikami czcionki Arial, zawierającej polskie znaki \cite{FDPF}. Skrypt ten jest wywoływany po kliknięciu na przycisk "Drukuj", co powoduje utworzenie pliku PDF i wysłanie go do przeglądarki w celu zapisania go na dysku twardym. W pliku tym znajduje się tabela z danymi pracowników oraz ich wynagrodzeniami za dany miesiąc. Kod programu odpowiedzialny za wygenerowanie pliku PDF (środowisko \texttt{verbatim}): \begin{verbatim}
 require('fpdf/fpdf.php');
 $pdf = new PDF();
 $pdf->AddFont('arial_ce','','arial_ce.php');
@@ -679,10 +679,9 @@ Każdy z pracowników posiada odpowiednie uprawnienia, co do stanowiska jakie ob
 \subsection{Sprint Review/Demo}
 Dnia 24.01.18 odbył się ostatni sprint rewiev. Została na nim zaprezentowana finalna, w pełni funkcjonalna wersja systemu. Wszystkie założenia zostały wykonane w wyznaczonych terminach. W porównaniu do poprzedniej wersji dodane zostały następujące funkcję:
 \begin{itemize}
-\item funkcja wydruku zestawienia miesięcznego
-\item zmiana hasła użytkownika
-\item poprawki interfejsu oraz bazy danych
-\item finalne testy całego systemu
+\item funkcja wydruku zestawienia miesięcznego,
+\item zmiana hasła użytkownika,
+\item poprawki interfejsu oraz bazy danych.
 \end{itemize}
 
 
@@ -693,6 +692,10 @@ Dnia 24.01.18 odbył się ostatni sprint rewiev. Została na nim zaprezentowana 
 \bibitem{Oet} Tobias Oetiker i wsp., Nie za krótkie wprowadzenie do systemu \LaTeX  \ $2_\varepsilon$, \url{ftp://ftp.gust.org.pl/TeX/info/lshort/polish/lshort2e.pdf}
 
 \bibitem{SchSut} K. Schwaber, J. Sutherland, {\em Scrum Guide}, \url{http://www.scrumguides.org/}, 2016.
+
+\bibitem{FDPF} Biblioteka FPDF do PHP i polskie znaki \url{http://ntxt.net/?id=polskie_znaki_w_FPDF}
+
+\bibitem{Rasp} Raspberry Pi 3 Model B \& MIFARE RC522 RFID Tag Reading \\ \url{http://www.instructables.com/id/Raspberry-Pi-3-Model-B-MIFARE-RC522-RFID-Tag-Readi/}
 
 \bibitem{apr} \url{https://agilepainrelief.com/notesfromatooluser/tag/scrum-by-example}
 
