@@ -4,7 +4,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 
-\title{\bf{System elektronicznej kontroli pracowników}}
+\title{\bf{System elektronicznej rejestracji \\ czasu pracy}}
 \author{{\em Mateusz Morawa (kierownik projektu)}\\
 {\em Łukasz Mirek}\\
 {\em Grzegorz Jasiński}\\
@@ -49,7 +49,7 @@ Prowadzący: dr hab. Marcin Mazur
 
 \subsection{Cel projektu (produkt)}
 
-Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Pracodawca za pomocą strony internetowej będzie mógł sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
+Celem projektu jest stworzenie systemu kontroli czasu pracy pracowników. Przy pomocy urządzenia o nazwie Raspberry Pi oraz modułu RFID (ang. Radio-frequency identification) w skład którego wchodzą czytnik oraz karta, pracownicy do tego zobowiązani będą identyfikowali swoje godziny przyjścia i wyjścia z pracy poprzez przyłożenie karty do czytnika. Data, godzina oraz ID pracownika będą trafiały do bazy danych. Płaca każdego pracownika będzie wyliczana na podstawie ilości przepracowanych godzin zarejestrowanych w systemie. Ponadto za pomocą strony internetowej będzie można sprawdzić ilu jest pracowników na zakładzie oraz ile wyniósł ich czas pracy.
 
 \subsection{Potencjalny odbiorca produktu (klient)}
 
@@ -66,13 +66,13 @@ Lista wymagań użytkownika w postaci ,,historyjek'' (User stories). Każda hist
 Jako kierownik wymagam od systemu, aby przy wejściu i wyjściu z zakładu pracownicy dokonywali identyfikacji za pomocą kart RFID, po to by można było ustalić ilu pracowników jest obecnie na zakładzie.
 
 \subsection{User story 2}
-Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną wypłatę.
+Jako księgowy chcę, aby system na podstawie przepracowanych godzin wyliczał miesięczne wynagrodzenie dla każdego pracownika, abym mógł łatwiej obliczyć należną mu wypłatę.
 
 \subsection{User story 3 - opcjonalna}
-Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin po to bym mógł sprawdzić szacowaną wypłatę.
+Jako pracownik chcę, abym mógł w zaprojektowanym systemie na bieżąco sprawdzać ilość przepracowanych godzin, po to bym mógł sprawdzić szacowaną wypłatę.
 
 \subsection{User story 4}
-Jako księgowy chcę mieć możliwość drukowania zestawienia miesięcznego wynagrodzenia brutto pracowników, żeby mieć papierową dokumentację w razie kontroli.
+Jako księgowy chcę mieć możliwość drukowania do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników, żeby mieć gotową zarchiwizowaną dokumentację w razie kontroli.
 
 \subsection{User story 5}
 Jako kadrowy chcę mieć możliwość dodawania i usuwania nowych pracowników do bazy danych, aby w łatwy sposób uaktualnić informacje o zatrudnionych pracownikach w firmie. 
@@ -176,15 +176,15 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 7}
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
-\paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy oraz z poszczególnych dni obecnego miesiąca. Zestawienie wygeneruje pracownikowi pensję jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
+\paragraph{Opis zadania.} System po zalogowaniu się pracownika na stronę umożliwi mu wgląd do zestawienia z poprzednich miesięcy. Zestawienie wygeneruje pracownikowi pensję, jaką otrzymał w poprzednich miesiącach a także wyświetli szczegółowe dane co do przepracowanych godzin.
 \paragraph{Priorytet.} 4.
-\paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Zestawienie będzie wyświetlane w formie tabeli. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika (maksymalnie do 12 miesięcy wstecz).
+\paragraph{Definition of Done.} Pracownik po zalogowaniu się na stronie może zobaczyć zestawienie swoich zarobków. Istnieje możliwość wyboru poszczególnych miesięcy, które interesują pracownika.
 
 \subsection{Backlog Item 8}
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
-\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca dział księgowy będzie musiał wydrukować dokumenty zawierające dane o miesięcznych wynagrodzeniach brutto pracowników, system po zalogowaniu się księgowego na stronie udostępni mu odpowiednie opcje do wykonania tej czynności.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
+\paragraph{Opis zadania.} W sytuacji, gdy pod koniec miesiąca księgowy będzie musiał wydrukować do pliku PDF dokumentację płacową zawierającą dane o miesięcznych wynagrodzeniach pracowników, system po zalogowaniu się księgowego na stronie udostępni mu przycisk do wykonania tej czynności.
 \paragraph{Priorytet.} 4.
-\paragraph{Definition of Done.} System umożliwia księgowym drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Definition of Done.} System umożliwia księgowemu drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 
 \subsection{Backlog Item 9}
 \paragraph{Tytuł zadania.} Dodawanie oraz usuwanie pracowników.
@@ -206,16 +206,16 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 12}
 \paragraph{Tytuł zadania.} Uprawnienia kierownika do wszystkich funkcji.
-\paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. Odbywać się to będzie przez odpowiednią zakładkę na stronie, która będzie rejestrować każdą zmianę wraz z powodem jej wykonania.
+\paragraph{Opis zadania.} W sytuacjach wyjątkowych kierownik zakładu powinien mieć możliwość dokonywania wszelkich zmian dostępnych dla innych osób poprzez stronę internetową. W związku z tym zostaną mu one udostępnione po zalogowaniu się przez niego na swoje konto. 
 \paragraph{Priorytet.} 3.
 \paragraph{Definition of Done.} Kierownik jest w stanie dokonać następujących zmian w systemie poprzez stronę internetową:
 \begin{itemize}
-\item Dodawanie nowego pracownika.
-\item Usuwanie istniejącego pracownika.
-\item Edycja danych osobowych pracownika.
-\item Możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników.
-\item Zmiany stawki wynagrodzenia pracownika.
-\end {itemize}
+\item dodawanie nowego pracownika,
+\item usuwanie istniejącego pracownika,
+\item edycja danych osobowych pracownika,
+\item możliwość sprawdzenia miesięcznego zestawienia wypłaty pracowników,
+\item zmiany stawki wynagrodzenia pracownika.
+\end{itemize}
 
 \subsection{Backlog Item 13}
 \paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
@@ -225,9 +225,9 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \subsection{Backlog Item 14}
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
-\paragraph{Opis zadania.} 
+\paragraph{Opis zadania.} Cały system zostanie poddany szeregom testów, które mają na celu wykrycie i poprawienie błedów oraz ulepszenie interfejsu użytkownika aby ułątwić obsługe strony zakładowej. Testom zostaną poddane takie rzeczy jak połączenie urządzeń, poprawnośc działania bazy danych, logowanie na strone zakładową, dodawanie oraz usuwanie pracowników, rejestracja wejść i wyjść zarówno na stronie jak i poprzez czytnik RFID, system przywracania haseł pracownikom, gennerowanie zestawień miesiecznych do pliku .pdf, zliczanie wynagrodzeń dla pracowników na podstawie przepracowanych godzin.
 \paragraph{Priorytet.} 6.
-\paragraph{Definition of Done.}
+\paragraph{Definition of Done.} Przeprowadzone zostaną dokładne, finalne testy całego systemu eletronicznej kontroli pracowników.
 
 \section{Sprint 1}
 \subsection{Cel} Celem pierwszego sprintu jest stworzenie początkowej wersji systemu pozwalającej rejestrować wejścia i wyjścia pracowników przy pomocy urządzenia Raspberry Pi wraz z dołączonym modułem RFID (karta, czytnik kart). Te dane będą przesyłane na wcześniej utworzony i skonfigurowany serwer bazy danych. Utworzona zostanie również pierwotna wersja strony na serwerze HTTP, na której wyświetlane będą takie informacje jak: imię i nazwisko pracownika, data, godzina wejścia lub wyjścia, ID karty.
@@ -258,7 +258,7 @@ Jako kierownik, chciałbym mieć dostęp do wszystkich funkcji zaimplementowanyc
 
 \paragraph{Tytuł zadania.} Rejestrowanie wejścia i wyjścia pracownika z zakładu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej:
+\subparagraph{Realizacja.} W celu rejestracji wejść i wyjść pracowników z zakładu użyty został czytnik RFID RC522, działający w standardzie Mifare, podłączony do odpowiednich pinów Raspberry Pi tak jak przedstawiono poniżej \cite{Rasp}:
 \begin{itemize}
  \item  SDA   --- Pin 24
  \item  SCK   --- Pin 23
@@ -285,7 +285,7 @@ zainstalowano niezbędne pakiety serwera HTTP czyli: apache2 oraz php7. Po popra
  
 \paragraph{Tytuł zadania.} Utworzenie pierwotnej wersji strony www do obsługi systemu.
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Łukasz Horowski.
-\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej częścią projektu, wykonawcy nie mieli żadnych problemów. Została ona wykonana sprawnie i bez większych przeszkód.  
+\subparagraph{Realizacja.} Strona została utworzona na lokalnym serwerze przy pomocy języków programowania PHP oraz HTML z CSS. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrolę poprawności składni wybranego przez nas języka, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad stroną skorzystaliśmy z oprogramowania "Xampp", dzięki czemu mogliśmy zasymulować łączenie się z bazą danych oraz obsługę skryptów PHP na naszej stronie. Po wykonaniu pierwotnej wersji strony i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie strona ma pozwalać na sprawdzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID.  
 
 Kod programu dotyczący łączenia się z bazą danych:
 \begin{verbatim}
@@ -303,7 +303,7 @@ mysqli_query($db,"SET NAMES 'utf8'") or die('Błąd kodowania nazwy');
 
 \paragraph{Tytuł zadania.} Utworzenie bazy danych dla systemu wraz ze skonfigurowaniem serwera baz danych MySQL.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak.
-\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni języka sql, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad bazą danych skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID. Z realizacją tej części projektu, wykonawcy nie mieli żadnych problemów została ona wykonana sprawnie i bez większych przeszkód.  
+\subparagraph{Realizacja.} Baza danych została utworzona na lokalnym serwerze przy pomocy języka SQL. Kod zapisany został przy użyciu programu Notepad++, który umożliwia kontrole poprawności składni języka SQL, co ułatwia pracę nad projektem. Aby zobaczyć pierwsze efekty pracy nad bazą danych skorzystaliśmy z oprogramowania "Xampp", dzięki niemu mogliśmy sprawdzić czy utworzony kod bazy danych działa oraz czy są tworzone poprawnie rekordy w bazie. Po wykonaniu pierwotnej wersji bazy i przetestowaniu jej działania została ona przeniesiona na urządzenie Raspberry Pi. Na obecnym etapie baza ma pozwalać na gromadzenie danych odnośnie godzin wejścia i wyjścia pracowników na teren zakładu rejestrowanych za pomocą czytnika kart RFID.  
  
 Kod w języku SQL przedstawiający utworzenie konta użytkownika user do zarządzania bazą z uprawnieniami SELECT oraz możliwością wykonywania zapytań typu DML.
 \begin{verbatim}
@@ -328,7 +328,7 @@ PRIMARY KEY(Id)
 
 \subsection{Sprint Review/Demo}
 
-Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego Sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
+Dnia 29.11.17 r. odbyła się prezentacja dema produktu w ramach pierwszego sprintu. Wszystkie założone cele zawarte w backlog itemach zaplanowanych na ten sprint zostały zrealizowane bez żadnych przeszkód. Prezentacja sprintu zawierała pokaz działającej pierwszej wersji strony zakładowej, która wyświetlała godziny wejścia/wyjścia pracowników oraz stan osobowy załogi obecnej w danym momencie na zakładzie.    
 Zrzut ze strony poniżej:
 \begin{figure}[!htbp]
 	\makebox[\textwidth]{\includegraphics[width=260px]{obrazy/strona.png}}
@@ -544,7 +544,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \section{Sprint 3}
 
-\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie on mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wysyłał on będzie wiadomość z nowym hasłem na adres e-mail danej osoby, dzięki czemu będzie ona mogła odzyskać do niej dostęp. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
+\subsection{Cel} Celem trzeciego sprintu jest dalsza rozbudowa strony zakładowej. Kierownik otrzyma uprawnienia do wszystkich funkcji dostępnych na stronie, dzięki czemu podczas nieobecności któregoś z pracowników będzie mógł wykonać interesujące go zmiany. Kolejną wprowadzoną modyfikacją będzie możliwość przywrócenia hasła w razie jego zapomnienia. Odbywać się to będzie poprzez serwer poczty elektronicznej (MTA) o nazwie SSMTP  zainstalowany na serwerze. Wysyłał on będzie wiadomość z nowym hasłem na adres e-mail danej osoby, dzięki czemu będzie ona mogła odzyskać do niej dostęp. Ostatnim zadaniem zrealizowanym w tym sprincie będzie dodanie funkcji obliczającej wynagrodzenia pracowników. Wynagrodzenie będzie wyliczane na podstawie pełnych przepracowanych godzin oraz stawki pracownika zawartej w umowie w przedziale czasowym od ósmej do szesnastej czyli w godzinach pracy zakładu. 
 
 \subsection{Sprint Planning/Backlog}
 
@@ -568,7 +568,7 @@ Dnia 20.12.17 r. przedstawiono demo produktu w ramach drugiego Sprintu. Wszystki
 
 \paragraph{Tytuł zadania.} Obliczanie wynagrodzenia.
 \subparagraph{Wykonawca.} Łukasz Horowski, Bartłomiej Kmak, Grzegorz Jasiński, Łukasz Mirek.
-\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawi się gdy rozpocznie się nowy miesiąc a po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz zostaje obliczone wynagrodzenie zgodnie ze stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowaniem, lecz tutaj nie mamy wyboru, co chcemy podsumować, lecz automatycznie podsumowywany jest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania, tak aby można było sprawdzić tam statystyki w obecnym miesiącu.
+\subparagraph{Realizacja.}  W celu realizacji zadania została stworzona nowa zakładka w menu strony zakładowej, która pojawia się gdy rozpocznie się nowy miesiąc. Po kliknięciu w nią automatycznie tworzone jest podsumowanie oraz zostaje obliczone wynagrodzenie zgodnie ze stawką godzinową w umowie. Skrypt w tym pliku jest niemal identyczny jak w pliku z podsumowaniem, lecz tutaj nie mamy wyboru, co chcemy podsumować, lecz automatycznie podsumowywany jest ostatni miesiąc. Po podliczeniu dane są wpisywane do bazy danych a zakładka jest nieaktywna do rozpoczęcia kolejnego miesiąca. Dodatkowo została zmodyfikowana zakładka podsumowania, tak aby można było sprawdzić tam statystyki w obecnym miesiącu.
 
 \paragraph{Tytuł zadania.} Przywracanie hasła.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
@@ -610,21 +610,21 @@ Natomiast logujący się pracownik z idstanowiska równym 4 posiada tylko prawo 
 \subsection{Sprint Review/Demo}
 W dniu 10.01.2018 r. zostało przedstawione demo sprintu nr 3. Celem tego sprintu było uzupełnienie strony zakładowej o nowe funkcje tj:
 \begin{itemize}
-	\item pełne prawa Kierownika na stronie.
-	\item obliczanie wynagrodzenia za poprzedni miesiąc.
+	\item pełne prawa Kierownika na stronie,
+	\item obliczanie wynagrodzenia za poprzedni miesiąc,
 	\item odzyskiwanie hasła dla każdego użytkownika strony.
 \end{itemize}
 Wszystkie założone zadania na ten sprint zostały zrealizowane. Kierownikowi zostały przypisane wszystkie prawa i ma on dostęp do wszystkich funkcji zamieszczonych na stronie.
-Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres e-mail istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat : Podano nieprawidłowy adres e-mail bądź login. Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail, dzięki czemu użytkownik może bez problemu zalogować się na stronie.
-Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych godzin przez pracownika oraz pomnożeniu ich przez stawkę. Można to wykonać tylko po zakończonym pełnym miesiącu.
+Do realizacji zadania z odzyskiwaniem hasła konieczne było zainstalowanie serwera poczty SSMTP. Użytkownik chcąc odzyskać hasło musi podać login oraz adres e-mail istniejący w bazie systemowej. W przypadku podania błędnych danych wyświetli się komunikat: "Podano nieprawidłowy adres e-mail bądź login". Wiadomość z nowo wygenerowanym hasłem przychodzi na podany prawidłowy adres e-mail, dzięki czemu użytkownik może bez problemu zalogować się na stronie.
+Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych przez pracownika godzin  oraz pomnożenie ich przez stawkę. Można to wykonać tylko po zakończonym pełnym miesiącu.
 
 \section{Sprint 4}
 
-\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia brutto każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z całego roku, co pozwoli pracownikowi na sprawdzenie swoich całorocznych zarobków. Dodatkowo zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
+\subsection{Cel} W ramach ostatniego sprintu udostępniona zostanie funkcja drukowania do pliku w formacie PDF zestawienia miesięcznego wynagrodzenia każdego z pracowników. Dzięki temu możliwe będzie zarchiwizowanie dokumentacji płacowej na potrzeby kontroli urzędowej oraz analizy statystycznej. Ponadto wykonana zostanie modernizacja funkcji podsumowania wynagrodzenia o wyświetlenie zestawienia z każdego miesiąca w roku, co pozwoli pracownikowi na sprawdzenie swoich wcześniejszych zarobków. Na końcu zostaną przeprowadzone finalne testy całego systemu w celu wykrycia i poprawienia ewentualnych błędów.  
 
 \subsection{Sprint Planning/Backlog}
 
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \begin{itemize}
 	\item Estymata: Medium przy użyciu skali rozmiarów T-shirtów (5 osobogodzin).
 \end{itemize}
@@ -639,34 +639,51 @@ Obliczanie wynagrodzenia odbywa się przez zliczenie przepracowanych godzin prze
 	\item Estymata: Large przy użyciu skali rozmiarów T-shirtów (15 osobogodzin).
 \end{itemize}
 
-\paragraph{<<Tutaj dodawać kolejne zadania>>}
-
 \subsection{Realizacja}
 
-\paragraph{Tytuł zadania.} Drukowanie zestawienia miesięcznego wynagrodzenia brutto pracowników.
+\paragraph{Tytuł zadania.} Drukowanie do pliku PDF zestawienia miesięcznego wynagrodzenia pracowników.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.} Zadanie, polegające na umożliwieniu księgowemu wykonania wydruku zestawienia miesięcznego wynagrodzenia pracowników do pliku PDF, wymagało napisania skryptu PHP i umieszczenia go na stronie w zakładce Wynagrodzenia. Do jego poprawnego działania konieczne było użycie klasy FPDF, dostępnej na wolnej licencji wraz z plikami czcionki Arial, zawierającej polskie znaki \cite{FDPF}. Skrypt ten jest wywoływany po kliknięciu na przycisk "Drukuj", co powoduje utworzenie pliku PDF i wysłanie go do przeglądarki w celu zapisania go na dysku twardym. W pliku tym znajduje się tabela z danymi pracowników oraz ich wynagrodzeniami za dany miesiąc. Kod programu odpowiedzialny za wygenerowanie pliku PDF (środowisko \texttt{verbatim}): \begin{verbatim}
+require('fpdf/fpdf.php');
+$pdf = new PDF();
+$pdf->AddFont('arial_ce','','arial_ce.php');
+$pdf->SetFont('arial_ce','',14);
+$pdf->AddPage();
+$pdf->Ln();
+$opis=iconv('UTF-8','windows-1250//TRANSLIT',
+'Zestawienie miesięczne wynagrodzenia za: ');
+$headerUTF = array('Imię i nazwisko', 'Wynagrodzenie (w zł)');
+$pdf->Cell(10,10, $opis.date('m-Y'));
+$pdf->Ln();
+$pdf->Table($header,$data);
+\end{verbatim}
 
 \paragraph{Tytuł zadania.} Funkcja umożliwiająca pracownikowi sprawdzenie wynagrodzenia (opcjonalna).
 \subparagraph{Wykonawca.} Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.} W ramach realizacji tego zadania, w głównej mierze została wykorzystana poprzednia funkcja obliczania wynagrodzenia, gdyż obie funkcje działają na podobnej zasadzie. Plik odpowiadający za funkcję wynagrodzenia został skopiowany i odpowiednio zmodyfikowany aby wyświetlał tylko dane (bez aktualizacji ich do bazy), tak aby można było wybrać sobie w nim konkretny miesiąc, w tym także obecny. Dodatkowo została utworzona w nim odpowiednia funkcja sprawdzająca na jakim stanowisku został zalogowany użytkownik: jeśli zalogowano jako pracownik dane, które są wyświetlane tyczą się tylko tego pracownika, jeżeli zaś zalogowano się na którymkolwiek stanowisku administracyjnym wtedy dane są wyświetlane dla każdego pracownika firmy.   
+ 
 
 \paragraph{Tytuł zadania.} Finalne testy całego systemu.
 \subparagraph{Wykonawca.} Mateusz Morawa, Łukasz Horowski, Łukasz Mirek, Grzegorz Jasiński, Bartłomiej Kmak.
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodności z estymatą). Kod programu (środowisko \texttt{verbatim}): \begin{verbatim}
-for (i=1; i<10; i++)
-...
-\end{verbatim}>>.
+\subparagraph{Realizacja.} 
+W celu sprawdzenia poprawności działania całego systemu, przeprowadziliśmy finalne testy wszystkich komponentów działających w systemie. W pierwszej kolejności przetestowaliśmy połączenie modułu RFID z urządzeniem Raspberry Pi. Schemat połączeniowy został wykonany zgodnie z wcześniejszymi założeniami. Całość działa poprawnie. Następnie rozpoczęliśmy testy działania elementów strony internetowej, pierwszym testem było sprawdzenie poprawności skryptu odpowiadającego za logowanie się pracowników. W tym celu utworzyliśmy kilku przykładowych pracowników w bazie danych i przeprowadziliśmy próby logowania się na ich konta. Wraz z tworzeniem kont sprawdzona została poprawność działania systemu bazodanowego, który odpowiada za przechowywanie danych pracowników i firmy.
+
+Na wcześniej utworzonych kontach pracowników skorzystaliśmy z funkcji przywrócenia hasła w celu jej weryfikacji. Na podany adres e-mail pracownika, który był wymagany podczas rejestracji, otrzymaliśmy wiadomość z nowo wygenerowanym hasłem. E-mail z nowym hasłem został wysłany do pracownika po wcześniejszej weryfikacji i sprawdzeniu poprawności adresu e-mail i loginu pracownika. Cała procedura przebiegła pomyślnie a za pomocą nowego hasła pracownik ponownie mógł zalogować się na stronę zakładową.
+
+Kolejnym elementem który przetestowaliśmy był system rejestracji wejść i wyjść pracowników oraz wyświetlanie tych informacji w tabeli. W tym celu musieliśmy skorzystać z kart, które wcześniej przypisaliśmy do testowego konta. Po przyłożeniu karty do czytnika, wydawał on pojedynczy dźwięk oraz sygnalizował wejście zapalającą się zieloną diodą. Po około 3 sekundach można było przyłożyć ponownie kartę, aby sczytać godzinę. System poprawnie wykrywa czy dany pracownik który przykłada kartę, próbuje wyjść, czy dopiero ma zamiar zarejestrować wejście na zakład. Wszystkie te dane zostają przekazane do bazy danych, z której na stronie internetowej tworzy się oraz wyświetla tabela z wejściami, wyjściami pracowników oraz osobami, które znajdują się aktualnie na zakładzie. Po dokładnym przetestowaniu tej funkcjonalności stwierdziliśmy, że działa ona poprawnie.
+
+Przetestowaliśmy również opcję dodawania oraz usuwania pracowników. W jednej z zakładek znajduje się formularz, w którym wybieramy stanowisko, nr karty (pracownik może zostać dodany tylko jeżeli istnieje wolna karta) oraz uzupełniamy dane osobowe pracownika. Przy dodawaniu użytkownika wszystkie pola muszą zostać uzupełnione, w razie braku którejś informacji system poinformuje o błędzie w formularzu. Uzupełniając dane do logowania, w polu adres e-mail musi występować poprawna składnia adresu, w przeciwnym wypadku nie stworzymy konta. Po utworzeniu konta na stronie, sprawdziliśmy czy zostało ono poprawnie dodane do bazy. Naszym testom została poddana również funkcja usuwania pracowników. Działa ona prawidłowo. Po usunięciu pracownika na stronie, usuwa się on również z bazy danych. Zostało przetestowane zabezpieczenie uniemożliwiające usunięcie głównego kierownika zakładu, który posiada uprawnienia administratora.
+Każdy z pracowników posiada odpowiednie uprawnienia, co do stanowiska jakie obejmuje. Sprawdziliśmy to przez zalogowanie się na konta użytkowników należących do każdej z grupy uprawnień tj. kierownik, kadrowy, księgowy oraz pracownik.
 
 
 \subsection{Sprint Review/Demo}
-<<Sprawozdanie z przeglądu Sprint'u -- czy założony cel (przyrost) został osiągnięty oraz czy wszystkie zaplanowane Backlog Item'y zostały zrealizowane? Demonstracja przyrostu produktu>>.
+Dnia 24.01.18 odbył się ostatni sprint rewiev. Została na nim zaprezentowana finalna, w pełni funkcjonalna wersja systemu. Wszystkie założenia zostały wykonane w wyznaczonych terminach. W porównaniu do poprzedniej wersji dodane zostały następujące funkcję:
+\begin{itemize}
+\item funkcja wydruku zestawienia miesięcznego,
+\item zmiana hasła użytkownika,
+\item poprawki interfejsu oraz bazy danych.
+\end{itemize}
+
 
 \begin{thebibliography}{9}
 
@@ -675,6 +692,10 @@ for (i=1; i<10; i++)
 \bibitem{Oet} Tobias Oetiker i wsp., Nie za krótkie wprowadzenie do systemu \LaTeX  \ $2_\varepsilon$, \url{ftp://ftp.gust.org.pl/TeX/info/lshort/polish/lshort2e.pdf}
 
 \bibitem{SchSut} K. Schwaber, J. Sutherland, {\em Scrum Guide}, \url{http://www.scrumguides.org/}, 2016.
+
+\bibitem{FDPF} Biblioteka FPDF do PHP i polskie znaki \url{http://ntxt.net/?id=polskie_znaki_w_FPDF}
+
+\bibitem{Rasp} Raspberry Pi 3 Model B \& MIFARE RC522 RFID Tag Reading \\ \url{http://www.instructables.com/id/Raspberry-Pi-3-Model-B-MIFARE-RC522-RFID-Tag-Readi/}
 
 \bibitem{apr} \url{https://agilepainrelief.com/notesfromatooluser/tag/scrum-by-example}
 
