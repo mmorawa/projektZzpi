@@ -2,7 +2,7 @@
 <form action="?a=zwolnij" method="post"> 
 <table> 
 <tr><td>ID:</td><td><input type="text" name="id"></td></tr> 
-<tr><td><input type="submit" name='zwolnij' value="Zwolnij"></td></tr> 
+<tr><td><input class='button' type="submit" name='zwolnij' value="Zwolnij"></td></tr> 
 </table> </form> 
 </center>
 <br><br>
@@ -18,7 +18,7 @@
 <td align="center"><b>Stanowisko</b></td>
 </tr>
 <?php
-$pracownicy = mysqli_query($db, "SELECT * FROM Pracownicy WHERE IdStanowiska NOT IN (1)");
+$pracownicy = mysqli_query($db, "SELECT * FROM Pracownicy ");
 $liczbapracownikow = mysqli_num_rows($pracownicy);
 
 while($wynik = mysqli_fetch_array($pracownicy)) {

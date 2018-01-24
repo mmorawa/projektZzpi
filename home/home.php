@@ -7,7 +7,7 @@ echo "<CENTER>Logowanie
 			Login:
 			</td>
 			<td>
-			<input type='text' style='width:200px' name='login' />
+			<input class='button' type='text' style='width:200px' name='login' />
 			<td>
 		</tr>
 		<tr>
@@ -15,7 +15,7 @@ echo "<CENTER>Logowanie
 				Hasło:
 			</td>
 			<td>
-				<input type='password' style='width:200px' name='password' />
+				<input class='button' type='password' style='width:200px' name='password' />
 			</td>
 		</tr>
 
@@ -23,17 +23,17 @@ echo "<CENTER>Logowanie
 			<td>
 			</td>
 			<td>
-				<input type='submit' style='width:100px' value='Zaloguj'/>
+				<input class='button' type='submit' style='width:100px' value='Zaloguj'/>
 			</td>
 		</tr>
 	</table>
 </form>
 	<table>
 		<tr>
-			<td> Nie pamiętasz hasła? 
+			<td> <B>Nie pamiętasz hasła? </B>
 			</td>
 			<td>
-				<a href='?a=odzyskaj'>Odzyskaj hasło</a>
+				<a href='?a=odzyskaj'><button class='button'>Odzyskaj hasło</button></a>
 			</td>
 		</tr>
 	</table>

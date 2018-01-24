@@ -8,11 +8,20 @@ if(empty($_GET['a'])) $_GET['a'] = "home";
 $action = $_GET['a'];
 
 $home = array(
-"home",
+	"home",
+	"odzyskaj"
 );
 
 $page = array(
-"start",
+	"start",
+	"nazakladzie",
+	"logout",
+	"podsumowanie",
+	"wynagrodzenie",
+	"zatrudnij",
+	"zwolnij",
+	"wydruk",
+	"opcje"
 );
 
 if(in_array($action, $page)){

@@ -3,13 +3,14 @@
 <head>
 <title>ZPI</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="./style/style.css" type="text/css" />
+<link rel="stylesheet" href="./style/home.css" type="text/css" />
+<script src="./script/script.js"></script>
 </head>
-<body>
+<body onload='zegar()'>
 
 <div id="all">
 	<div id="header">
-	<h1>Strona zakładowa v0.2</h1>
+	<h1>Strona Zakładowa</h1>
 	</div>
 	<div id="nav">
 	</div>

@@ -5,7 +5,8 @@ $data = $ostatnie['DataPodsumowania'];
 $data = strtotime( $data );
 // PORÓWNANIE DATY BIERZĄCEJ Z DATĄ OSTATNIEGO PODSUMOWANIA W CELU SPRAWDZENIA CZY NALEZY WYKONAC NOWE
 if (date('m-Y',$data)!=date('m-Y')){
-	echo "<h2>Wykonano podsumowanie zeszłego miesiąca.</h2>";
+	echo "<h2>Wykonano podsumowanie zeszłego miesiąca.</h2>
+	<a href='../page/wydruk.php'> <button class='button'>Drukuj</button></a>";
 	// SPRAWDZENIE LICZBY PRACOWNIKÓW DLA KTÓRYCH MA BYĆ WYKONANE PODSUMOWANIE
 	$liczbapracownikow = mysqli_fetch_array(mysqli_query($db, "SELECT count(*) FROM Pracownicy"));
 	$liczbapracownikow = $liczbapracownikow[0];
@@ -121,7 +122,7 @@ if (date('m-Y',$data)!=date('m-Y')){
 				// Brak aktualizacji do bazy danych ze względu na brak podliczania wynagrodzenia,
 				// które będzie obliczane w nsatępnym sprincie.
 				$zarobek = $godziny * $last['Stawka'];
-				echo "<font color='grey'> <B>Godziny płatne: ".$godziny." </B> Szacowany zarobek: <B>".$zarobek."</B></font></BR>"; 
+				echo "<font color='black'> <B>Godziny płatne: ".$godziny." </B> Szacowany zarobek: <B>".$zarobek."</B></font></BR>"; 
 				$sh = 0;
 				$smin = 0;
 				$ssec = 0;
@@ -156,22 +157,29 @@ if (date('m-Y',$data)!=date('m-Y')){
 					echo "<font color='navy'>  / Wyjść : ";
 					break;	
 				case 3:
-					echo "<BR><font color='grey' >Godziny: ";
+					echo "<BR><font color='black' >Godziny: ";
 					break;
 				case 4:
-					echo "<font color='grey' > = Zarobek: ";
+					echo "<font color='black' > = Zarobek: ";
 					break;
 			}
 			echo "<B>".$podsum[$i][$j]."</B></font>";
 		}
 		echo "</BR></BR>";
 		
+		
+		
 		$pyttt = "INSERT INTO ZestawienieMiesieczne (IdPracownika, DataPodsumowania, CzasPracy, Wynagrodzenie) VALUES (".$podsum[$i][5].",'".date('Y-m-d')."',".$podsum[$i][3].",".$podsum[$i][4].");";
 		mysqli_query($db, $pyttt);
 	}
-	echo "</BR></BR>";
-	echo "<HR><button type='button' onclick='toogle();'>Pokaż / Ukryj szczegóły</button>		
-		<BR><div id='details2' style='display:none;'></div>";
+	echo '<script type="text/javascript" charset="utf-8">
+                $(window).load(function(){
+					window.open("../page/wydruk.php", "_blank");
+                });
+        </script>';
+	
+	echo "<HR><button type='button' class='button' onclick='toogle();'>Pokaż / Ukryj szczegóły</button>		
+		<BR><div id='details2' style='display:none;'></div>";	
 }
 else{
 	echo "<h1>Ostatnie zestawienie jest aktualne</h1>";
